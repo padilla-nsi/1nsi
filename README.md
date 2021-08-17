@@ -11,7 +11,7 @@ Ce dépot contient les cours de NSI (Numérique et Sciences Informatiques) de pr
 ## Exemple de notebook
 
 * À partir d'un même fichier hébergé sur Github : 
-    * notebook statique : <a href="test/essais.ipynb">ce fihier</a>
+    * notebook statique : [ce fichier](./sandbox/essais)
     * notebook interactif: <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/padilla-nsi/1nsi/main/sandbox/essais.ipynb" target="_blank">fichier test</a>
 
 [deuxième fichier](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/padilla-nsi/1nsi/main/sandbox/NSI_0_Introduction_aux_notebooks.ipynb)
