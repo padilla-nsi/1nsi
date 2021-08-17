@@ -8,7 +8,7 @@
 ---
 ### **Période 1** (7 semaines, 02/09..23/10)
 
-1. **Interface** - [HTML et CSS](1nsi/cours/interface/html_css/10_html_et_css.ipynb) (#html-et-css)
+1. **Interface** - [HTML et CSS](../cours/interface/html_css/10_html_et_css.ipynb) (#html-et-css)
 2. **Langage** - Python - Concepts de bases
     1. [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks)
     1. [Boucle bornée : `for`](#boucle-bornée--for)
