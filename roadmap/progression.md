@@ -2,18 +2,6 @@
 
 ## Années scolaire : 34 semaines
 
-Idée générale :
-
-* 1 chapitre par semaine
-* Pour chaque période :
-    * Début de période : 
-        * Rendre le projet
-    * Mi-période :
-        * Évaluation
-        * Débuter nouveau projet
-    * Fin de période :
-        * Point d'étape de projet
-
 
 ## Progression
 
