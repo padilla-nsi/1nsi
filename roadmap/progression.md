@@ -14,7 +14,6 @@ Durant **chaque période**, il y aura :
 * un **projet** et
 * un **DS** (Devoir surveillé).
 
-
 [Période 1 (7 semaines, 02/09..23/10)](#période-1-7-semaines-02092310)
 
 | n° semaines | activité                                                                                           |
