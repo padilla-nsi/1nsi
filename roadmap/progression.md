@@ -1,119 +1,94 @@
 # Progressions - Première NSI
 
-## Années scolaire : 34 semaines
+[Période 1 (7 semaines, 02/09..23/10)](#période-1-7-semaines-02092310)
 
-## Progression
-
----
-
-### **Période 1** (7 semaines, 02/09..23/10)
-
-1. **Interface** - <a href="../cours/interface/html_css/Chapitre 1 - HTML et CSS.ipynb">HTML et CSS</a>  (extraits [BO](#html-et-css))
-2. **Langage** - Python - Concepts de bases
-    1. [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks)
-    1. [Boucle bornée : `for`](#boucle-bornée--for)
-    1. [Comparaison, booléens, tests : `if`](#comparaison-booléens-tests--if)
-    1. [Fonctions](#fonctions)
-1. **Interface** - [Objets connectés](#objets-connectés)
+| n° semaines | activité                                                                                           |
+| :---------: | :------------------------------------------------------------------------------------------------- |
+|     36      | chapitre 1 - [HTML et CSS](#html-et-css)                                                           |
+|     37      | chapitre 2.1 - [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks) |
+|     38      | chapitre 2.2 - [Boucle bornée : `for`](#boucle-bornée--for)                                        |
+|     39      | DS </br> **Projet.1 - début**                                                                      |
+|     40      | chapitre 2.3 - [Comparaison, booléens, tests : `if`](#comparaison-booléens-tests--if)              |
+|     41      | chapitre 2.4 - [Fonctions](#fonctions)                                                             |
+|     42      | chapitre 3 - [Objets connectés](#objets-connectés)</br> **Projet.1 - étape**                       |
 
 ---
 
-### **Période 2** (6 semaines : 08/11..18/12)
+[Période 2 (6 semaines, 08/11..18/12)](#période-2-6-semaines-08111812)
 
-4. **Architecture** - Représentation des données en machine
-    1. [Représentation des entiers](#représentation-des-entiers)
-    1. [Représentation approximative des nombres réels](#représentation-approximative-des-nombres-réels)
-    1. [Représentation des textes](#représentation-des-textes)
-1. **Langage** - Python - Programmation avancée
-    1. [Renvoyer plusieurs résultats et n-uplets](#renvoyer-plusieurs-résultats-et-n-uplets)
-    1. [Tableaux : `[]`](#tableaux--)
-
----
-
-### **Période 3** (5 semaines : 03/01..05/02)
-
-* ...
-
-    3. [Boucle non bornée : `while`](#boucle-non-bornée--while)
-    1. [Boucles avancées](#boucles-avancées)
-    1. [Tableaux avancés](#tableaux-avancés)
-
-6. **Algorithmes** - Premiers algorithmes
-    1. [Algorithmes de tris](#algorithmes-de-tris)
-    1. [Recherche dichotomique dans un tableau trié](#recherche-dichotomique-dans-un-tableau-trié)
+| n° semaines | activité                                                                                                         |
+| :---------: | :--------------------------------------------------------------------------------------------------------------- |
+|     45      | chapitre 4.1 - [Représentation des entiers](#représentation-des-entiers)</br> **Projet.1 - rendu**               |
+|     46      | chapitre 4.2 - [Représentation approximative des nombres réels](#représentation-approximative-des-nombres-réels) |
+|     47      | chapitre 4.3 - [Représentation des textes](#représentation-des-textes)                                           |
+|     48      | DS </br> **Projet.2 - début**                                                                                    |
+|     49      | chapitre 5.1 - [Renvoyer plusieurs résultats et n-uplets](#renvoyer-plusieurs-résultats-et-n-uplets)             |
+|     50      | chapitre 5.2 - [Tableaux : `[]`](#tableaux--)</br> **Projet.2 - étape**                                          |
 
 ---
 
-### **Période 4** (7 semaines : 21/02..09/04)
+[Période 3 (5 semaines, 03/01..05/02)](#période-3-5-semaines-03010502)
 
-7. **Données** - Traiter des données
-    1. [Ensembles et dictionnaires](#ensembles-et-dictionnaires)
-    1. [Indexation de tables](#indexation-de-tables)
-    1. [Recherche dans une table](#recherche-dans-une-table)
-1. **Architecture** - Machines à calculer
-    1. [Circuits et logique booléenne](#circuits-et-logique-booléenne)
-    1. [Architecture de Von Neumann](#architecture-de-von-neumann)
-    1. [Système d'exploitation](#système-dexploitation)
-
----
-
-### **Période 5** (9 semaines : 25/04..07/07)
-
-9. **Algorithmes** - Algorithmes avancés
-    1. [Algorithmes gloutons](#algorithmes-gloutons)
-    1. [Algorithmes d'apprentissage](#algorithmes-dapprentissage)
-1. **Données** - Trier et fusionner des données
-    1. [Tri d'une table](#tri-dune-table)
-    1. [Fusion de tables](#fusion-de-tables)
-1. **Interface** - Communiquer en réseau
-    1. [Réseaux et Internet](#réseaux-et-internet)
-    1. [Requêtes HTTP et formulaires](#requêtes-http-et-formulaires)
-    1. [Web, côté serveur](#web-côté-serveur)
-    1. [Web, côté client](#web-côté-client)
+| n° semaines | activité                                                                                                                              |
+| :---------: | :------------------------------------------------------------------------------------------------------------------------------------ |
+|      1      | chapitre 5.3 - [Boucle non bornée : `while`](#boucle-non-bornée--while)</br> **Projet.2 - rendu**                                     |
+|      2      | chapitre 5.4 - [Boucles avancées](#boucles-avancées)                                                                                  |
+|      3      | chapitre 5.5 - [Tableaux avancés](#tableaux-avancés)</br> DS </br> **Projet.3 - début**                                               |
+|      4      | chapitre 6.1 - [Algorithmes de tris](#algorithmes-de-tris)                                                                            |
+|      5      | chapitre 6.2 - [Recherche dichotomique dans un tableau trié](#recherche-dichotomique-dans-un-tableau-trié) </br> **Projet.3 - étape** |
 
 ---
 
-- [Progressions - Première NSI](#progressions---première-nsi)
-  - [Années scolaire : 34 semaines](#années-scolaire--34-semaines)
-  - [Progression](#progression)
-    - [**Période 1** (7 semaines, 02/09..23/10)](#période-1-7-semaines-02092310)
-    - [**Période 2** (6 semaines : 08/11..18/12)](#période-2-6-semaines--08111812)
-    - [**Période 3** (5 semaines : 03/01..05/02)](#période-3-5-semaines--03010502)
-    - [**Période 4** (7 semaines : 21/02..09/04)](#période-4-7-semaines--21020904)
-    - [**Période 5** (9 semaines : 25/04..07/07)](#période-5-9-semaines--25040707)
-  - [Détails](#détails)
-    - [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks)
-    - [Boucle bornée : `for`](#boucle-bornée--for)
-    - [Comparaison, booléens, tests : `if`](#comparaison-booléens-tests--if)
-    - [Fonctions](#fonctions)
-    - [Objets connectés](#objets-connectés)
-    - [Représentation des entiers](#représentation-des-entiers)
-    - [Représentation approximative des nombres réels](#représentation-approximative-des-nombres-réels)
-    - [Représentation des textes](#représentation-des-textes)
-    - [Renvoyer plusieurs résultats et n-uplets](#renvoyer-plusieurs-résultats-et-n-uplets)
-    - [Tableaux : `[]`](#tableaux--)
-    - [Boucle non bornée : `while`](#boucle-non-bornée--while)
-    - [Boucles avancées](#boucles-avancées)
-    - [Tableaux avancés](#tableaux-avancés)
-    - [Algorithmes de tris](#algorithmes-de-tris)
-    - [Recherche dichotomique dans un tableau trié](#recherche-dichotomique-dans-un-tableau-trié)
-    - [Ensembles et dictionnaires](#ensembles-et-dictionnaires)
-    - [Indexation de tables](#indexation-de-tables)
-    - [Circuits et logique booléenne](#circuits-et-logique-booléenne)
-    - [Architecture de Von Neumann](#architecture-de-von-neumann)
-    - [Système d'exploitation](#système-dexploitation)
-    - [Recherche dans une table](#recherche-dans-une-table)
-    - [Algorithmes gloutons](#algorithmes-gloutons)
-    - [Algorithmes d'apprentissage](#algorithmes-dapprentissage)
-    - [Tri d'une table](#tri-dune-table)
-    - [Fusion de tables](#fusion-de-tables)
-    - [Réseaux et Internet](#réseaux-et-internet)
-    - [Requêtes HTTP et Formulaires](#requêtes-http-et-formulaires)
-    - [Web, côté serveur](#web-côté-serveur)
-    - [Web, côté client](#web-côté-client)
-  - [BO Transversal](#bo-transversal)
+[Période 4 (7 semaines, 21/02..09/04)](#période-4-7-semaines-21020904)
 
-## Détails
+| n° semaines | activité                                                                                            |
+| :---------: | :-------------------------------------------------------------------------------------------------- |
+|      8      | chapitre 7.1 - [Ensembles et dictionnaires](#ensembles-et-dictionnaires) </br> **Projet.3 - rendu** |
+|      9      | chapitre 7.2 - [Indexation de tables](#indexation-de-tables)                                        |
+|     10      | chapitre 7.3 - [Recherche dans une table](#recherche-dans-une-table)                                |
+|     11      | DS </br> **Projet.4 - début**                                                                       |
+|     12      | chapitre 8.1 - [Circuits et logique booléenne](#circuits-et-logique-booléenne)                      |
+|     13      | chapitre 8.2 - [Architecture de Von Neumann](#architecture-de-von-neumann)                          |
+|     14      | chapitre 8.3 - [Système d'exploitation](#système-dexploitation)</br> **Projet.4 - étape**           |
+
+---
+
+[Période 5 (9 semaines, 25/04..fin)](#période-5-9-semaines-2504fin)
+
+| n° semaines | activité                                                                              |
+| :---------: | :------------------------------------------------------------------------------------ |
+|     17      | chapitre 9.1 - [Algorithmes gloutons](#algorithmes-gloutons)</br>**Projet.4 - rendu** |
+|     18      | chapitre 9.2 - [Algorithmes d'apprentissage](#algorithmes-dapprentissage)             |
+|     19      | chapitre 10.1 - [Tri d'une table](#tri-dune-table)                                    |
+|     19      | chapitre 10.2 - [Fusion de tables](#fusion-de-tables)                                 |
+|     20      | DS </br> **Projet.5 - début**                                                         |
+|     21      | chapitre 11.1 - [Réseaux et Internet](#réseaux-et-internet)                           |
+|     22      | chapitre 11.2 - [Requêtes HTTP et Formulaires](#requêtes-http-et-formulaires)         |
+|     22      | chapitre 11.3 - [Web, côté serveur](#web-côté-serveur)                                |
+|     23      | chapitre 11.4 - [Web, côté client](#web-côté-client)</br>**Projet.5 - étape**         |
+|     24      | Projet.5                                                                              |
+|     25      | Projet.5                                                                              |
+|     26      | **Projet.5 - rendu**                                                                  |
+
+---
+
+## Période 1 (7 semaines, 02/09..23/10)
+
+---
+
+### HTML et CSS
+
+* HTML
+* CSS
+
+**IHM Web**
+</br> Modalités de l’interaction entre l’homme et la machine.
+
+* Identifier les différents composants graphiques permettant d’interagir avec une application Web.
+
+> Il s’agit d’examiner le code HTML d’une page comprenant des composants graphiques et de distinguer ce qui relève de la description des composants graphiques en HTML de leur comportement (réaction aux événements) programmé par exemple en JavaScript.
+
+---
 
 ### Programmer en Python avec les Notebooks
 
@@ -223,6 +198,10 @@
 
 ---
 
+## Période 2 (6 semaines, 08/11..18/12)
+
+---
+
 ### Représentation des entiers
 
 * Encodage des entiers naturels
@@ -328,6 +307,10 @@ positif dans une base b ⩾ 2
 
 ---
 
+## Période 3 (5 semaines, 03/01..05/02)
+
+---
+
 ### Boucle non bornée : `while`
 
 * boucle tant que
@@ -405,6 +388,10 @@ positif dans une base b ⩾ 2
 
 ---
 
+## Période 4 (7 semaines, 21/02..09/04)
+
+---
+
 ### Ensembles et dictionnaires
 
 * Ensembles
@@ -436,6 +423,21 @@ positif dans une base b ⩾ 2
 * Importer une table depuis un fichier texte tabulé ou un fichier CSV.
 
 > Est utilisé un tableau doublement indexé ou un tableau de p-uplets qui partagent les mêmes descripteurs.
+
+---
+
+### Recherche dans une table
+
+* Recherche
+* Agrégation
+* Sélection de ligne
+* Sélection de ligne et colonnes
+
+**Données**
+</br> Recherche dans une table
+    * Rechercher les lignes d’une table vérifiant des critères exprimés en logique propositionnelle.
+
+> La recherche de doublons, les tests de cohérence d’une table sont présentés.
 
 ---
 
@@ -498,18 +500,7 @@ positif dans une base b ⩾ 2
 
 ---
 
-### Recherche dans une table
-
-* Recherche
-* Agrégation
-* Sélection de ligne
-* Sélection de ligne et colonnes
-
-**Données**
-</br> Recherche dans une table
-    * Rechercher les lignes d’une table vérifiant des critères exprimés en logique propositionnelle.
-
-> La recherche de doublons, les tests de cohérence d’une table sont présentés.
+## Période 5 (9 semaines, 25/04..fin)
 
 ---
 
@@ -692,6 +683,21 @@ est mise en évidence.
 ---
 
 ## BO Transversal
+
+**Histoire**
+</br> Événements clés de
+l’histoire de
+l’informatique
+
+* Situer dans le temps les
+principaux événements de
+l’histoire de l’informatique et
+leurs protagonistes.
+
+> Ces repères historiques seront
+construits au fur et à mesure de la
+présentation des concepts et
+techniques.
 
 **Langages**
 </br>Mise au point de programmes.
