@@ -1,4 +1,19 @@
-# Progressions - Première NSI
+# Prévision de progressions - Première NSI
+
+L'année scolaire est composée de 34 semaines partagées en 5 périodes :
+
+* Période 1 : Rentrée .. Toussaint
+* Période 2 : Toussaint .. Noël
+* Période 3 : Noël .. Hiver (février)
+* Période 4 : Hiver .. Printemps (avril)
+* Période 5 : Printemps .. Été
+
+Durant **chaque période**, il y aura :
+
+* de nombreux petits chapitres,
+* un **projet** et
+* un **DS** (Devoir surveillé).
+
 
 [Période 1 (7 semaines, 02/09..23/10)](#période-1-7-semaines-02092310)
 
