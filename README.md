@@ -13,3 +13,5 @@ Ce dépot contient mes cours de NSI (Numérique et Sciences Informatiques) de pr
   * notebook interactif: [fichier test](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/padilla-nsi/1nsi/main/sandbox/essais.ipynb)
 
 [deuxième fichier](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/padilla-nsi/1nsi/main/sandbox/NSI_0_Introduction_aux_notebooks.ipynb)
+
+synchro gitlab
