@@ -10,8 +10,7 @@
 
 
     
-% \documentclass[reprint, floatfix, groupaddress, prb]{revtex4-1}
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,17pt]{extarticle}
 
     
     \usepackage[sfdefault, condensed]{roboto} % police d'écriture plus moderne
@@ -36,6 +35,7 @@
 \newdateformat{monthyeardate}{%
   \monthname[\THEMONTH] \THEYEAR}
 
+% couleurs perso
 \usepackage[table]{xcolor}
 \definecolor{deepblue}{rgb}{0.3,0.3,0.8}
 \definecolor{darkblue}{rgb}{0,0,0.3}
@@ -51,7 +51,7 @@
 \definecolor{cyanamu}{RGB}{77,198,244}
 
 
-\usepackage{xeboiboites}
+\usepackage{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/xeboiboites}
 %
 % exemple
 \newbreakabletheorem[
@@ -62,11 +62,11 @@
 %
 % remarque
 \newbreakabletheorem[
-    small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!0,rounded corners,decoration=penciline, decorate},%
-	big box style={color=orangeamu!90,fill=orangeamu!10,thick,decoration={penciline},decorate},
-    broken edges={draw=orangeamu!90,thick,fill=orange!20!black!5, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    small box style={draw=ansi-green-intense!100,line width=2pt,fill=ansi-green-intense!0,rounded corners,decoration=penciline, decorate},%
+	big box style={color=ansi-green-intense!90,fill=ansi-green-intense!10,thick,decoration={penciline},decorate},
+    broken edges={draw=ansi-green-intense!90,thick,fill=orange!20!black!5, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
     other edges={decoration=penciline,decorate,thick},%
-    headfont={\color{orangeamu}\large\sc\bfseries}
+    headfont={\color{ansi-green-intense}\large\scshape\bfseries}
     ]{remarque}{Remarque}{}%{counterCa}
 %
 % formule (sans titre)
@@ -74,12 +74,12 @@
     big box style={fill=cyanamu!10,draw=cyanamu!100,thick,decoration=penciline,decorate}]%
     {form}
 %
-% méthode
+% Réponse
 \newbreakabletheorem[
     small box style={fill=bleuamu!100, draw=bleuamu!60, line width=1pt,rounded corners,decorate},%
     big box style={fill=bleuamu!10,draw=bleuamu!30,thick,rounded corners,decorate},
-    headfont={\color{white}\large\sc\bfseries}
-        ]{methode}{Méthode}{}
+    headfont={\color{white}\large\scshape\bfseries}
+        ]{reponse}{Correction}{}
 %
 
 % astuce
@@ -95,8 +95,7 @@
     broken edges={draw=orangeamu!100,thick,fill=orangeamu!100, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
     other edges={decoration=penciline,decorate,thick},%
     headfont={\color{white}\large\scshape\bfseries}
-    ]{activite}{%
-        \adjustimage{height=1cm}{investigation.png}%
+    ]{activite}{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/papier_eleve_investigation.png}%
     Activité}{}%{counterCa}
 %   
 %   environnement élève
@@ -111,20 +110,6 @@
 {\begin{form}\color{bleuamu}}
 {\end{form}}
 
-
-\AtBeginDocument{
-
-%     \heavyrulewidth=.08em
-%     \lightrulewidth=.05em
-%     \cmidrulewidth=.03em
-%     \belowrulesep=.65ex
-%     \belowbottomsep=0pt
-%     \aboverulesep=.4ex
-%     \abovetopsep=0pt
-%     \cmidrulesep=\doublerulesep
-%     \cmidrulekern=.5em
-%     \defaultaddspace=.5em
-}
 
 
     \usepackage[T1]{fontenc}
@@ -379,6 +364,7 @@
 
 
     
+\setlength\headheight{30pt}
 \setcounter{secnumdepth}{0} % Turns off numbering for sections
 
     % Prevent overflowing lines due to hard-to-break entities
@@ -392,9 +378,8 @@
       citecolor=citecolor,
       }
     % Slightly bigger margins than the latex defaults
-    \geometry{a4paper,tmargin=2cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{ico_interface}\ttfamily\scshape Interfaces}\fancyhead[C]{HTML - TD}\fancyhead[R]{\monthyeardate\today}
+    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/papier_eleve_ico_interface}\ttfamily\scshape Interfaces}\fancyhead[C]{\bfseries\MakeUppercase{HTML - TD}}\fancyhead[R]{\monthyeardate\today}
 
-    
     \fancyfoot[C]{\thepage}
     % #TODO ajouter les pages totales
 
@@ -406,9 +391,7 @@
     
     
     
-
-
-
+% \maketitle
 
     
     
@@ -445,12 +428,13 @@ collection mondiale de documents :
   l'écriture d'application Web hautement interactives (par exemple des
   jeux).
 \end{itemize}
-
-Le chapitre a pour but de présenter les langages HTML et CSS. Dans cette
+\begin{remarque}
+    Le chapitre a pour but de présenter les langages HTML et CSS. Dans cette
 première partie, tu vas commencer par le \textbf{langage HTML}. Ces
 langages sont présentés en dehors de toute considération de réseau, de
 client ou de serveur.
 
+            \end{remarque}
     \hypertarget{premier-exemple}{%
 \subsection{Premier exemple}\label{premier-exemple}}
 
@@ -506,7 +490,7 @@ d'un document ou d'une page Web.
   Enfin, \textbf{ouvrir} ce fichier avec \emph{Firefox}.
 \end{enumerate}
         
-        \end{eleve}\begin{methode}
+        \end{eleve}\begin{reponse}
     Le code précédent devrait afficher quelques chose qui ressemble à cela :
 
 \begin{figure}
@@ -515,17 +499,15 @@ d'un document ou d'une page Web.
 \caption{Capture d'écran du premier exemple}
 \end{figure}
 
-        \end{methode}
+            \end{reponse}
     \hypertarget{balises-et-attributs}{%
 \subsection{Balises et attributs}\label{balises-et-attributs}}
 
     Le code source possède une structure donnée par les \emph{balises HTML}
 qui sont des suites de caractères délimitées par \texttt{\textless{}} et
 \texttt{\textgreater{}}.
-
-Par exemple :
-
-\begin{itemize}
+\begin{exemple}
+    \begin{itemize}
 \tightlist
 \item
   \texttt{\textless{}head\textgreater{}} est une \emph{balise ouvrante}
@@ -534,29 +516,34 @@ Par exemple :
   (à cause de la barre oblique \texttt{/}).
 \end{itemize}
 
-Un \emph{élément} est constitué d'une paire de balise ouvrante et
-fermante ainsi que du contenu situé entre les deux. Par exemple :
-
-\begin{itemize}
+            \end{exemple}
+    Un \emph{élément} est constitué d'une paire de balise ouvrante et
+fermante ainsi que du contenu situé entre les deux.
+\begin{exemple}
+    \begin{itemize}
 \tightlist
 \item
   \texttt{title} est l'élément constitué par
   \texttt{\textless{}title\textgreater{}Le\ titre\ de\ ma\ première\ page\ HTML\textless{}/title\textgreater{}}.
 \end{itemize}
 
-La balise \texttt{\textless{}meta\ charset="utf-8"\ /\textgreater{}} est
+            \end{exemple}
+    La balise \texttt{\textless{}meta\ charset="utf-8"\ /\textgreater{}} est
 une balise \textbf{vide} car elle est à la fois ouvrante et fermante.
 
 Certaines balises et leurs contenus correspondent directement à des
-éléments graphiques. Par exemple
+éléments graphiques.
+\begin{exemple}
+    Par exemple
 \texttt{\textless{}h1\textgreater{}Première\ page\textless{}/h1\textgreater{}}
 se retrouve comme un titre de la page en gras.
-\begin{eleve}
+
+            \end{exemple}\begin{eleve}
     À partir de l'exercice précédent, \textbf{lister} toutes les balises
 HTML que tu identifies et pour chacune \textbf{indiquer} si c'est une
 balise fermante, ouvrante ou vide.
         
-        \end{eleve}\begin{methode}
+        \end{eleve}\begin{reponse}
     \begin{longtable}[]{@{}ccc@{}}
 \toprule
 Balise ouvrante & Balise fermante & Balise Vide\tabularnewline
@@ -578,7 +565,7 @@ Balise ouvrante & Balise fermante & Balise Vide\tabularnewline
 \bottomrule
 \end{longtable}
 
-        \end{methode}
+            \end{reponse}
     Dans une balise, on peut utiliser des \emph{attributs}. Les attributs
 sont associés à des valeurs.
 
@@ -601,7 +588,7 @@ la langue officielle du document aurait été l'anglais.
   le français et l'anglais).
 \end{enumerate}
         
-        \end{eleve}\begin{methode}
+        \end{eleve}\begin{reponse}
     \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -612,7 +599,7 @@ la langue officielle du document aurait été l'anglais.
   ``es'', ``gem'', ``it'', ``pl'', ``pt'', ``LT''
 \end{enumerate}
 
-        \end{methode}
+            \end{reponse}
     \hypertarget{validation-du-code}{%
 \subsection{Validation du code}\label{validation-du-code}}
 
@@ -704,7 +691,7 @@ La structure doit être similaire à celle de l'exercice :
 \begin{eleve}
     \textbf{Retrouver} le nom des 14 balises vides possible.
         
-        \end{eleve}\begin{methode}
+        \end{eleve}\begin{reponse}
     \begin{itemize}
 \tightlist
 \item
@@ -737,11 +724,11 @@ La structure doit être similaire à celle de l'exercice :
   \texttt{\textless{}wbr\textgreater{}}
 \end{itemize}
 
-        \end{methode}\begin{eleve}
+            \end{reponse}\begin{eleve}
     \textbf{Indiquer} le nom des balises qui permettent de définir les
 titres de section, sous-sections, etc.
         
-        \end{eleve}\begin{methode}
+        \end{eleve}\begin{reponse}
     \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{<h1>}\NormalTok{ Titre de premier niveau }\KeywordTok{</h1>}
@@ -753,7 +740,7 @@ titres de section, sous-sections, etc.
 \end{Highlighting}
 \end{Shaded}
 
-        \end{methode}\begin{eleve}
+            \end{reponse}\begin{eleve}
     \textbf{Indiquer} le nom de l'élément qui permet de créer un nouveau
 paragraphe.
         

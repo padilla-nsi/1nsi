@@ -10,26 +10,108 @@
 
 
     
-% \documentclass[reprint, floatfix, groupaddress, prb]{revtex4-1}
-\documentclass{article}
-% \usepackage{placeins}
-
-% \AtBeginDocument{
-% \heavyrulewidth=.08em
-% \lightrulewidth=.05em
-% \cmidrulewidth=.03em
-% \belowrulesep=.65ex
-% \belowbottomsep=0pt
-% \aboverulesep=.4ex
-% \abovetopsep=0pt
-% \cmidrulesep=\doublerulesep
-% \cmidrulekern=.5em
-% \defaultaddspace=.5em
-% }
-
+\documentclass[a4paper,12pt]{article}
 
     
-    
+    \usepackage[sfdefault, condensed]{roboto} % police d'écriture plus moderne
+\usepackage[french]{babel} % francisation
+\usepackage[parfill]{parskip} %suppression indentation
+
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+% figure non flotantes
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+% mois/année
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+% couleurs perso
+\usepackage[table]{xcolor}
+\definecolor{deepblue}{rgb}{0.3,0.3,0.8}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{iremred}{RGB}{204,35,50}
+\definecolor{deepgreen}{rgb}{0,0.6,0}
+\definecolor{backcolor}{rgb}{0.98,0.95,0.95}
+\definecolor{grisClair}{rgb}{0.95,0.95,0.95}
+\definecolor{orangeamu}{RGB}{250,178,11}
+\definecolor{noiramu}{RGB}{35,31,32}
+\definecolor{bleuamu}{RGB}{20,118,198}
+\definecolor{bleuamudark}{RGB}{15,90,150}
+\definecolor{cyanamu}{RGB}{77,198,244}
+
+
+\usepackage{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/xeboiboites}
+%
+% exemple
+\newbreakabletheorem[
+    small box style={fill=deepblue!90,draw=deepblue!15, rounded corners,line width=1pt},%
+    big box style={fill=deepblue!5,draw=deepblue!15,thick,rounded corners,line width=1pt},%
+    headfont={\color{white}\bfseries}
+        ]{exemple}{Exemple}{}%{counterCo}
+%
+% remarque
+\newbreakabletheorem[
+    small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!0,rounded corners,decoration=penciline, decorate},%
+	big box style={color=orangeamu!90,fill=orangeamu!10,thick,decoration={penciline},decorate},
+    broken edges={draw=orangeamu!90,thick,fill=orange!20!black!5, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{orangeamu}\large\sc\bfseries}
+    ]{remarque}{Remarque}{}%{counterCa}
+%
+% formule (sans titre)
+\newboxedequation[%
+    big box style={fill=cyanamu!10,draw=cyanamu!100,thick,decoration=penciline,decorate}]%
+    {form}
+%
+% Réponse
+\newbreakabletheorem[
+    small box style={fill=bleuamu!100, draw=bleuamu!60, line width=1pt,rounded corners,decorate},%
+    big box style={fill=bleuamu!10,draw=bleuamu!30,thick,rounded corners,decorate},
+    headfont={\color{white}\large\sc\bfseries}
+        ]{reponse}{Correction}{}
+%
+
+% astuce
+\newspanning[
+    image=fig-idee,headfont=\bfseries,
+    spanning style={very thick,decoration=penciline,decorate}
+    ]{astuce}{Astuce}{}
+%
+% activité
+\newbreakabletheorem[
+    small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!100,rounded corners,decoration=penciline, decorate},%
+	big box style={color=orangeamu!100,fill=orangeamu!5,thick,decoration={penciline},decorate},
+    broken edges={draw=orangeamu!100,thick,fill=orangeamu!100, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{white}\large\scshape\bfseries}
+    ]{activite}{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/papier_eleve_investigation.png}%
+    Activité}{}%{counterCa}
+%   
+%   environnement élève
+%
+\newenvironment{eleve}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{activite}\color{noiramu}\\}
+{\end{activite}}
+
+\newenvironment{formule}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{form}\color{bleuamu}}
+{\end{form}}
+
+
+
     \usepackage[T1]{fontenc}
     % Nicer default font (+ math font) than Computer Modern for most use cases
     \usepackage{mathpazo}
@@ -282,6 +364,8 @@
 
 
     
+\setcounter{secnumdepth}{0} % Turns off numbering for sections
+
     % Prevent overflowing lines due to hard-to-break entities
     \sloppy 
     % Setup hyperref package
@@ -293,18 +377,20 @@
       citecolor=citecolor,
       }
     % Slightly bigger margins than the latex defaults
+    \geometry{a4paper,tmargin=2cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[R]{\monthyeardate\today}
+
+    \fancyfoot[C]{\thepage}
+    % #TODO ajouter les pages totales
+
+    \pagestyle{fancy}
     
-    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
-    
-    
+
 
     \begin{document}
     
     
-    \author{Pascal Padillaaa}\title{Chapitre 1 - HTML et CSS}
-
-\date{\today}
-\maketitle
+    \author{Pascal Padilla}\title{Chapitre 1 - HTML et CSS}
+% \maketitle
 
     
     
