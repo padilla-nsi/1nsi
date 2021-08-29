@@ -438,8 +438,8 @@ client ou de serveur.
     \hypertarget{premier-exemple}{%
 \subsection{Premier exemple}\label{premier-exemple}}
 
-    Le format HTML (\emph{Hyper Text Markup Language}) est un format textuel
-permettant de décrire :
+    Le format \textbf{HTML} (\emph{Hyper Text Markup Language}) est un
+format textuel permettant de décrire :
 
 \begin{itemize}
 \tightlist
@@ -503,11 +503,13 @@ d'un document ou d'une page Web.
     \hypertarget{balises-et-attributs}{%
 \subsection{Balises et attributs}\label{balises-et-attributs}}
 
-    Le code source possède une structure donnée par les \emph{balises HTML}
-qui sont des suites de caractères délimitées par \texttt{\textless{}} et
-\texttt{\textgreater{}}.
-\begin{exemple}
-    \begin{itemize}
+    Le code source possède une structure donnée par les \textbf{balises
+HTML} qui sont des suites de caractères délimitées par
+\texttt{\textless{}} et \texttt{\textgreater{}}.
+
+Par exemple :
+
+\begin{itemize}
 \tightlist
 \item
   \texttt{\textless{}head\textgreater{}} est une \emph{balise ouvrante}
@@ -516,32 +518,27 @@ qui sont des suites de caractères délimitées par \texttt{\textless{}} et
   (à cause de la barre oblique \texttt{/}).
 \end{itemize}
 
-            \end{exemple}
-    Un \emph{élément} est constitué d'une paire de balise ouvrante et
-fermante ainsi que du contenu situé entre les deux.
-\begin{exemple}
-    \begin{itemize}
+Un \textbf{élément} est constitué d'une paire de balise ouvrante et
+fermante ainsi que du contenu situé entre les deux. Par exemple :
+
+\begin{itemize}
 \tightlist
 \item
   \texttt{title} est l'élément constitué par
   \texttt{\textless{}title\textgreater{}Le\ titre\ de\ ma\ première\ page\ HTML\textless{}/title\textgreater{}}.
 \end{itemize}
 
-            \end{exemple}
-    La balise \texttt{\textless{}meta\ charset="utf-8"\ /\textgreater{}} est
-une balise \textbf{vide} car elle est à la fois ouvrante et fermante.
+La balise \texttt{\textless{}meta\ charset="utf-8"\ /\textgreater{}} est
+une \textbf{balise vide} car elle est à la fois ouvrante et fermante.
 
 Certaines balises et leurs contenus correspondent directement à des
-éléments graphiques.
-\begin{exemple}
-    Par exemple
+éléments graphiques. Par exemple
 \texttt{\textless{}h1\textgreater{}Première\ page\textless{}/h1\textgreater{}}
 se retrouve comme un titre de la page en gras.
-
-            \end{exemple}\begin{eleve}
-    À partir de l'exercice précédent, \textbf{lister} toutes les balises
-HTML que tu identifies et pour chacune \textbf{indiquer} si c'est une
-balise fermante, ouvrante ou vide.
+\begin{eleve}
+    \textbf{Reprendre} le code de l'activité précédente, \textbf{lister}
+toutes les balises HTML que tu identifies et pour chacune
+\textbf{indiquer} si c'est une balise fermante, ouvrante ou vide.
         
         \end{eleve}\begin{reponse}
     \begin{longtable}[]{@{}ccc@{}}
@@ -566,16 +563,17 @@ Balise ouvrante & Balise fermante & Balise Vide\tabularnewline
 \end{longtable}
 
             \end{reponse}
-    Dans une balise, on peut utiliser des \emph{attributs}. Les attributs
+    Dans une balise, on peut utiliser des \textbf{attributs}. Les attributs
 sont associés à des valeurs.
-
-Par exemple, pour indiquer que la page HTML est écrite en français, on
+\begin{exemple}
+    Par exemple, pour indiquer que la page HTML est écrite en français, on
 va utiliser l'attribut \texttt{lang} dans la balise ouvrante
 \texttt{\textless{}html\ lang="fr"\textgreater{}}. En écrivant
 \texttt{lang="fr"}, on stipule que l'attribut \texttt{lang} a pour
 valeur \texttt{"fr"}. Si on avait utilisé la valeur \texttt{"en"}, alors
 la langue officielle du document aurait été l'anglais.
-\begin{eleve}
+
+            \end{exemple}\begin{eleve}
     \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -596,7 +594,9 @@ la langue officielle du document aurait été l'anglais.
   Le code source utilise dans l'élément \texttt{head} l'attribut
   \texttt{charset}. Cet attribut est défini à \texttt{"utf-8"}.
 \item
-  ``es'', ``gem'', ``it'', ``pl'', ``pt'', ``LT''
+  Voici quelques exemples de langues possibles : espagnole \texttt{es},
+  allemande \texttt{gem}, italienne \texttt{it}, polonaise \texttt{pl},
+  portugaise \texttt{pt} ou encore lithuanienne \texttt{LT}.
 \end{enumerate}
 
             \end{reponse}
@@ -619,20 +619,18 @@ La structure doit être similaire à celle de l'exercice :
 \item
   Le document :
 
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
+  \begin{itemize}
   \tightlist
   \item
     commence par une déclaration de type
     \texttt{\textless{}!\ DOCTYPE\ html\textgreater{}}.
   \item
     contient ensuite un unique élément \texttt{html}.
-  \end{enumerate}
+  \end{itemize}
 \item
   L'élément \texttt{html} :
 
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
+  \begin{itemize}
   \tightlist
   \item
     contient l'attribut \texttt{lang} (information utilisée par les
@@ -641,12 +639,11 @@ La structure doit être similaire à celle de l'exercice :
   \item
     contient uniquement deux sous-éléments : \texttt{head} et
     \texttt{body}.
-  \end{enumerate}
+  \end{itemize}
 \item
   L'élément \texttt{head} :
 
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
+  \begin{itemize}
   \tightlist
   \item
     contient les entêtes du document dont au moins l'élément
@@ -657,79 +654,67 @@ La structure doit être similaire à celle de l'exercice :
     \texttt{\textless{}meta\ charset="utf-8"\textgreater{}} indique
     l'encodage de caractère (format de texte) utilisé pour le document.
     Sauf exception, il vaudra toujours \texttt{utf-8}.
-  \end{enumerate}
+  \end{itemize}
 \item
   L'élément \texttt{body} :
 
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
+  \begin{itemize}
   \tightlist
   \item
     regroupe tous les éléments qui structurent la page.
-  \end{enumerate}
+  \end{itemize}
 \item
   Les balises :
 
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
+  \begin{itemize}
   \tightlist
   \item
     Leur nom est écrit en minuscule
   \item
     Les balises ouvrantes sont \textbf{bien parenthésées} : c'est-à-dire
     fermées par une balise fermante de même niveau d'imbrication. Par
-    exemple :
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \texttt{\textless{}b\textgreater{}\ \textless{}i\textgreater{}\ \textless{}/\ b\textgreater{}\ \textless{}/\ i\textgreater{}}
-      est invalide
-    \end{itemize}
-  \end{enumerate}
+    exemple le code
+    \texttt{\textless{}b\textgreater{}\ \textless{}i\textgreater{}\ \textless{}/\ b\textgreater{}\ \textless{}/\ i\textgreater{}}
+    est invalide
+  \end{itemize}
 \end{enumerate}
 \begin{eleve}
-    \textbf{Retrouver} le nom des 14 balises vides possible.
+    En effectuant une recherche sur internet, \textbf{retrouver} le nom des
+14 balises vides possible.
         
         \end{eleve}\begin{reponse}
-    \begin{itemize}
-\tightlist
-\item
-  \texttt{\textless{}area\textgreater{}}
-\item
-  \texttt{\textless{}base\textgreater{}}
-\item
-  \texttt{\textless{}br\textgreater{}}
-\item
-  \texttt{\textless{}col\textgreater{}}
-\item
-  \texttt{\textless{}embed\textgreater{}}
-\item
-  \texttt{\textless{}hr\textgreater{}}
-\item
-  \texttt{\textless{}img\textgreater{}}
-\item
-  \texttt{\textless{}input\textgreater{}}
-\item
-  \texttt{\textless{}link\textgreater{}}
-\item
-  \texttt{\textless{}meta\textgreater{}}
-\item
-  \texttt{\textless{}param\textgreater{}}
-\item
-  \texttt{\textless{}source\textgreater{}}
-\item
-  \texttt{\textless{}track\textgreater{}}
-\item
-  \texttt{\textless{}wbr\textgreater{}}
-\end{itemize}
+    Voici la liste des 14 balises vides acceptées :
 
-            \end{reponse}\begin{eleve}
+\texttt{\textless{}area\textgreater{}},
+\texttt{\textless{}base\textgreater{}},
+\texttt{\textless{}br\textgreater{}},
+\texttt{\textless{}col\textgreater{}},
+\texttt{\textless{}embed\textgreater{}},
+\texttt{\textless{}hr\textgreater{}},
+\texttt{\textless{}img\textgreater{}},
+\texttt{\textless{}input\textgreater{}},
+\texttt{\textless{}link\textgreater{}},
+\texttt{\textless{}meta\textgreater{}},
+\texttt{\textless{}param\textgreater{}},
+\texttt{\textless{}source\textgreater{}},
+\texttt{\textless{}track\textgreater{}},
+\texttt{\textless{}wbr\textgreater{}}.
+
+            \end{reponse}
+    \hypertarget{balises-de-structures}{%
+\subsection{Balises de structures}\label{balises-de-structures}}
+
+    \hypertarget{sections-et-paragraphes}{%
+\subsubsection{Sections et paragraphes}\label{sections-et-paragraphes}}
+\begin{eleve}
     \textbf{Indiquer} le nom des balises qui permettent de définir les
 titres de section, sous-sections, etc.
         
         \end{eleve}\begin{reponse}
-    \begin{Shaded}
+    Pour structurer le texte en chapitres, sections, parties, etc., il faut
+utiliser les balises \texttt{h...} :
+
+\begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{<h1>}\NormalTok{ Titre de premier niveau }\KeywordTok{</h1>}
 \KeywordTok{<h2>}\NormalTok{ Titre de deuxième niveau }\KeywordTok{</h2>}
@@ -744,8 +729,14 @@ titres de section, sous-sections, etc.
     \textbf{Indiquer} le nom de l'élément qui permet de créer un nouveau
 paragraphe.
         
-        \end{eleve}
-    \begin{Shaded}
+        \end{eleve}\begin{reponse}
+    Pour créer un nouveau paragraphe (avec saut à la ligne), il faut
+utiliser les balises
+\texttt{\textless{}p\textgreater{}\ ...\ \textless{}/p\textgreater{}}.
+
+Voici un exemple d'utilisation de cet élément :
+
+\begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{<p>}\NormalTok{ Un premier paragraphe}
 \NormalTok{    on y met}
@@ -757,30 +748,324 @@ paragraphe.
 \NormalTok{    on remarque enfin un retour à la ligne! }\KeywordTok{<p>}
 \end{Highlighting}
 \end{Shaded}
+
+            \end{reponse}
+    \hypertarget{listes-et-tableaux}{%
+\subsubsection{Listes et tableaux}\label{listes-et-tableaux}}
 \begin{eleve}
     \textbf{Donner} un exemple de liste énumérée et un exemple de liste
 non-énumérée.
         
-        \end{eleve}
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Hello, world!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\end{Verbatim}
+        \end{eleve}\begin{reponse}
+    Voici un exemple de liste énumérée :
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-0 Hello, world!
-1 Hello, world!
-2 Hello, world!
-3 Hello, world!
-4 Hello, world!
-5 Hello, world!
-6 Hello, world!
-7 Hello, world!
-8 Hello, world!
-9 Hello, world!
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<ol>}
+    \KeywordTok{<li>}\NormalTok{ Se lever }\KeywordTok{</li>}
+    \KeywordTok{<li>}\NormalTok{ Déjeuner }\KeywordTok{</li>}
+    \KeywordTok{<ol>}
+        \KeywordTok{<li>}\NormalTok{ prendre un thé }\KeywordTok{</li>}
+        \KeywordTok{<li>}\NormalTok{ manger quelque chose }\KeywordTok{</li>}
+    \KeywordTok{</ol>}
+\KeywordTok{</ol>}
+\end{Highlighting}
+\end{Shaded}
 
-    \end{Verbatim}
+ce qui affiche :
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Se lever
+\item
+  Déjeuner
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    prendre un thé
+  \item
+    manger quelque chose
+  \end{enumerate}
+\end{enumerate}
+
+Voici un exemple de liste non énumérée :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<ul>}
+    \KeywordTok{<li>}\NormalTok{ Une première chose à faire }\KeywordTok{</li>}
+    \KeywordTok{<li>}\NormalTok{ Une seconde chose à faire }\KeywordTok{</li>}
+    \KeywordTok{<ul>}
+        \KeywordTok{<li>}\NormalTok{ d'abord A }\KeywordTok{</li>}
+        \KeywordTok{<li>}\NormalTok{ ensuite B }\KeywordTok{</li>}
+    \KeywordTok{</ul>}
+\KeywordTok{</ul>}
+\end{Highlighting}
+\end{Shaded}
+
+ce qui donne :
+
+\begin{itemize}
+\tightlist
+\item
+  Une première chose à faire
+\item
+  Une seconde chose à faire
+
+  \begin{itemize}
+  \tightlist
+  \item
+    d'abord A
+  \item
+    ensuite B
+  \end{itemize}
+\end{itemize}
+
+            \end{reponse}\begin{eleve}
+    \textbf{Donner} le nom des balises :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  qui délimite un tableau
+\item
+  qui commence une nouvelle ligne du tableau
+\item
+  qui encadre une colonne.
+\end{enumerate}
+
+\textbf{Donner} une exemple simple de tableau.
+        
+        \end{eleve}\begin{reponse}
+    Les balises à utiliser pour les tableaux sont :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{table} pour délimiter un tableau
+\item
+  \texttt{tr} pour les lignes
+\item
+  \texttt{td} pour les colonnes
+\end{enumerate}
+
+Voici un exemple de tableau :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<table>}
+    \KeywordTok{<tr>}
+        \KeywordTok{<td>}\NormalTok{ Janvier }\KeywordTok{</td>} \KeywordTok{<td>}\NormalTok{ Février }\KeywordTok{</td>} \KeywordTok{<td>}\NormalTok{Mars}\KeywordTok{</td>}
+    \KeywordTok{</tr>}
+    \KeywordTok{<tr>}
+        \KeywordTok{<td>}\NormalTok{ 31 }\KeywordTok{</td>} \KeywordTok{<td>}\NormalTok{ 28 }\KeywordTok{</td>} \KeywordTok{<td>}\NormalTok{ 31 }\KeywordTok{</td>}
+    \KeywordTok{</tr>}
+\KeywordTok{</table>}
+\end{Highlighting}
+\end{Shaded}
+
+qui donne alors :
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Janvier & Février & Mars\tabularnewline
+\midrule
+\endhead
+31 & 28 & 31\tabularnewline
+\bottomrule
+\end{longtable}
+
+            \end{reponse}
+    \hypertarget{balises-de-texte}{%
+\subsection{Balises de texte}\label{balises-de-texte}}
+
+    À la différence des balises de structures, les \textbf{balises de
+textes} ne produisent pas de nouveaux bloc de texte formaté. Le flot du
+texte n'est pas interrompu.
+
+Ces balises servent à indiquer la nature du texte.
+\begin{eleve}
+    \textbf{Identifier} pour chaque balise son rôle :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}b\textgreater{}}
+\item
+  \texttt{\textless{}i\textgreater{}}
+\item
+  \texttt{\textless{}u\textgreater{}}
+\item
+  \texttt{\textless{}mark\textgreater{}}
+\item
+  \texttt{\textless{}small\textgreater{}}
+\item
+  \texttt{\textless{}code\textgreater{}}
+\item
+  \texttt{\textless{}sub\textgreater{}}
+\item
+  \texttt{\textless{}sup\textgreater{}}
+\end{itemize}
+
+\textbf{Écrire} un petit texte utilisant ces balises.
+        
+        \end{eleve}\begin{reponse}
+    Voici le rôle de ces balises :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}b\textgreater{}} : mise en gras
+\item
+  \texttt{\textless{}i\textgreater{}} : mise en italique
+\item
+  \texttt{\textless{}u\textgreater{}} : souligner
+\item
+  \texttt{\textless{}mark\textgreater{}} : surligner
+\item
+  \texttt{\textless{}small\textgreater{}} : texte en petit caractères
+\item
+  \texttt{\textless{}code\textgreater{}} : police fixe utilisée souvent
+  pour du code informatique
+\item
+  \texttt{\textless{}sub\textgreater{}} : texte en indice
+\item
+  \texttt{\textless{}sup\textgreater{}} : texte en exposant
+\end{itemize}
+
+Mettre en forme un texte est très simple. Il suffit d'utiliser quelques
+balises. On peut écrire de la chimie CO2 ou de la physique 6,02×10-23
+sans faire d'erreur.
+
+            \end{reponse}
+    \hypertarget{liens-et-ressources}{%
+\subsubsection{Liens et ressources}\label{liens-et-ressources}}
+
+    La fonctionnalité \textbf{essentielle} des documents HTML est la
+possiblilité d'utiliser des \textbf{liens hypertextes}. Ce sont les
+textes cliquables qui apparaissent dans un style souligné par défaut et
+qui permettent d'accéder à d'autres ressources (pages, média, etc.).
+
+Pour insérer un lien, il faut :
+
+\begin{itemize}
+\tightlist
+\item
+  utiliser la \emph{balise} \texttt{\textless{}a\textgreater{}}
+\item
+  définir son \emph{attribut} \texttt{href} avec pour valeur valeur
+  l'emplacement de la ressource que l'on souhaite pointer entre
+  guillements
+\item
+  définir le \emph{contenu de la balise} qui sert à afficher le lien
+\end{itemize}
+\begin{exemple}
+    Voici un lien hypertexte vers le fichier \texttt{expose\_gp1.html} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<a}\OtherTok{ href=}\StringTok{"expose_gp1.html"}\KeywordTok{>}\NormalTok{Accéder à }\KeywordTok{<b>}\NormalTok{notre}\KeywordTok{</b>}\NormalTok{ exposé}\KeywordTok{</a>}
+\end{Highlighting}
+\end{Shaded}
+
+qui affiche cela :
+
+\href{expose_gp1.html}{Accéder à \textbf{notre} exposé}
+
+L'attribut \texttt{href}pointe vers le fichier qui est dans le même
+dossier que le document visité.
+
+            \end{exemple}
+    Il est possible d'insérer directement dans la page des ressources
+externes.
+
+Pour insérer une image :
+
+\begin{itemize}
+\tightlist
+\item
+  balise \texttt{\textless{}img\ /\textgreater{}}
+\item
+  attribut \texttt{src} : chemin d'accès à l'image
+\item
+  attribut \texttt{alt} : légende de l'image
+\item
+  attribut \texttt{width} : largeur de l'image
+\item
+  attribut \texttt{height} : hauteur de l'image
+\end{itemize}
+\begin{exemple}
+    Pour insérer l'\textbf{image} \texttt{logo\_html.svg} qui est dans le
+sous-répertoire \texttt{res} et lui imposer une largeur de 240px, il
+faut écrire :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<img}\OtherTok{ src=}\StringTok{"res/logo_html.svg"}\OtherTok{ width=}\StringTok{"240"}\KeywordTok{/>}
+\end{Highlighting}
+\end{Shaded}
+
+ce qui donne :
+
+\includegraphics{res/logo_html.png}
+
+            \end{exemple}
+    \hypertarget{balises-neutres-classes-et-identifiants}{%
+\subsubsection{Balises neutres, classes et
+identifiants}\label{balises-neutres-classes-et-identifiants}}
+
+    Pour la définition du style graphique, il est nécessaire d'utiliser les
+balises neutres, les classes et les identifiants. Ces derniers
+permettent d'étiqueter les éléments de la page et ainsi de les
+personnaliser.
+
+Il existe deux \textbf{balises neutres} qui n'ont pas d'effet
+parliculier :
+
+\begin{itemize}
+\tightlist
+\item
+  la balise de structure \texttt{\textless{}div\textgreater{}} dont le
+  comportement par défaut est identique à
+  \texttt{\textless{}p\textgreater{}}
+\item
+  la balise de texte \texttt{\textless{}span\textgreater{}} laisse le
+  texte inchangé.
+\end{itemize}
+
+Chaque balise d'une page Web peut posséder un \textbf{identifiant}
+unique grâce à l'attribut \texttt{id}.
+
+Enfin, l'attribut \texttt{class} contient une suite de noms de classes
+séparés par des espaces. Une classe est un ensemble de balises qui
+possèdera certaines caractéristiques graphiques communes.
+\begin{exemple}
+    Voici un extrait de page contenant un titre de section et une liste non
+numérotée.
+
+La balise de titre contient l'identifiant unique \texttt{"titre1"} et
+les items de la liste appartienne à la classe \texttt{"pair"} ou
+\texttt{"impair"} en fonction de leurs positions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<h4}\OtherTok{ id=}\StringTok{"titre4"}\KeywordTok{>}\NormalTok{Voici la todo list}\KeywordTok{</h4>}
+\KeywordTok{<ul>}
+    \KeywordTok{<li}\OtherTok{ class=}\StringTok{"impair"}\KeywordTok{>}\NormalTok{Acheter du pain}\KeywordTok{</li>}
+    \KeywordTok{<li}\OtherTok{ class=}\StringTok{"pair"}\KeywordTok{>}\NormalTok{Arroser les plantes}\KeywordTok{</li>}
+    \KeywordTok{<li}\OtherTok{ class=}\StringTok{"impair"}\KeywordTok{>}\NormalTok{Apprendre le HTML}\KeywordTok{</li>}
+    \KeywordTok{<li}\OtherTok{ class=}\StringTok{"pair"}\KeywordTok{>}\NormalTok{Dormir}\KeywordTok{</li>}
+\KeywordTok{</ul>}
+\end{Highlighting}
+\end{Shaded}
+
+            \end{exemple}
 
     % Add a bibliography block to the postdoc
     
