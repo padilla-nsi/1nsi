@@ -1,18 +1,6 @@
-
-% Default to the notebook output style
-
-    
-
-
-% Inherit from the specified cell style.
-
-
-
-
-    
 \documentclass[a4paper,17pt]{extarticle}
 
-    
+
     \usepackage[sfdefault, condensed]{roboto} % police d'écriture plus moderne
 \usepackage[french]{babel} % francisation
 \usepackage[parfill]{parskip} %suppression indentation
@@ -111,32 +99,33 @@
 {\end{form}}
 
 
-
-    \usepackage[T1]{fontenc}
-    % Nicer default font (+ math font) than Computer Modern for most use cases
-    \usepackage{mathpazo}
+\usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
 
     % Basic figure setup, for now with no caption control since it's done
     % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
     \usepackage{graphicx}
-    % We will generate all images so they have a width \maxwidth. This means
-    % that they will get their normal width if they fit onto the page, but
-    % are scaled down if they would overflow the margins.
-    \makeatletter
-    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-    \else\Gin@nat@width\fi}
-    \makeatother
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
     \let\Oldincludegraphics\includegraphics
-    % Set max figure width to be 80% of text width, for now hardcoded.
-    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
     % Ensure that by default, figures have no caption (until we provide a
     % proper Figure object with a Caption API and a way to capture that
     % in the conversion process - todo).
     \usepackage{caption}
-    \DeclareCaptionLabelFormat{nolabel}{}
-    \captionsetup{labelformat=nolabel}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
 
-    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
     \usepackage{xcolor} % Allow colors to be defined
     \usepackage{enumerate} % Needed for markdown enumerations to work
     \usepackage{geometry} % Used to adjust the document margins
@@ -150,14 +139,15 @@
     \usepackage{upquote} % Upright quotes for verbatim code
     \usepackage{eurosym} % defines \euro
     \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
-    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
     \usepackage{fancyvrb} % verbatim replacement that allows latex
-    \usepackage{grffile} % extends the file name processing of package graphics 
-                         % to support a larger range 
+
     % The hyperref package gives us a pdf with properly built
     % internal navigation ('pdf bookmarks' for the table of contents,
     % internal cross-reference links, web links for URLs, etc.)
     \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
     \usepackage{longtable} % longtable support required by pandoc >1.10
     \usepackage{booktabs}  % table support for pandoc > 1.12.2
     \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
@@ -166,7 +156,6 @@
     \usepackage{mathrsfs}
     
 
-    
     
     % Colors for the hyperref package
     \definecolor{urlcolor}{rgb}{0,.145,.698}
@@ -253,9 +242,7 @@
     
     
     
-
-    % Pygments definitions
-    
+% Pygments definitions
 \makeatletter
 \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
     \let\PY@ul=\relax \let\PY@tc=\relax%
@@ -357,11 +344,97 @@
 \makeatother
 
 
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
     % Exact colors from NB
-    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
-    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
-
-
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        \ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}
+    }
+    
 
     
 \setlength\headheight{30pt}
@@ -378,7 +451,7 @@
       citecolor=citecolor,
       }
     % Slightly bigger margins than the latex defaults
-    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[C]{\bfseries\MakeUppercase{1-3 --- CSS - TD}}\fancyhead[R]{\monthyeardate\today}
+    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/papier_eleve/papier_eleve_ico_interface}\ttfamily\scshape Interfaces}\fancyhead[C]{\bfseries\MakeUppercase{1-3 --- CSS - TD}}\fancyhead[R]{\monthyeardate\today}
 
     \fancyfoot[C]{\thepage}
     % #TODO ajouter les pages totales
@@ -387,23 +460,227 @@
     
 
 
-    \begin{document}
+\begin{document}
     
     
-    \author{Pascal Padilla}\title{1-3 --- CSS - TD}
 % \maketitle
 
     
     
 
     
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} 
-\end{Verbatim}
+    \hypertarget{uxe0-la-duxe9couverte-du-css}{%
+\subsection{1.3 --- À la découverte du
+CSS}\label{uxe0-la-duxe9couverte-du-css}}
+
+    Le langage \textbf{CSS} (pour \emph{Cascading Style Sheets}, ie.
+feuilles de style en cascade) est un langage permettant de définir les
+propriétés graphiques des éléments HTML constituant une page Web.
+
+    \hypertarget{muxe9thode-1-lattribut-style}{%
+\subsubsection{\texorpdfstring{Méthode 1 : L'attribut
+\texttt{style}}{Méthode 1 : L'attribut style}}\label{muxe9thode-1-lattribut-style}}
+
+    L'attribut \texttt{style} est autorisé dans tous les éléments (par
+exemple \texttt{p}, \texttt{span}, \texttt{h1}, \texttt{b},
+\texttt{div}, etc.) et défini des \textbf{propriétés CSS} pour l'élément
+concerné.
+\begin{eleve}
+    \textbf{Créer} un fichier HTML vierge minimal appelé
+\texttt{premier\_css.html}.
+
+\textbf{Copier} le code HTML/CSS ce dessous dans la balise
+\texttt{\textless{}body\textgreater{}} du fichier minimal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textless{}p}\OtherTok{ style=}\StringTok{"text{-}align: right;"}\KeywordTok{\textgreater{}}
+\NormalTok{    On écrit un}
+    \KeywordTok{\textless{}span}\OtherTok{ style=}\StringTok{"border: 1pt solid black;"}\KeywordTok{\textgreater{}}
+\NormalTok{        paragraphe}
+    \KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{    de texte, mais cette fois on }
+    \KeywordTok{\textless{}span}\OtherTok{ style=}\StringTok{"color: gray;"}\KeywordTok{\textgreater{}}\NormalTok{modifie}\KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{    le style graphique}
+    \KeywordTok{\textless{}span}\OtherTok{ style=}\StringTok{"border: 1pt solid black;"}\KeywordTok{\textgreater{}}
+\NormalTok{        des éléments}
+    \KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{    de la page.}
+\KeywordTok{\textless{}/p\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Observer} le résultat obtenu.
+
+\textbf{Critiquer} le code obtenu.
+        
+        \end{eleve}\begin{reponse}
+    Voici une capture d'écran du résultat attendu.
+
+\includegraphics{res/premier_css.png}
+
+On remarque qu'avec l'attribut \texttt{style} nous venons de modifier :
+
+\begin{itemize}
+\tightlist
+\item
+  l'alignement du texte,
+\item
+  l'encadrement du texte et
+\item
+  la couleur du texte.
+\end{itemize}
+
+Le code obtenu est \textbf{peu lisible} et un style est dupliqué ce qui
+rend la \textbf{maintenance du code plus compliquée}.
+
+            \end{reponse}
+    \hypertarget{muxe9thode-2-les-suxe9lecteurs-css}{%
+\subsubsection{Méthode 2 : les sélecteurs
+CSS}\label{muxe9thode-2-les-suxe9lecteurs-css}}
+
+    CSS propose une manière alternative de modifier le rendu graphique de la
+page par le biais de \emph{sélecteur CSS}.
+
+L'attribut \texttt{style} n'est présent que dans l'en-tête du document
+et tous les attributs \texttt{style} du corps de texte sont remplacés
+par des attributs \texttt{class} et \texttt{id}.
+
+Comme \texttt{class} et \texttt{id} sont des balises neutres, elle ne
+modifient pas en elles même le rendu graphique. En revanche les
+\emph{étiquettes} de classe ou d'identifiant qu'elles donnent font
+références aux styles graphiques décrits par la balise
+\texttt{\textless{}style\textgreater{}} de l'en-tête.
+\begin{eleve}
+    \textbf{Créer} un fichier HTML minimal appelé
+\texttt{premier\_css\_selecteur.html} et y \textbf{copier} le code
+suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{\textless{}!DOCTYPE }\NormalTok{html}\DataTypeTok{\textgreater{}}
+\KeywordTok{\textless{}html}\OtherTok{ lang=}\StringTok{"fr"}\KeywordTok{\textgreater{}}
+\KeywordTok{\textless{}head\textgreater{}}
+    \KeywordTok{\textless{}meta}\OtherTok{ charset=}\StringTok{"UTF{-}8"}\KeywordTok{\textgreater{}}
+    \KeywordTok{\textless{}title\textgreater{}}\NormalTok{Premier CSS avec sélecteurs}\KeywordTok{\textless{}/title\textgreater{}}
+    \KeywordTok{\textless{}style\textgreater{}}
+\NormalTok{        p \{}\KeywordTok{text{-}align}\NormalTok{: }\DecValTok{right}\OperatorTok{;}\NormalTok{\}}
+        \FunctionTok{.bord}\NormalTok{ \{}\KeywordTok{border}\NormalTok{: }\DecValTok{1}\DataTypeTok{pt} \DecValTok{solid} \ConstantTok{black}\OperatorTok{;}\NormalTok{\}}
+        \PreprocessorTok{\#n42}\NormalTok{ \{}\KeywordTok{color}\NormalTok{: }\ConstantTok{gray}\OperatorTok{;}\NormalTok{\}}
+    \KeywordTok{\textless{}/style\textgreater{}}
+\KeywordTok{\textless{}/head\textgreater{}}
+\KeywordTok{\textless{}body\textgreater{}}
+    \KeywordTok{\textless{}p\textgreater{}}
+\NormalTok{        On écrit un }
+        \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{"bord"}\KeywordTok{\textgreater{}}\NormalTok{paragraphe}\KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{        de texte, mais cette fois on }
+        \KeywordTok{\textless{}span}\OtherTok{ id=}\StringTok{"n42"}\KeywordTok{\textgreater{}}\NormalTok{modifie}\KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{        le style graphique }
+        \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{"bord"}\KeywordTok{\textgreater{}}\NormalTok{des éléments}\KeywordTok{\textless{}/span\textgreater{}}
+\NormalTok{        de la page.}
+    \KeywordTok{\textless{}/p\textgreater{}}
+\KeywordTok{\textless{}/body\textgreater{}}
+\KeywordTok{\textless{}/html\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Noter} vos observations.
+        
+        \end{eleve}\begin{reponse}
+    Le document produit est exactement le même que celui de l'activité
+précédente. Il est un peu plus lisible et l'utilisation de l'attriut
+\texttt{class} permet d'éviter des duplications de code.
+
+            \end{reponse}
+    Dans l'activité :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{p\ \{text-align:\ right;\}} : \textbf{toutes} les balises
+  \texttt{\textless{}p\textgreater{}} du document sont alignées à droite
+  ;
+\item
+  \texttt{.bord\ \{border:\ 1pt\ solid\ black;\}} : \textbf{toutes} les
+  balises ayant l'attribu \texttt{class="bord"} sont encadrées par un
+  trait noir de 1pt d'épaisseur ;
+\item
+  \texttt{\#n42\ \{color:\ gray;\}} : l'\textbf{unique} balise dont
+  l'attribut \texttt{id} vaut \texttt{"n42"} est écrit en gris.
+\end{itemize}
+
+    Cette méthode est plus propre que celle avec les nombreuses balises
+\texttt{\textless{}style\textgreater{}} car elle sépare la structure du
+document (HTML) de sa présentation graphique (CSS). Elle permet de
+\emph{factoriser} les styles communs (grâce au nom des balises ou à
+l'attribut \texttt{class}).
+\begin{eleve}
+    Imaginons la situation suivante : \emph{Votre document de présentation
+est composé d'une dizaine de fichiers HTML différents. Pour des raisons
+de cohérence visuelle, vous souhaitez que tous les fichiers aient le
+même rendu graphique.}
+
+\textbf{Comment} s'y prendre pour homogénéiser un grand nombre de
+fichier HTML différents ?
+
+\textbf{Critiquer} la méthode proposée.
+        
+        \end{eleve}\begin{reponse}
+    Si on possède plusieurs fichiers HTML pour lesquels on souhaite appliqué
+le même style graphique, il faut dupliquer la balise
+\texttt{\textless{}style\textgreater{}} dans tous les fichiers.
+
+Le problème est la maintenance du code. Chaque modification de style
+devient pénible avec un grand risque d'oubli et d'erreur. On souhaiterai
+ne pas avoir à dupliquer la balise
+\texttt{\textless{}style\textgreater{}}\ldots{}
+
+            \end{reponse}
+    \hypertarget{muxe9thode-3-le-fichier-css}{%
+\subsubsection{Méthode 3 : le fichier
+CSS}\label{muxe9thode-3-le-fichier-css}}
+
+    Il est possible de rajouter dans l'entête d'un fichier HTML une balise
+\texttt{\textless{}link\textgreater{}} qui pointe vers l'emplacement
+d'un fichier CSS. Comme un lien hypertexte, c'est au moyen de l'attribut
+\texttt{href} que l'emplacement du fichier est défini.
+
+Le fichier CSS est écrit avec la même syntage que le contenu de la
+balise \texttt{\textless{}style\textgreater{}}.
+\begin{exemple}
+    Voici un exemple de fichier HTML faisant référence au fichier CSS
+\texttt{style.css} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{\textless{}!DOCTYPE }\NormalTok{html}\DataTypeTok{\textgreater{}}
+\KeywordTok{\textless{}html}\OtherTok{ lang=}\StringTok{"fr"}\KeywordTok{\textgreater{}}
+\KeywordTok{\textless{}head\textgreater{}}
+    \KeywordTok{\textless{}meta}\OtherTok{ charset=}\StringTok{"UTF{-}8"}\KeywordTok{\textgreater{}}
+    \KeywordTok{\textless{}title\textgreater{}}\NormalTok{Premier CSS avec sélecteurs}\KeywordTok{\textless{}/title\textgreater{}}
+    \KeywordTok{\textless{}link}\OtherTok{ href=}\StringTok{"style.css"}\OtherTok{ rel=}\StringTok{"stylesheet"}\OtherTok{ type=}\StringTok{"text/css"}\KeywordTok{/\textgreater{}}
+\KeywordTok{\textless{}/head\textgreater{}}
+\KeywordTok{\textless{}body\textgreater{}}
+\NormalTok{    ...}
+\KeywordTok{\textless{}/body\textgreater{}}
+\KeywordTok{\textless{}/html\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+            \end{exemple}
+    Cette manière d'assicier une page à un fichier de style est la plus
+propre. Elle respecte intégralement le principe de la séparation entre
+présentation des données et structuration du contenu.
+
+    \hypertarget{quelques-propriuxe9tuxe9s-css}{%
+\subsubsection{Quelques propriétés
+CSS}\label{quelques-propriuxe9tuxe9s-css}}
+
+    
 
 
     % Add a bibliography block to the postdoc
     
     
     
-    \end{document}
+\end{document}
