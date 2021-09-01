@@ -699,22 +699,361 @@ plusieurs zones distinctes :
 \caption{mon lien}
 \end{figure}
 
-    
+\begin{itemize}
+\tightlist
+\item
+  \texttt{padding} définit l'espace entre la zone interne et la bordude
+  ;
+\item
+  \texttt{border} définit la taille de la bordure ;
+\item
+  \texttt{margin} définit l'espace au delà de la bordure.
+\end{itemize}
 
-    
+    La boîte peut avoir un comportement de \emph{balise de structure} ou de
+\emph{balise de texte}. Pour cela il faut changer la valeur de la
+propriété \texttt{display} :
 
-    
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{display }\InformationTok{: block}\NormalTok{ ;}
+\end{Highlighting}
+\end{Shaded}
 
-    \hypertarget{longueur-et-couleur}{%
-\paragraph{Longueur et couleur}\label{longueur-et-couleur}}
+La boîte se comporte comme une balise de structure. Comme
+\texttt{\textless{}p\textgreater{}} ou
+\texttt{\textless{}ul\textgreater{}}, la boîte impose un retour à la
+ligne.
 
-    
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{display }\InformationTok{: inline}\NormalTok{ ;}
+\end{Highlighting}
+\end{Shaded}
 
-    
+La boîte se comporte comme une balise de texte. Comme
+\texttt{\textless{}a\textgreater{}} ou
+\texttt{\textless{}b\textgreater{}}, la boîte est affichée dans le flot
+du texte.
 
-    
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{display }\InformationTok{: none}\NormalTok{ ;\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
 
-    
+La boîte est masquée !
+
+    \hypertarget{longueur}{%
+\paragraph{Longueur}\label{longueur}}
+
+    De nombreuses propriétés CSS indiquent des longueurs. Leur valeur est
+toujours un nombre suivi d'une unité :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{px} : pour le pixel
+\item
+  \texttt{pt} : pour le point (même unité que dans les traitements de
+  texte)
+\item
+  \texttt{\%} : pourcentage de la taille de l'élément contenant
+\end{itemize}
+
+    \hypertarget{couleur}{%
+\paragraph{Couleur}\label{couleur}}
+
+    Il est possible de définir les couleurs par
+
+\begin{itemize}
+\tightlist
+\item
+  leurs noms (en anglais, par exemple \texttt{red}, \texttt{green},
+  \texttt{blue}, \texttt{LightGreen}, ettc.) ou
+\item
+  la notation \emph{hexadécimale} : \texttt{\#}\(rrvvbb\) qui représente
+  une couleur obtenue par un mélange d'une certaine quantité de rouge
+  (\(rr\)), de vert (\(vv\)) et de bleu (\(bb\)) :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    noir : si \(rr\), \(vv\) et \(bb\) sont au minimum, alors la couleur
+    obtenue est noire ;
+  \item
+    blanc : si \(rr\), \(vv\) et \(bb\) sont au maximum, alors la
+    couleur obtenue est blanche.
+  \item
+    \(r\), \(v\) ou \(b\) sont des caractères qui représentent un nombre
+    écrit en base 16. Ce nombre vaut \(0\) (valeur minimale),
+    \(1,2,3,4,5,6,7,8,9,a,b,c,d,e\) ou \(f\) (valeur maximale).
+  \end{itemize}
+\end{itemize}
+\begin{exemple}
+    La valeur minimale pour \(rr\), \(vv\) ou \(bb\) est : \texttt{00}.
+Ainsi, la couleur noire est obtenue par le codage \texttt{\#000000}.
+
+La valeur maximale pour \(rr\), \(vv\) ou \(bb\) est : \texttt{ff} (et
+oui !!! il faut savoir que \(ff\) en base 16 représente \(255\) en base
+10). Ainsi, la couleur blanche est obtenue par le codage
+\texttt{\#ffffff}.
+
+            \end{exemple}\begin{eleve}
+    \textbf{Déterminer} le codage hexadécimal permettant d'obtenir la
+couleur violette (mélange de rouge et de bleu uniquement).
+        
+        \end{eleve}\begin{reponse}
+    Le violet peut s'obtenir par \texttt{\#ff00ff}.
+
+Un violet plus foncé s'obtiendra en \emph{se rapprochant} du noir :
+\texttt{\#aa00aa} ou encore plus foncé \texttt{\#550055}.
+
+Un violet clair en \emph{se rapprochant} du blanc: \texttt{\#ff99ff} ou
+\texttt{\#ffccff}.
+
+            \end{reponse}\begin{exemple}
+    \begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.31\columnwidth}\raggedright
+propriété\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\raggedright
+valeur\strut
+\end{minipage} & \begin{minipage}[b]{0.37\columnwidth}\raggedright
+description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{display}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{none}, \texttt{block} ou \texttt{inline}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+mode d'affichage de la boîte\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{background}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+couleur\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+couleur de fond de la boîte\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{color}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+couleur\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+couleur de texte\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{border}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{none} ou \texttt{taille\ motif\ couleur}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+Si \texttt{none} alors bordure masquée. Sinon on donne 3 propriétés
+séparées par des espaces : la \emph{taille} (par ex \texttt{2pt}), le
+\emph{motif} (\texttt{solid}, \texttt{dotted} ou \texttt{dashed}) et la
+\emph{couleur} (par ex \texttt{green} ou \texttt{\#ff00ff}).\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{margin}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+longueur\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+taille des marges\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{padding}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+longueur\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+taille des ajustements\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{text-decoration}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{none}, \texttt{underline}, \texttt{overline} ou
+\texttt{line-through}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+décoration du texte\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{text-align}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{left}, \texttt{right}, \texttt{center} ou \texttt{justify}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+justification du texte\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{font-family}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{fixed}, \texttt{serif} ou \texttt{sans-serif}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+nom de la police\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{font-weight}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{normal}, \texttt{light}, \texttt{bold} ou \texttt{bolder}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+graisse de la police\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{font-style}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\texttt{normal} ou \texttt{italic}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+style de la police\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.31\columnwidth}\raggedright
+\texttt{font-size}\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+longueur ou \texttt{xx-small}, \texttt{x-small}, \texttt{small},
+\texttt{normal}, \texttt{large}, \texttt{x-large} ou
+\texttt{xx-large}\strut
+\end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright
+taille de la police\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+            \end{exemple}
+    \hypertarget{pour-aller-plus-loin}{%
+\subsubsection{Pour aller plus loin}\label{pour-aller-plus-loin}}
+
+    \hypertarget{suxe9lecteurs-imbriquuxe9s}{%
+\paragraph{Sélecteurs imbriqués}\label{suxe9lecteurs-imbriquuxe9s}}
+\begin{exemple}
+    Par exemple, on souhaite modifier la couleur du contenu de toutes les
+balises \texttt{\textless{}ul\textgreater{}} de classe \texttt{impair}
+qui appartiennent aux paragraphes \texttt{\textless{}p\textgreater{}}.
+
+\includegraphics{res/selecteur.png}
+
+Pour cela, on raisonne par inclusion : de la plus grande boîte à la plus
+petite.
+
+Ici :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  on sélectionne \textbf{toutes} les boîtes
+  \texttt{\textless{}p\textgreater{}},
+\item
+  puis \textbf{dans la sélection de l'étape précédente}, on sélectionne
+  \textbf{toutes} les boîtes
+  \texttt{\textless{}ul\ class="impair"\textgreater{}}
+\item
+  puis \textbf{dans la sélection de l'étape précédente}, on modifie la
+  propriété \texttt{color}.
+\end{enumerate}
+
+Ce qui se traduit par le sélecteur suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p ul}\FunctionTok{.impair}\NormalTok{ \{}\KeywordTok{color}\NormalTok{:... }\OperatorTok{;}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Attention, l'ordre des sélecteurs est important !
+
+            \end{exemple}
+    De façon générale, une règle CSS est donnée sous la forme suivante :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1 p2 }\FunctionTok{...}\NormalTok{ pn \{ prop1 }\InformationTok{: valeur1}\NormalTok{ ;}
+\NormalTok{    prop2 }\InformationTok{: valeur2}\NormalTok{ ;}
+    \FunctionTok{...}
+\NormalTok{    propk : valeurk }\OperatorTok{;}\NormalTok{ \}}
+\end{Highlighting}
+\end{Shaded}
+
+avec ici \(n\) sélecteurs et \(k\) propriétés.
+\begin{eleve}
+    \textbf{Comparer} l'effet des sélecteurs suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{div}\PreprocessorTok{\#menu}\NormalTok{ li a \{ }\KeywordTok{color}\NormalTok{: }\ConstantTok{pink} \OperatorTok{;} \KeywordTok{background}\NormalTok{: }\ConstantTok{yellow}\OperatorTok{;}\NormalTok{ \}}
+\end{Highlighting}
+\end{Shaded}
+
+et
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{div }\PreprocessorTok{\#menu}\NormalTok{ li a \{ }\KeywordTok{color}\NormalTok{: }\ConstantTok{pink} \OperatorTok{;} \KeywordTok{background}\NormalTok{: }\ConstantTok{yellow}\OperatorTok{;}\NormalTok{ \}}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}\begin{reponse}
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  On souhaite trouver tous les liens
+  (\texttt{\textless{}a\textgreater{}}) qui sont à l'intérieur des
+  éléments \texttt{\textless{}li\textgreater{}} qui sont eux-mêmes à
+  l'intérieur de l'unique balise \texttt{div} dont l'identifiant est
+  \texttt{menu}.
+\item
+  On cherche l'unique élément dont l'identifiant est \texttt{menu} s'il
+  est contenu dans une balise \texttt{div} quelconque. Cet élément n'est
+  pas forcément une balise \texttt{div}
+\end{enumerate}
+
+Ce qui donne :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  sélectionne l'élément tel quel :
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}div id="menu"}\OperatorTok{\textgreater{}}\NormalTok{Contenu sélectionné\textless{}/div}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  sélectionne l'élément \texttt{p} :
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}div}\OperatorTok{\textgreater{}}
+    \FunctionTok{...}
+\NormalTok{    \textless{}p id="menu"}\OperatorTok{\textgreater{}}\NormalTok{Contenu sélectionné\textless{}/p}\OperatorTok{\textgreater{}}
+    \FunctionTok{...}
+\NormalTok{\textless{}/div}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+            \end{reponse}
+    \hypertarget{cascade}{%
+\paragraph{Cascade ?}\label{cascade}}
+
+    Enfin, si plusieurs style s'appliquent successivement à un même élément
+:
+
+\begin{itemize}
+\tightlist
+\item
+  les effets \textbf{se cumulent}
+\item
+  et en cas de conflit c'est une règle compliquée\ldots{} Pour les cas
+  simples, c'est le dernier style rencontré qui est appliqué.
+\end{itemize}
 
 
     % Add a bibliography block to the postdoc
