@@ -1,0 +1,85 @@
+{
+    "AccessControl": {
+        "AccessControlRulesProcessingEnabled": "true",
+        "AccessRestrictedToUserGroups": "false",
+        "AuthorizedUserGroups": null,
+        "DomainGroupsEnabled": "true",
+        "UserGroupsBackend": "2917cdeb-ac13-4099-8715-20368254a367"
+    },
+    "BuiltinDirectory": {
+        "NetworkObjects": {
+            "JsonStoreArray": [
+                {
+                    "Name": "202",
+                    "Type": 2,
+                    "Uid": "{b55d12a7-16e6-480a-9b36-38aea1a5a2bd}"
+                },
+                {
+                    "Name": "veil-debian-01",
+                    "ParentUid": "{b55d12a7-16e6-480a-9b36-38aea1a5a2bd}",
+                    "Type": 3,
+                    "Uid": "{f0a11b13-9aa0-41ff-8365-42a943d5cc8b}"
+                },
+                {
+                    "Name": "veil-debian-14",
+                    "ParentUid": "{b55d12a7-16e6-480a-9b36-38aea1a5a2bd}",
+                    "Type": 3,
+                    "Uid": "{33da89bc-43ca-4f0e-b984-aa245459133f}"
+                }
+            ]
+        }
+    },
+    "Core": {
+        "ApplicationVersion": 5,
+        "InstallationID": "594a8c02-890c-4573-9277-1ed7e4bad528",
+        "PluginVersions": {
+            "JsonStoreObject": {
+                "{14bacaaa-ebe5-449c-b881-5b382f952571}": "1.1",
+                "{1b08265b-348f-4978-acaa-45d4f6b90bd9}": "1.1",
+                "{1bdb0d1c-f8eb-4d21-a093-d555a10f3975}": "1.1",
+                "{2917cdeb-ac13-4099-8715-20368254a367}": "1.1",
+                "{2ad98ccb-e9a5-43ef-8c4c-876ac5efbcb1}": "1.1",
+                "{387a0c43-1355-4ff6-9e1f-d098e9ce5127}": "1.1",
+                "{39d7a07f-94db-4912-aa1a-c4df8aee3879}": "1.1",
+                "{4122e8ca-b617-4e36-b851-8e050ed2d82e}": "1.2",
+                "{4790bad8-4c56-40d5-8361-099a68f0c24b}": "1.1",
+                "{63928a8a-4c51-4bfd-888e-9e13c6f3907a}": "1.1",
+                "{67dfc1c1-8f37-4539-a298-16e74e34fd8b}": "1.1",
+                "{6f0a491e-c1c6-4338-8244-f823b0bf8670}": "1.2",
+                "{85f6c631-e75a-4c78-8cb2-a7f3f502015a}": "1.1",
+                "{8ae6668b-9c12-4b29-9bfc-ff89f6604164}": "1.1",
+                "{a54ee018-42bf-4569-90c7-0d8470125ccf}": "1.1",
+                "{b47bcae0-24ff-4bf5-869c-484d64af5c4c}": "1.1",
+                "{d4bb9c42-9eef-4ecb-8dd5-dfd84b355481}": "1.0",
+                "{ee322521-f4fb-482d-b082-82a79003afa7}": "1.1"
+            }
+        }
+    },
+    "LDAP": {
+        "ComputerLocationAttribute": "",
+        "ComputerLocationsByAttribute": "false",
+        "ComputerLocationsByContainer": "false",
+        "LocationNameAttribute": "",
+        "UserLoginNameAttribute": ""
+    },
+    "Master": {
+        "AllowAddingHiddenLocations": "false",
+        "AutoAdjustMonitoringIconSize": false,
+        "AutoOpenComputerSelectPanel": "false",
+        "AutoSelectCurrentLocation": "false",
+        "ConfirmUnsafeActions": "false",
+        "HideComputerFilter": false,
+        "HideEmptyLocations": "false",
+        "HideLocalComputer": false,
+        "ShowCurrentLocationOnly": "false"
+    },
+    "Network": {
+        "VeyonServerPort": 11100
+    },
+    "NetworkObjectDirectory": {
+        "Plugin": "14bacaaa-ebe5-449c-b881-5b382f952571"
+    },
+    "Service": {
+        "RemoteConnectionNotifications": "true"
+    }
+}
