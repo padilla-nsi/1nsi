@@ -1,4 +1,12 @@
-# Prévision de progressions - Première NSI
+# Roadmap 1NSI 2021-22
+
+## Cahier de texte
+
+### lundi 6 septembre
+
+
+
+## Prévision de progressions - Première NSI
 
 L'année scolaire est composée de 34 semaines partagées en 5 périodes :
 
@@ -18,13 +26,13 @@ Durant **chaque période**, il y aura :
 
 | n° semaines | activité                                                                                           |
 | :---------: | :------------------------------------------------------------------------------------------------- |
-|     36      | chapitre 1 - [HTML et CSS](#html-et-css)                                                           |
-|     37      | chapitre 2.1 - [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks) |
-|     38      | chapitre 2.2 - [Boucle bornée : `for`](#boucle-bornée--for)                                        |
-|     39      | DS </br> **Projet.1 - début**                                                                      |
-|     40      | chapitre 2.3 - [Comparaison, booléens, tests : `if`](#comparaison-booléens-tests--if)              |
-|     41      | chapitre 2.4 - [Fonctions](#fonctions)                                                             |
-|     42      | chapitre 3 - [Objets connectés](#objets-connectés)</br> **Projet.1 - étape**                       |
+|     2      | chapitre 1 - [HTML et CSS](#html-et-css)                                                           |
+|     3      | chapitre 2.1 - [Programmer en Python avec les Notebooks](#programmer-en-python-avec-les-notebooks) |
+|     4      | chapitre 2.2 - [Boucle bornée : `for`](#boucle-bornée--for)                                        |
+|     5      | DS </br> **Projet.1 - début**                                                                      |
+|     6      | chapitre 2.3 - [Comparaison, booléens, tests : `if`](#comparaison-booléens-tests--if)              |
+|     7      | chapitre 2.4 - [Fonctions](#fonctions)                                                             |
+|     8      | chapitre 3 - [Objets connectés](#objets-connectés)</br> **Projet.1 - étape**                       |
 
 ---
 
@@ -32,12 +40,12 @@ Durant **chaque période**, il y aura :
 
 | n° semaines | activité                                                                                                         |
 | :---------: | :--------------------------------------------------------------------------------------------------------------- |
-|     45      | chapitre 4.1 - [Représentation des entiers](#représentation-des-entiers)</br> **Projet.1 - rendu**               |
-|     46      | chapitre 4.2 - [Représentation approximative des nombres réels](#représentation-approximative-des-nombres-réels) |
-|     47      | chapitre 4.3 - [Représentation des textes](#représentation-des-textes)                                           |
-|     48      | DS </br> **Projet.2 - début**                                                                                    |
-|     49      | chapitre 5.1 - [Renvoyer plusieurs résultats et n-uplets](#renvoyer-plusieurs-résultats-et-n-uplets)             |
-|     50      | chapitre 5.2 - [Tableaux : `[]`](#tableaux--)</br> **Projet.2 - étape**                                          |
+|     11      | chapitre 4.1 - [Représentation des entiers](#représentation-des-entiers)</br> **Projet.1 - rendu**               |
+|     12      | chapitre 4.2 - [Représentation approximative des nombres réels](#représentation-approximative-des-nombres-réels) |
+|     13      | chapitre 4.3 - [Représentation des textes](#représentation-des-textes)                                           |
+|     14      | DS </br> **Projet.2 - début**                                                                                    |
+|     15      | chapitre 5.1 - [Renvoyer plusieurs résultats et n-uplets](#renvoyer-plusieurs-résultats-et-n-uplets)             |
+|     16      | chapitre 5.2 - [Tableaux : `[]`](#tableaux--)</br> **Projet.2 - étape**                                          |
 
 ---
 
