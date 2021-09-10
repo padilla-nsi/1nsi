@@ -2,8 +2,6 @@
 
 ## Cahier de texte
 
-### lundi 6 septembre
-
 
 
 ## Prévision de progressions - Première NSI
