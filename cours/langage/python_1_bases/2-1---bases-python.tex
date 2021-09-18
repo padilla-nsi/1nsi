@@ -540,13 +540,28 @@ des blocs de code :
     La page de ce cours consultable à l'adresse \url{https://pa.dilla.fr/15}
 \textbf{est un notebook}.
 
+    Dans le notebook, ceci est un bloc de texte avec des mots en
+\emph{italiques} et d'autres en \textbf{gras}.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Ceci est un bloc de CODE.}
+\PY{c+c1}{\PYZsh{} Les lignes qui commencent pas un \PYZsh{} sont des commentaires}
+\PY{c+c1}{\PYZsh{} Les commentaires ne seront pas interprétés par Python}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dans le notebook, ceci est un bloc de code}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
     Dans la suite, tu vas apprendre quelques manipulations sur les notebooks
 et revoir des éléments \textbf{essentiels} de Python.
 
-    \textbf{Accède} à la version \emph{notebook} de ce chapitre et
-\textbf{corrige} la faute d'aurthografe de ce bloc de texte.
+    Comment modifier un bloc de texte ou de code ?
 
-Pour cela tu peux :
+Pour cela tu peux utiliser la souris ou le clavier :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -574,9 +589,12 @@ Pour cela tu peux :
     \texttt{\textless{}}↓\texttt{\textgreater{}} pour sélectionner le
     bloc de texte à modifier
   \item
-    appuyer sur Entrée pour \emph{éditer} le bloc
+    appuyer sur \texttt{\textless{}Entrée\textgreater{}} pour
+    \emph{éditer} le bloc
   \item
-    modifier/corriger le texte puis au choix :
+    modifier/corriger le texte
+  \item
+    pour interpréter le résultats tu peux utiliser au choix :
 
     \begin{itemize}
     \tightlist
@@ -590,13 +608,350 @@ Pour cela tu peux :
   \end{itemize}
 \end{enumerate}
 
+    \textbf{Accède} à la version \emph{notebook} de ce chapitre.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Corrige} la faute d'aurthografe de ce bloc de texte.
+\item
+  \textbf{Écris} dans le bloc de code ci-dessous les trois caractères
+  \texttt{1+2} puis fait calculer le résultats par l'interprète Python.
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Dans un notebook, tu peux ajouter autant de bloc que tu le souhaites.
+Pour cela,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  tu peux utiliser dans les outils le bouton \texttt{+}
+  \includegraphics{res/tuto-01.png}.
+\item
+  Si tu souhaites que le bloc soit du code, sélectionne \texttt{Code}
+  dans la liste déroulante.
+\item
+  Si tu souhaites un bloc de texte, sélectionne alors \texttt{Markdown}.
+\end{enumerate}
+
+\includegraphics{res/tuto-02.png}
+
     \hypertarget{arithmuxe9tique}{%
 \subsubsection{1.2 --- Arithmétique}\label{arithmuxe9tique}}
 
-    
+    En Python, on peut saisir des combinaires arbitraires d'opérations
+arithmétiques, en utilisant notamment les quatre opérations les plus
+communes.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{2} \PY{o}{+} \PY{l+m+mi}{5} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{10} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Quelques remarques
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Les symboles des quatre opérations sont \texttt{+} (addition),
+  \texttt{-} (soustraction), \texttt{*} (multiplication) et \texttt{/}
+  (division).
+\item
+  La priorité des opérations est usuelle et on peut utiliser les
+  parenthèses.
+\item
+  Les espaces sont purement décoratifs : ils rendent plus lisibles mais
+  n'agissent pas sur la priorité des opérations
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{1}\PY{o}{+}\PY{l+m+mi}{2}     \PY{o}{*} \PY{l+m+mi}{3}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Remarque bien que l'interprète Python n'accepte pas les expressions qui
+sont mal formées ou comportent des erreurs.
+
+    Dans le bloc de code ci-dessous, \textbf{écris} \texttt{1\ +\ *\ 2}.
+
+\textbf{Indique} le type d'erreur affiché.
+
+    Lorsque l'on fait des erreurs de syntaxe car l'expression est mal
+formée, l'interprète affiche \texttt{SyntaxError}. Pour aider
+l'utilisateur, l'interprète montre l'endroit exact de l'erreur avec le
+symbole \texttt{\^{}} qui pointe sous le \texttt{*}.
+
+    \emph{Pour répondre aux questions suivantes, tu peux ajouter des blocs
+de texte ou des blocs de code\ldots{}}
+
+En mathématique, est-il possible de \textbf{diviser un nombre par zéro}
+?
+
+Et en \textbf{Python} ?
+
+    \hypertarget{les-nombres}{%
+\subsubsection{1.3 --- Les nombres}\label{les-nombres}}
+
+    En Python, les nombres sont de deux \emph{types} :
+
+\begin{itemize}
+\tightlist
+\item
+  soit des \textbf{entiers relatifs} (appelés \emph{entiers})
+\item
+  soit des \textbf{nombres décimaux} (appelés \emph{flottants}).
+\end{itemize}
+
+    Attention, les nombres flottans s'écrivent à \emph{l'anglo-saxonne} avec
+un point \texttt{.}. Par exemple le nombre \(1,2\) s'écrit en Python
+\texttt{1.2}
+
+    \textbf{Indique} ce qu'affiche les commandes suivantes :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Commande 1 : \texttt{1,2\ +\ 3,4}.
+\item
+  Commande 2 : \texttt{1,2\ *\ 3}
+\end{enumerate}
+
+\textbf{D'après toi}, à quoi sert le symbole virgule \texttt{,} en
+Python ?
+
+    En Python :
+
+\begin{itemize}
+\tightlist
+\item
+  les \emph{entiers} sont de \textbf{taille arbitraire} ;
+\item
+  les \emph{flottants} en revanche ont une \textbf{capacité limitée} et
+  sont souvent des approximations qui ne représentent alors qu'une
+  partie des nombres décimaux.
+\end{itemize}
+
+Quand tu en as le choix, travaille de préférence avec les entiers.
+
+    \hypertarget{autres-opuxe9rations}{%
+\subsubsection{1.4 --- Autres opérations}\label{autres-opuxe9rations}}
+
+    \textbf{Détermine} le type de nombre que l'on obtient lorsque l'on
+divise entre eux deux nombres entiers.
+
+    La division avec l'opération \texttt{/} donne un nombre flottant. Ainsi
+\texttt{10/2} donne \texttt{5.0} et \texttt{7/2} donne \texttt{3.5}. Ces
+deux résultats sont de types \emph{flottant} car ils sont écrits avec
+une virgule.
+
+    \textbf{Effectue} \emph{à la main} les divisions euclidiennes :
+
+\begin{itemize}
+\tightlist
+\item
+  \(\frac 72\)
+\item
+  \(\frac {98}{10}\)
+\end{itemize}
+
+    \(7/2\) donne \(3\) et il reste \(1\). L'égalité \(7 = 3 \times 2 + 1\)
+est vérifiée.
+
+\(98 / 10\) donne \(9\) et il reste \(8\). L'égalité
+\(98 = 9 \times 10 + 8\) est vérifiée.
+
+    Pour effectuer la \textbf{division entière}, il faut utiliser
+l'opération \texttt{//}.
+
+\texttt{a\ //\ b} peut être vu comme le plus grand nombre entier
+inférieur ou égal à \(a/b\).
+
+Pour obtenir le \textbf{reste de la division euclidienne}, on utilise
+l'opération \texttt{\%} (qui se dit \emph{``modulo''}).
+
+    \textbf{Vérifie} à l'aide des opérations \emph{division entière} et
+\emph{modulo} les résultats de l'activité précédente.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{7}\PY{o}{/}\PY{o}{/}\PY{l+m+mi}{2}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{7}\PY{o}{\PYZpc{}}\PY{k}{2}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{98} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{10}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{98} \PY{o}{\PYZpc{}} \PY{l+m+mi}{10}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    L'opération \texttt{**} calcule la \emph{puissance} d'un nombre.
+
+Ainsi, \(10^{3}\) s'écrit \texttt{10\ **\ 3}.
+
+    \textbf{Calculer} dans un bloc de code \(2 ^{1024}\).
+
+Dans un autre bloc de code, \textbf{calculer} \(2,0 ^ {1024}\).
+
+\textbf{Propose} une explication à tes observations.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{1024}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+m+mf}{2.0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{1024}
+\end{Verbatim}
+\end{tcolorbox}
+    }
 
     \hypertarget{variables}{%
 \subsubsection{1.3 --- Variables}\label{variables}}
+
+    Les résultats calculés peuvent être \textbf{mémorisés} afin d'être
+utilisés plus tard.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{+} \PY{l+m+mi}{1}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    La notation \texttt{a\ =} permet de donner un nom à l'information
+mémorisée. Ici, l'interprète Python calcule le résultat de
+\texttt{1\ +\ 1} et le mémorise dans la \textbf{variable} \texttt{a}.
+
+Aucun résultat n'est affiché. On accède à la valeur mémorisée en
+utilisant le nom \texttt{a}.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{a}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Affiche maintenant le résultat du calcul \texttt{a\ *\ (a\ +\ 1)}.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{a} \PY{o}{*} \PY{p}{(}\PY{n}{a}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Le symbole \texttt{=} utilisé pour définir la variable \texttt{a}
+désigne une opération d'\textbf{affectation}.
+
+Ce symbole attend à \emph{gauche} un nom de variable et à \emph{droite}
+une expression.
+
+On peut donner une nouvelle valeur à la variable \texttt{a} avec une
+nouvelle affectation. Cette valeur \emph{remplace} la précédente.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{a} \PY{o}{=} \PY{l+m+mi}{3}
+\PY{n}{a} \PY{o}{*} \PY{p}{(}\PY{n}{a}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Le calcul de la nouvelle valeur de \texttt{a} peut utiliser la valeur
+courante de \texttt{a}.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{a} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{l+m+mi}{1}
+\PY{n}{a}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Un nom de variable peut être formé de plusieurs caractères (lettre,
+chiffres et tiret bas). Il est recommandé de :
+
+\begin{itemize}
+\tightlist
+\item
+  ne pas utilisé de caractères accentués
+\item
+  se limiter aux caractères minuscules.
+\end{itemize}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cube} \PY{o}{=} \PY{n}{a} \PY{o}{*} \PY{n}{a} \PY{o}{*} \PY{n}{a}
+\PY{n}{ma\PYZus{}variable} \PY{o}{=} \PY{l+m+mi}{42}
+\PY{n}{ma\PYZus{}variable2} \PY{o}{=} \PY{l+m+mi}{2021}
+\end{Verbatim}
+\end{tcolorbox}
+    }
 
     \hypertarget{uxe9tat}{%
 \subsubsection{1.4 --- État}\label{uxe9tat}}
