@@ -465,7 +465,7 @@
       citecolor=citecolor,
       }
     % Slightly bigger margins than the latex defaults
-    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_ico_langage}\ttfamily\scshape Langage}\fancyhead[C]{\bfseries\MakeUppercase{2-1---bases-python}}\fancyhead[C]{\bfseries\MakeUppercase{2 --- Modularité}}\fancyhead[R]{\monthyeardate\today}
+    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_ico_langage}\ttfamily\scshape Langage}\fancyhead[C]{\bfseries\MakeUppercase{2-1---bases-python}}\fancyhead[C]{\bfseries\MakeUppercase{2 --- Programmer en Python}}\fancyhead[R]{\monthyeardate\today}
 
     \fancyfoot[C]{\thepage}
     % #TODO ajouter les pages totales
@@ -476,7 +476,7 @@
 
 \begin{document}
     
-    \title{2 --- Modularité}
+    \title{2 --- Programmer en Python}
 % \maketitle
 
     
@@ -489,18 +489,20 @@
 2 --- Programmer en Python
 (\href{https://pa.dilla.fr/15}{pa.dilla.fr/15}
 \protect\includegraphics{res/qr-basthon.png})}{Chap. 2 --- Programmer en Python (pa.dilla.fr/15 )}}\label{chap.-2-programmer-en-python-pa.dilla.fr15}}
-
+\begin{eleve}
     D'après toi, pourquoi HTML et CSS ne sont \textbf{pas} des langages de
 programmation ?
-
+        
+        \end{eleve}\begin{reponse}
     HTML et CSS sont incapables d'effectuer le moindre calcul.
 
 On peut aussi remarquer qu'il manque des instructions essentielles comme
 les répétitions, les branchements conditionnels ou encore les
 affectations.
 
+        \end{reponse}
     Python est un langage de programmation qui peut être utilisé de
-différentes façon. Dans ce cours nous verrons :
+différentes façon. Dans ce cours tu verras :
 
 \begin{itemize}
 \tightlist
@@ -536,13 +538,11 @@ des blocs de code :
   d'exécuter du code Python. L'interprète Python est chargé avec la page
   HTML puis ensuite il calcule et affiche les résultats.
 \end{itemize}
-
+\begin{exemple}
     La page de ce cours consultable à l'adresse \url{https://pa.dilla.fr/15}
 \textbf{est un notebook}.
 
-    Dans le notebook, ceci est un bloc de texte avec des mots en
-\emph{italiques} et d'autres en \textbf{gras}.
-
+        \end{exemple}\begin{exemple}
         {\scriptsize
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -550,18 +550,19 @@ des blocs de code :
 \PY{c+c1}{\PYZsh{} Ceci est un bloc de CODE.}
 \PY{c+c1}{\PYZsh{} Les lignes qui commencent pas un \PYZsh{} sont des commentaires}
 \PY{c+c1}{\PYZsh{} Les commentaires ne seront pas interprétés par Python}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{} Les blocs de code se reconnaissent facilement car ils}
+\PY{c+c1}{\PYZsh{} possèdent une indication dans la marge \PYZdq{}In []\PYZdq{} ou \PYZdq{}Entrée []\PYZdq{}}
+\PY{c+c1}{\PYZsh{} Si le bloc a été exécuté, alors un compteur apparait dans \PYZdq{}[...]\PYZdq{}}
 
 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dans le notebook, ceci est un bloc de code}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
     }
 
-    Dans la suite, tu vas apprendre quelques manipulations sur les notebooks
-et revoir des éléments \textbf{essentiels} de Python.
-
-    Comment modifier un bloc de texte ou de code ?
-
-Pour cela tu peux utiliser la souris ou le clavier :
+        \end{exemple}
+    Pour \textbf{modifier un bloc de texte ou de code} tu peux utiliser la
+souris ou le clavier :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -576,8 +577,9 @@ Pour cela tu peux utiliser la souris ou le clavier :
   \item
     modifier/corriger le texte
   \item
-    cliquer sur le bouton \texttt{Run} pour interpréter ce bloc et
-    sortir du mode \emph{édition}
+    cliquer sur le bouton \(\fbox{\texttt{Run}}\) ou
+    \(\fbox{\texttt{Exécuter}}\) pour interpréter ce bloc et sortir du
+    mode \emph{édition}
   \end{itemize}
 \item
   méthode au clavier :
@@ -607,30 +609,18 @@ Pour cela tu peux utiliser la souris ou le clavier :
     \end{itemize}
   \end{itemize}
 \end{enumerate}
+\begin{remarque}
+    Souvent quand on ouvre un notebook, aucun bloc de code n'a été exécuté.
+il faut donc passer \emph{dans l'ordre} par tous les blocs de code et
+les exécuter.
 
-    \textbf{Accède} à la version \emph{notebook} de ce chapitre.
+C'est pourquoi, quand on lit notebook, il est pratique d'utiliser le
+raccourcis clavier
+\texttt{\textless{}Shift\textgreater{}\ +\ \textless{}Entrée\textgreater{}}
+permettant de passer d'un bloc au suivant.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Corrige} la faute d'aurthografe de ce bloc de texte.
-\item
-  \textbf{Écris} dans le bloc de code ci-dessous les trois caractères
-  \texttt{1+2} puis fait calculer le résultats par l'interprète Python.
-\end{enumerate}
-
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-
-\end{Verbatim}
-\end{tcolorbox}
-    }
-
-    Dans un notebook, tu peux ajouter autant de bloc que tu le souhaites.
-Pour cela,
+        \end{remarque}
+    Pour \textbf{ajouter des blocs} (de code ou de texte) :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -646,23 +636,36 @@ Pour cela,
 \end{enumerate}
 
 \includegraphics{res/tuto-02.png}
+\begin{eleve}
+    \textbf{Accède} à la version \emph{notebook} de ce chapitre.
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Corrige} la faute d'aurthografe de ce bloc de texte.
+\item
+  \textbf{Ajoute} juste en dessous un bloc de code et \textbf{écris} y :
+  \texttt{1+2}.
+\item
+  Puis fait \textbf{calculer} le résultats par l'interprète Python.
+\end{enumerate}
+        
+        \end{eleve}
     \hypertarget{arithmuxe9tique}{%
 \subsubsection{1.2 --- Arithmétique}\label{arithmuxe9tique}}
 
     En Python, on peut saisir des combinaires arbitraires d'opérations
 arithmétiques, en utilisant notamment les quatre opérations les plus
 communes.
+\begin{exemple}
+    \begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2} \OperatorTok{+} \DecValTok{5} \OperatorTok{*}\NormalTok{ (}\DecValTok{10} \OperatorTok{{-}} \DecValTok{1} \OperatorTok{/} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{2} \PY{o}{+} \PY{l+m+mi}{5} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{10} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-    }
-
+        \end{exemple}\begin{remarque}
     Quelques remarques
 
 \begin{enumerate}
@@ -680,6 +683,7 @@ communes.
   n'agissent pas sur la priorité des opérations
 \end{enumerate}
 
+        \end{remarque}\begin{exemple}
         {\scriptsize
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -689,18 +693,21 @@ communes.
 \end{tcolorbox}
     }
 
+        \end{exemple}
     Remarque bien que l'interprète Python n'accepte pas les expressions qui
 sont mal formées ou comportent des erreurs.
-
+\begin{eleve}
     Dans le bloc de code ci-dessous, \textbf{écris} \texttt{1\ +\ *\ 2}.
 
 \textbf{Indique} le type d'erreur affiché.
-
+        
+        \end{eleve}\begin{reponse}
     Lorsque l'on fait des erreurs de syntaxe car l'expression est mal
 formée, l'interprète affiche \texttt{SyntaxError}. Pour aider
 l'utilisateur, l'interprète montre l'endroit exact de l'erreur avec le
 symbole \texttt{\^{}} qui pointe sous le \texttt{*}.
 
+        \end{reponse}\begin{eleve}
     \emph{Pour répondre aux questions suivantes, tu peux ajouter des blocs
 de texte ou des blocs de code\ldots{}}
 
@@ -708,10 +715,11 @@ En mathématique, est-il possible de \textbf{diviser un nombre par zéro}
 ?
 
 Et en \textbf{Python} ?
-
+        
+        \end{eleve}
     \hypertarget{les-nombres}{%
 \subsubsection{1.3 --- Les nombres}\label{les-nombres}}
-
+\begin{retenir}
     En Python, les nombres sont de deux \emph{types} :
 
 \begin{itemize}
@@ -722,10 +730,11 @@ Et en \textbf{Python} ?
   soit des \textbf{nombres décimaux} (appelés \emph{flottants}).
 \end{itemize}
 
+        \end{retenir}\begin{remarque}
     Attention, les nombres flottans s'écrivent à \emph{l'anglo-saxonne} avec
-un point \texttt{.}. Par exemple le nombre \(1,2\) s'écrit en Python
-\texttt{1.2}
+un point \texttt{3.14} à la place de la virgule \(3,14\).
 
+        \end{remarque}\begin{eleve}
     \textbf{Indique} ce qu'affiche les commandes suivantes :
 
 \begin{enumerate}
@@ -739,7 +748,8 @@ un point \texttt{.}. Par exemple le nombre \(1,2\) s'écrit en Python
 
 \textbf{D'après toi}, à quoi sert le symbole virgule \texttt{,} en
 Python ?
-
+        
+        \end{eleve}
     En Python :
 
 \begin{itemize}
@@ -751,112 +761,80 @@ Python ?
   sont souvent des approximations qui ne représentent alors qu'une
   partie des nombres décimaux.
 \end{itemize}
+\begin{retenir}
+    Quand tu en as le choix, travaille de préférence avec les entiers.
 
-Quand tu en as le choix, travaille de préférence avec les entiers.
-
+        \end{retenir}
     \hypertarget{autres-opuxe9rations}{%
 \subsubsection{1.4 --- Autres opérations}\label{autres-opuxe9rations}}
-
+\begin{eleve}
     \textbf{Détermine} le type de nombre que l'on obtient lorsque l'on
 divise entre eux deux nombres entiers.
-
+        
+        \end{eleve}\begin{reponse}
     La division avec l'opération \texttt{/} donne un nombre flottant. Ainsi
 \texttt{10/2} donne \texttt{5.0} et \texttt{7/2} donne \texttt{3.5}. Ces
 deux résultats sont de types \emph{flottant} car ils sont écrits avec
 une virgule.
 
-    \textbf{Effectue} \emph{à la main} les divisions euclidiennes :
-
-\begin{itemize}
-\tightlist
-\item
-  \(\frac 72\)
-\item
-  \(\frac {98}{10}\)
-\end{itemize}
-
+        \end{reponse}\begin{eleve}
+    \textbf{Effectue} \emph{à la main} les divisions euclidiennes \(7 / 2\)
+et \({98} / {10}\).
+        
+        \end{eleve}\begin{reponse}
     \(7/2\) donne \(3\) et il reste \(1\). L'égalité \(7 = 3 \times 2 + 1\)
 est vérifiée.
 
 \(98 / 10\) donne \(9\) et il reste \(8\). L'égalité
 \(98 = 9 \times 10 + 8\) est vérifiée.
 
+        \end{reponse}\begin{retenir}
     Pour effectuer la \textbf{division entière}, il faut utiliser
 l'opération \texttt{//}.
 
-\texttt{a\ //\ b} peut être vu comme le plus grand nombre entier
+Ainsi, \texttt{a\ //\ b} peut être vu comme le plus grand nombre entier
 inférieur ou égal à \(a/b\).
 
-Pour obtenir le \textbf{reste de la division euclidienne}, on utilise
+        \end{retenir}\begin{retenir}
+    Pour obtenir le \textbf{reste de la division euclidienne}, on utilise
 l'opération \texttt{\%} (qui se dit \emph{``modulo''}).
 
+        \end{retenir}\begin{eleve}
     \textbf{Vérifie} à l'aide des opérations \emph{division entière} et
 \emph{modulo} les résultats de l'activité précédente.
+        
+        \end{eleve}\begin{reponse}
+    Utiliser quatre blocs de code pour afficher les résultats des calculs
+suivants :
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{7}\PY{o}{/}\PY{o}{/}\PY{l+m+mi}{2}
-\end{Verbatim}
-\end{tcolorbox}
-    }
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{7}\OperatorTok{//}\DecValTok{2}
+\DecValTok{7} \OperatorTok{\%} \DecValTok{2}
+\DecValTok{98} \OperatorTok{//} \DecValTok{10}
+\DecValTok{98} \OperatorTok{\%} \DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{7}\PY{o}{\PYZpc{}}\PY{k}{2}
-\end{Verbatim}
-\end{tcolorbox}
-    }
+        \end{reponse}\begin{retenir}
+    L'opération \texttt{**} calcule la \textbf{puissance} d'un nombre.
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{98} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{10}
-\end{Verbatim}
-\end{tcolorbox}
-    }
+Ainsi, \(10^{3}\) s'écrit \texttt{10**3}.
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{98} \PY{o}{\PYZpc{}} \PY{l+m+mi}{10}
-\end{Verbatim}
-\end{tcolorbox}
-    }
-
-    L'opération \texttt{**} calcule la \emph{puissance} d'un nombre.
-
-Ainsi, \(10^{3}\) s'écrit \texttt{10\ **\ 3}.
-
-    \textbf{Calculer} dans un bloc de code \(2 ^{1024}\).
-
-Dans un autre bloc de code, \textbf{calculer} \(2,0 ^ {1024}\).
+        \end{retenir}\begin{eleve}
+    \textbf{Calcule} dans un bloc de code \(2 ^{1024}\) puis dans un autre
+bloc de code : \((2,0) ^ {1024}\).
 
 \textbf{Propose} une explication à tes observations.
+        
+        \end{eleve}\begin{reponse}
+    \texttt{2**1024} est un nombre entier et se calcule correctement.
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{1024}
-\end{Verbatim}
-\end{tcolorbox}
-    }
+En revance, \texttt{2.0**1024} est un nombre flottant trop grand pour
+être calculé. \texttt{OverfflowError} indique que le résultat est hors
+intervalle.
 
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mf}{2.0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{1024}
-\end{Verbatim}
-\end{tcolorbox}
-    }
-
+        \end{reponse}
     \hypertarget{variables}{%
 \subsubsection{1.3 --- Variables}\label{variables}}
 
@@ -888,7 +866,8 @@ utilisant le nom \texttt{a}.
 \end{tcolorbox}
     }
 
-    Affiche maintenant le résultat du calcul \texttt{a\ *\ (a\ +\ 1)}.
+    Le bloc ci-dessous affiche le résultat du calcul
+\texttt{a\ *\ (a\ +\ 1)} :
 
         {\scriptsize
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -898,7 +877,7 @@ utilisant le nom \texttt{a}.
 \end{Verbatim}
 \end{tcolorbox}
     }
-
+\begin{retenir}
     Le symbole \texttt{=} utilisé pour définir la variable \texttt{a}
 désigne une opération d'\textbf{affectation}.
 
@@ -908,6 +887,7 @@ une expression.
 On peut donner une nouvelle valeur à la variable \texttt{a} avec une
 nouvelle affectation. Cette valeur \emph{remplace} la précédente.
 
+        \end{retenir}
         {\scriptsize
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -930,7 +910,7 @@ courante de \texttt{a}.
 \end{Verbatim}
 \end{tcolorbox}
     }
-
+\begin{remarque}
     Un nom de variable peut être formé de plusieurs caractères (lettre,
 chiffres et tiret bas). Il est recommandé de :
 
@@ -942,6 +922,7 @@ chiffres et tiret bas). Il est recommandé de :
   se limiter aux caractères minuscules.
 \end{itemize}
 
+        \end{remarque}
         {\scriptsize
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -952,25 +933,27 @@ chiffres et tiret bas). Il est recommandé de :
 \end{Verbatim}
 \end{tcolorbox}
     }
-
+\begin{retenir}
     Une variable peut être imaginée comme un \textbf{emplacement en mémoire}
 portant une \textbf{étiquette} et contenant une \textbf{valeur}.
 
-Ainsi, on peut représenter la variable déclarée par \texttt{x\ =\ 1}
-comme un emplacement appelé \texttt{x} et contenant la valeur \texttt{1}
-par : \(\overset{\texttt{x}}{\fbox{\texttt{1}}}\)
+        \end{retenir}\begin{exemple}
+    \texttt{x\ =\ 1} se représente par un emplacement \texttt{x} contenant
+la valeur \texttt{1}: \(\overset{\texttt{x}}{\fbox{1}}\)
 
+        \end{exemple}
     \hypertarget{uxe9tat}{%
 \subsubsection{1.4 --- État}\label{uxe9tat}}
-
+\begin{retenir}
     L'ensemble des associations entre des noms de variables et des valeurs
 constitue \textbf{l'état} de l'interprète Python.
 
-Cet état évolue en fonction des instructions exécutées. Les instructions
+        \end{retenir}
+    L'état évolue en fonction des instructions exécutées. Les instructions
 qui modifient l'état sont dites \emph{à effet de bord}.
-
+\begin{eleve}
     À partir de l'état
-\(\overset{\texttt{a}}{\fbox{\texttt{1}}}\overset{\texttt{b}}{\fbox{\texttt{2}}}\overset{\texttt{c}}{\fbox{\texttt{3}}}\overset{\texttt{d}}{\fbox{\texttt{-12}}}\),
+\(\overset{\texttt{a}}{\fbox{1}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}\),
 les instructions suivantes sont exécutées :
 
 \begin{Shaded}
@@ -982,61 +965,293 @@ les instructions suivantes sont exécutées :
 \end{Highlighting}
 \end{Shaded}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  l'instruction \texttt{a\ =\ c\ -\ a} est interprétée. \textbf{Écrire}
-  le nouvel état de l'interprète.
-\item
-  Ensuite, l'instruction \texttt{e\ =\ b\ +\ c} est interprétée.
-  \textbf{Écrire} le nouvel état de l'interprète après cette exécution.
-\end{enumerate}
+Après l'exécution de chaque instruction, \textbf{écrire} le nouvel état
+de l'interprète.
+        
+        \end{eleve}\begin{reponse}
+    L'instruction \texttt{a\ =\ c\ -\ a} modifie la valeur de \texttt{a} en
+fonction des valeurs de \texttt{c} et de \texttt{a}. L'état sera :
 
-    Cette instruction modifie la valeur de \texttt{a} en fonction des
-valeurs de \texttt{c} et de \texttt{a}. L'état sera :
-\(\overset{\texttt{a}}{\fbox{\texttt{2}}}\overset{\texttt{b}}{\fbox{\texttt{2}}}\overset{\texttt{c}}{\fbox{\texttt{3}}}\overset{\texttt{d}}{\fbox{\texttt{-12}}}\)
+\[
+\overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}.
+\]
 
-    \href{https://pythontutor.com/visualize.html\#code=a\%20\%3D\%201\%0Ab\%20\%3D\%202\%0Ac\%20\%3D\%203\%0Ad\%20\%3D\%20-12\%0A\%0Aa\%20\%3D\%20c\%20-\%20a\%0Ae\%20\%3D\%20b\%20\%2B\%20c\%0A\%0Ad\%20\%3D\%20a\%0Aa\%20\%3D\%207\&cumulative=true\&curInstr=0\&heapPrimitives=true\&mode=display\&origin=opt-frontend.js\&py=3\&rawInputLstJSON=\%5B\%5D\&textReferences=false}{python
-tutor}
+Puis l'instruction \texttt{e\ =\ b\ +\ c} affecte la variable \texttt{e}
+pour la première fois. Celle-ci fait donc son apparition dans l'état :
 
+\[
+\overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}\overset{\texttt{e}}{\fbox{5}}.
+\]
+
+L'instructions \texttt{d\ =\ a} affecte à \texttt{d} la valeur pointée
+par \texttt{a}. Il est important de comprendre que \texttt{a} et
+\texttt{d} sont deux emplacements différents et donc indépendants.
+Ainsi, l'instruction suivante n'aura pas d'effet sur la variable
+\texttt{d}
+
+\[
+\overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{2}}\overset{\texttt{e}}{\fbox{5}}.
+\]
+
+La dernière instruction \texttt{a\ =\ 7} affecte à la variable
+\texttt{a} la valeur \texttt{7}.
+
+\[
+\overset{\texttt{a}}{\fbox{7}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{2}}\overset{\texttt{e}}{\fbox{5}}.
+\]
+
+On peut voir une modélisation de l'état sur le site suivant :
+\href{https://pythontutor.com/visualize.html\#code=a\%20\%3D\%201\%0Ab\%20\%3D\%202\%0Ac\%20\%3D\%203\%0Ad\%20\%3D\%20-12\%0A\%0Aa\%20\%3D\%20c\%20-\%20a\%0Ae\%20\%3D\%20b\%20\%2B\%20c\%0A\%0Ad\%20\%3D\%20a\%0Aa\%20\%3D\%207\&cumulative=true\&curInstr=0\&heapPrimitives=true\&mode=display\&origin=opt-frontend.js\&py=3\&rawInputLstJSON=\%5B\%5D\&textReferences=false}{https://pythontutor.com}
+
+        \end{reponse}
     \hypertarget{le-mode-programme}{%
 \subsection{2 --- Le mode programme}\label{le-mode-programme}}
+
+Le mode programme de Python consiste à écrire une suite d'instructions
+dans un fichier et à les faire exécuter par l'interprète Python.
+
+Cette suite d'instruction s'appelle un \textbf{programme} ou encore un
+\textbf{code source}.
 
     \hypertarget{vscodium}{%
 \subsubsection{2.1 --- VSCodium}\label{vscodium}}
 
+Pour écrire des programmes, le plus simple est d'utiliser un
+\textbf{environnement de développement} (IDE). Cette année, nous allons
+essentiellement utiliser \textbf{\texttt{VSCodium}}.
+
+\begin{itemize}
+\tightlist
+\item
+  Après avoir ouvert le logiciel, créer un nouveau fichier
+  (\texttt{\textless{}Ctrl\textgreater{}\ +\ \textless{}N\textgreater{}}).
+\item
+  Sauvegarder le
+  (\texttt{\textless{}Ctrl\textgreater{}\ +\ \textless{}S\textgreater{}})
+  en donnant un nom qui a pour \emph{extension} \texttt{.py} (par
+  exemple \texttt{test.py}).
+\item
+  Puis une fois votre programme écrit, pour l'exécuter :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    en mode \emph{débogage} : \texttt{\textless{}F5\textgreater{}}
+  \item
+    en mode \emph{sans débogage} :
+    \texttt{\textless{}Ctrl\textgreater{}\ +\ \textless{}F5\textgreater{}}
+  \end{itemize}
+\end{itemize}
+
     \hypertarget{affichage}{%
 \subsubsection{2.2 --- Affichage}\label{affichage}}
+
+En mode programme, les résultats calculés ne sont plus affichés. Il faut
+utiliser pour ceci une instruction d'affichage.
+
+En Python, elle s'appelle \texttt{print}. Ainsi le programme
+\texttt{test.py} contenant l'unique ligne \texttt{print(3)} affichera
+\texttt{3}.
+
+    L'instruction \texttt{print} admet une expression arbitraire. Elle
+commence d'abord par calculer le résultat de cette expression puis
+l'affiche à l'écran.
+
+Par exemple l'instruction \texttt{print(1+3)} calcule d'abord
+l'expression \texttt{1+3} puis affiche \texttt{4} à l'écran.
 
     \hypertarget{affichage-des-textes}{%
 \subsubsection{2.3 --- Affichage des
 textes}\label{affichage-des-textes}}
 
+On peut donner à l'instruction \texttt{print} un message à afficher,
+\emph{écrit entre guillemets}.
+
+L'instruction \texttt{print("Bonjour\ tout\ le\ monde")} affiche le
+message \texttt{Bonjour\ tout\ le\ monde} à l'écran.
+\begin{retenir}
+    Le texte écrit entre guillemets est appelé une \textbf{chaîne de
+caractères}.
+
+        \end{retenir}\begin{remarque}
+    Les guillemets englobants ne sont pas affichés.
+
+Les guillemets peuvent être doubles \texttt{"..."} ou simples
+\texttt{\textquotesingle{}...\textquotesingle{}}.
+
+Les guillemets ouverts doivent être impérativement fermés sinon il y
+aura une exception (erreur) de type \texttt{syntaxError}.
+
+        \end{remarque}
+    Une chaîne de caractère est arbitraire et n'est pas interprétée par
+Python.
+\begin{eleve}
+    Indiquer ce qu'affichent les deux instructions suivantes :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{print(1+3)}
+\item
+  \texttt{print("1+3")}
+\end{itemize}
+        
+        \end{eleve}
+    Attention aux opérations avec les chaînes de caractères.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{"Hello"\ +\ 2} est une expression \textbf{invalide} car
+  l'opération \texttt{+} entre une chaîne et un entier n'a aucun sens.
+\item
+  \texttt{"Hello"\ +\ "World"} est une expression \textbf{valide} car
+  l'opération \texttt{+} entre deux chaînes de caractères les concatènes
+  (c'est-à-dire les assemble et produit une chaîne de caractère
+  contenant le texte \texttt{"HelloWorld"} (sans espace))
+\item
+  \texttt{"Hello"\ *\ "World"} est une expression \textbf{invalide} car
+  l'opération \texttt{*} n'a pas de sens entres deux chaînes de
+  caractères.
+\item
+  \texttt{"Hello"\ *\ 3} est une expression \textbf{valide} car
+  l'opération \texttt{*} entre une chaîne et un entier est définie et
+  est équivalente à concaténer \texttt{n} fois la chaîne de caractère.
+  Ici l'expression est équivalente à
+  \texttt{"Hello"\ +\ "Hello"\ +\ "Hello"} et après interprétation
+  produit comme résultat \texttt{"HelloHelloHello"}.
+\end{itemize}
+
     \hypertarget{suxe9quence-dinstructions}{%
 \subsubsection{2.4 --- Séquence
 d'instructions}\label{suxe9quence-dinstructions}}
+\begin{retenir}
+    Un programme est généralement constitué de plusieurs instructions.
+Chaque instruction est écrite sur une ligne.
 
-    
+        \end{retenir}\begin{eleve}
+    Détailler ce que produit l'exécution du programme suivant :
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \DecValTok{34}
+\NormalTok{b }\OperatorTok{=} \DecValTok{21} \OperatorTok{+}\NormalTok{ a}
+\BuiltInTok{print}\NormalTok{(a)}
+\BuiltInTok{print}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}\begin{reponse}
+    Ce programme affiche deux entiers à l'écran, sur deux lignes :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{34}
+\DecValTok{55}
+\end{Highlighting}
+\end{Shaded}
+
+        \end{reponse}\begin{remarque}
+    Pour afficher plusieurs expressions sur \textbf{une seule ligne}, il
+suffit d'utiliser une seule instruction \texttt{print} et de mettre en
+argument les expressions séparées par une virgule :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{print(a,b)} affichera les deux éléments sur la même ligne :
+  \texttt{34\ 55}
+\item
+  \texttt{print("la\ somme\ de",\ a,\ "et\ de",\ b,\ "vaut",\ a+b)}
+  affichera sur une seule ligne les 6 expressions et donnera alors :
+  \texttt{la\ somme\ de\ 34\ et\ de\ 55\ vaut\ 89}
+\end{itemize}
+
+        \end{remarque}
     \hypertarget{interagir-avec-lutilisateur}{%
 \subsubsection{2.5 --- Interagir avec
 l'utilisateur}\label{interagir-avec-lutilisateur}}
+\begin{retenir}
+    Pour permettre l'interaction du programme avec l'utilisateur, il faut
+mettre en place une \textbf{interface}.
 
+        \end{retenir}
+    L'interface la plus simple consiste à utiliser l'instruction
+\texttt{input} qui permet de récupérer des caractères tapés au clavier
+par l'utilisateur.
+
+Cette instruction interrompt l'exécution du programme et attend que la
+saisie se termine lorsque la touche
+\texttt{\textless{}Entrée\textgreater{}} est appuyée.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{saisie} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{la chaîne de caractère saisie est:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{saisie}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    La chaîne de caractère ainsi récupérée pourra être convertie, si besoin,
+en nombre entier en utilisant l'instruction \texttt{int}.
+
+    Par exemple le programme ci-dessous demande l'âge de l'utilisateur. Le
+nombre saisi est converti en nombre entier puis un calcul est effectué :
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{texte} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ton âge ?}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{age} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{texte}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dans 10 ans, tu auras}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{age}\PY{o}{+}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+\begin{eleve}
+    \textbf{Que renvoie} le programme précédent si on supprime la deuxième
+ligne?
+        
+        \end{eleve}
     \hypertarget{un-programme-complet}{%
 \subsubsection{2.6 --- Un programme
 complet}\label{un-programme-complet}}
+\begin{eleve}
+    \textbf{Écris} un programme qui demande l'année de naissance à
+l'utilisateur puis affiche l'âge qu'il aura en 2048.
 
-    \hypertarget{repruxe9sentation-de-lexuxe9cution}{%
-\subsubsection{2.7 --- Représentation de
-l'exécution}\label{repruxe9sentation-de-lexuxe9cution}}
+Pour chaque ligne du programme, \textbf{représente} l'état de
+l'interprète.
+        
+        \end{eleve}\begin{reponse}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Calcul de l\PYZsq{}âge en 2048}
+\PY{n}{saisie} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Entrez votre année de naissance : }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{annee} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{saisie}\PY{p}{)}
+\PY{n}{age} \PY{o}{=} \PY{l+m+mi}{2048} \PY{o}{\PYZhy{}} \PY{n}{annee}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Vous aurez}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{age}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ans en 2048.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
 
-    \hypertarget{exemple-de-bibliothuxe8que-turtle}{%
-\subsection{\texorpdfstring{3 --- Exemple de bibliothèque
-\texttt{Turtle}}{3 --- Exemple de bibliothèque Turtle}}\label{exemple-de-bibliothuxe8que-turtle}}
+        \end{reponse}\begin{reponse}
+    \[
+\begin{array}{cll}
+\text{ligne} & \text{état} & \text{interface}\\
+2 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}} & \text{affichage : \footnotesize\texttt{Entrez votre année de naissance : }}\\
+& & \text{saisie : \texttt{2003}}\\
+3 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\\
+4 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}}\\
+5 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}} & \text{affichage : \texttt{Vous aurez 45 ans en 2048.}}
+\end{array}
+\]
 
-    
-
+        \end{reponse}
 
     % Add a bibliography block to the postdoc
     
