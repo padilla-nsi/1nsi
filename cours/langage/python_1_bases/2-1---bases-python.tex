@@ -953,8 +953,52 @@ chiffres et tiret bas). Il est recommandé de :
 \end{tcolorbox}
     }
 
+    Une variable peut être imaginée comme un \textbf{emplacement en mémoire}
+portant une \textbf{étiquette} et contenant une \textbf{valeur}.
+
+Ainsi, on peut représenter la variable déclarée par \texttt{x\ =\ 1}
+comme un emplacement appelé \texttt{x} et contenant la valeur \texttt{1}
+par : \(\overset{\texttt{x}}{\fbox{\texttt{1}}}\)
+
     \hypertarget{uxe9tat}{%
 \subsubsection{1.4 --- État}\label{uxe9tat}}
+
+    L'ensemble des associations entre des noms de variables et des valeurs
+constitue \textbf{l'état} de l'interprète Python.
+
+Cet état évolue en fonction des instructions exécutées. Les instructions
+qui modifient l'état sont dites \emph{à effet de bord}.
+
+    À partir de l'état
+\(\overset{\texttt{a}}{\fbox{\texttt{1}}}\overset{\texttt{b}}{\fbox{\texttt{2}}}\overset{\texttt{c}}{\fbox{\texttt{3}}}\overset{\texttt{d}}{\fbox{\texttt{-12}}}\),
+les instructions suivantes sont exécutées :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ c }\OperatorTok{{-}}\NormalTok{ a}
+\NormalTok{e }\OperatorTok{=}\NormalTok{ b }\OperatorTok{+}\NormalTok{ c}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ a}
+\NormalTok{a }\OperatorTok{=} \DecValTok{7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  l'instruction \texttt{a\ =\ c\ -\ a} est interprétée. \textbf{Écrire}
+  le nouvel état de l'interprète.
+\item
+  Ensuite, l'instruction \texttt{e\ =\ b\ +\ c} est interprétée.
+  \textbf{Écrire} le nouvel état de l'interprète après cette exécution.
+\end{enumerate}
+
+    Cette instruction modifie la valeur de \texttt{a} en fonction des
+valeurs de \texttt{c} et de \texttt{a}. L'état sera :
+\(\overset{\texttt{a}}{\fbox{\texttt{2}}}\overset{\texttt{b}}{\fbox{\texttt{2}}}\overset{\texttt{c}}{\fbox{\texttt{3}}}\overset{\texttt{d}}{\fbox{\texttt{-12}}}\)
+
+    \href{https://pythontutor.com/visualize.html\#code=a\%20\%3D\%201\%0Ab\%20\%3D\%202\%0Ac\%20\%3D\%203\%0Ad\%20\%3D\%20-12\%0A\%0Aa\%20\%3D\%20c\%20-\%20a\%0Ae\%20\%3D\%20b\%20\%2B\%20c\%0A\%0Ad\%20\%3D\%20a\%0Aa\%20\%3D\%207\&cumulative=true\&curInstr=0\&heapPrimitives=true\&mode=display\&origin=opt-frontend.js\&py=3\&rawInputLstJSON=\%5B\%5D\&textReferences=false}{python
+tutor}
 
     \hypertarget{le-mode-programme}{%
 \subsection{2 --- Le mode programme}\label{le-mode-programme}}
