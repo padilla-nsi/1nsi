@@ -656,7 +656,7 @@ permettant de passer d'un bloc au suivant.
     \hypertarget{arithmuxe9tique}{%
 \subsubsection{1.2 --- Arithmétique}\label{arithmuxe9tique}}
 
-    En Python, on peut saisir des combinaires arbitraires d'opérations
+    En Python, on peut saisir des combinaisons arbitraires d'opérations
 arithmétiques, en utilisant notamment les quatre opérations les plus
 communes.
 \begin{exemple}
@@ -681,20 +681,11 @@ communes.
   parenthèses.
 \item
   Les espaces sont purement décoratifs : ils rendent plus lisibles mais
-  n'agissent pas sur la priorité des opérations
+  n'agissent pas sur la priorité des opérations. Par exemple :
+  \texttt{1+2\ \ \ \ \ *\ 3} renvoie \texttt{7} et non pas \texttt{9}!
 \end{enumerate}
 
-        \end{remarque}\begin{exemple}
-        {\scriptsize
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{l+m+mi}{1}\PY{o}{+}\PY{l+m+mi}{2}     \PY{o}{*} \PY{l+m+mi}{3}
-\end{Verbatim}
-\end{tcolorbox}
-    }
-
-        \end{exemple}
+        \end{remarque}
     Remarque bien que l'interprète Python n'accepte pas les expressions qui
 sont mal formées ou comportent des erreurs.
 \begin{eleve}
@@ -823,8 +814,8 @@ suivants :
 Ainsi, \(10^{3}\) s'écrit \texttt{10**3}.
 
         \end{retenir}\begin{eleve}
-    \textbf{Calcule} dans un bloc de code \(2 ^{1024}\) puis dans un autre
-bloc de code : \((2,0) ^ {1024}\).
+    \textbf{Calcule} dans un bloc de code \(2^{1024}\) puis dans un autre
+bloc de code : \((2.0) ^ {1024}\).
 
 \textbf{Propose} une explication à tes observations.
         
@@ -850,7 +841,15 @@ utilisés plus tard.
 \end{Verbatim}
 \end{tcolorbox}
     }
+\begin{retenir}
+    Une variable peut être imaginée comme un \textbf{emplacement en mémoire}
+portant une \textbf{étiquette} et contenant une \textbf{valeur}.
 
+        \end{retenir}\begin{exemple}
+    \texttt{a\ =\ 2} se représente par un emplacement \texttt{a} contenant
+la valeur \texttt{2}: \(\overset{\texttt{a}}{\fbox{2}}\)
+
+        \end{exemple}
     La notation \texttt{a\ =} permet de donner un nom à l'information
 mémorisée. Ici, l'interprète Python calcule le résultat de
 \texttt{1\ +\ 1} et le mémorise dans la \textbf{variable} \texttt{a}.
@@ -879,8 +878,10 @@ utilisant le nom \texttt{a}.
 \end{tcolorbox}
     }
 \begin{retenir}
-    Le symbole \texttt{=} utilisé pour définir la variable \texttt{a}
-désigne une opération d'\textbf{affectation}.
+    Le symbole \texttt{=} utilisé en Python pour définir la variable
+\texttt{a} désigne une opération d'\textbf{affectation}. En algorithme,
+on note l'affectation par le symbole `\(\leftarrow\)', ce qui donne par
+exemple : \(\texttt{a} \leftarrow \texttt{2}\).
 
 Ce symbole attend à \emph{gauche} un nom de variable et à \emph{droite}
 une expression.
@@ -934,15 +935,7 @@ chiffres et tiret bas). Il est recommandé de :
 \end{Verbatim}
 \end{tcolorbox}
     }
-\begin{retenir}
-    Une variable peut être imaginée comme un \textbf{emplacement en mémoire}
-portant une \textbf{étiquette} et contenant une \textbf{valeur}.
 
-        \end{retenir}\begin{exemple}
-    \texttt{x\ =\ 1} se représente par un emplacement \texttt{x} contenant
-la valeur \texttt{1}: \(\overset{\texttt{x}}{\fbox{1}}\)
-
-        \end{exemple}
     \hypertarget{uxe9tat}{%
 \subsubsection{1.6 --- État}\label{uxe9tat}}
 \begin{retenir}
@@ -953,7 +946,7 @@ constitue \textbf{l'état} de l'interprète Python.
     L'état évolue en fonction des instructions exécutées. Les instructions
 qui modifient l'état sont dites \emph{à effet de bord}.
 \begin{eleve}
-    À partir de l'état
+    À partir de l'état initial
 \(\overset{\texttt{a}}{\fbox{1}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}\),
 les instructions suivantes sont exécutées :
 
@@ -966,19 +959,16 @@ les instructions suivantes sont exécutées :
 \end{Highlighting}
 \end{Shaded}
 
-Après l'exécution de chaque instruction, \textbf{écrire} le nouvel état
-de l'interprète.
+Après la première instruction \texttt{a\ =\ c\ -\ a}, l'état initial
+devient alors :
+\(\overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}.\)
+
+\textbf{Indique} les états suivants après l'exécution des trois
+dernières instructions.
         
         \end{eleve}\begin{reponse}
-    L'instruction \texttt{a\ =\ c\ -\ a} modifie la valeur de \texttt{a} en
-fonction des valeurs de \texttt{c} et de \texttt{a}. L'état sera :
-
-\[
-\overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}.
-\]
-
-Puis l'instruction \texttt{e\ =\ b\ +\ c} affecte la variable \texttt{e}
-pour la première fois. Celle-ci fait donc son apparition dans l'état :
+    L'instruction \texttt{e\ =\ b\ +\ c} affecte la variable \texttt{e} pour
+la première fois. Celle-ci fait donc son apparition dans l'état :
 
 \[
 \overset{\texttt{a}}{\fbox{2}}\overset{\texttt{b}}{\fbox{2}}\overset{\texttt{c}}{\fbox{3}}\overset{\texttt{d}}{\fbox{-12}}\overset{\texttt{e}}{\fbox{5}}.
@@ -1242,13 +1232,16 @@ l'interprète.
 
         \end{reponse}\begin{reponse}
     \[
-\begin{array}{cll}
-\text{ligne} & \text{état} & \text{interface}\\
+\begin{array}{|c|l|l|}
+\hline
+\text{\bf ligne} & \text{\bf état} & \text{\bf interface}\\
+\hline
 2 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}} & \text{affichage : \footnotesize\texttt{Entrez votre année de naissance : }}\\
 & & \text{saisie : \texttt{2003}}\\
-3 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\\
-4 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}}\\
-5 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}} & \text{affichage : \texttt{Vous aurez 45 ans en 2048.}}
+3 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}} & \\
+4 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}} & \\
+5 & \overset{\texttt{saisie}}{\fbox{\texttt{"2003"}}}\overset{\texttt{annee}}{\fbox{\texttt{2003}}}\overset{\texttt{age}}{\fbox{\texttt{45}}} & \text{affichage : \texttt{Vous aurez 45 ans en 2048.}}\\
+\hline
 \end{array}
 \]
 
