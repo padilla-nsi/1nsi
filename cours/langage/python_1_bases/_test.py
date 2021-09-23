@@ -1,10 +1,3 @@
-a = 1
-b = 2
-c = 3
-d = -12
-
-a = c - a
-e = b + c
-
-d = a
-a = 7
+texte = input("ton âge ?")
+# age = int(texte)
+print("Dans 10 ans, tu auras", texte+10)
