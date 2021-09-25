@@ -1,8 +1,8 @@
 # 1NSI
 
 
-chapitre 1 - HTML et CSS {due:2021-09-09} #interface +1nsi {cm:2021-09-16}
-    (A) HTML {cm:2021-09-13}
+chapitre 1 - HTML et CSS {due:2021-09-09} #interface +1nsi {cm:2021-09-16} {c}
+    (A) HTML 
     #application page HTML {cm:2021-09-13}
     (A) CSS {cm:2021-09-16}
     #application page HTML + CSS à rendre {cm:2021-09-20}
@@ -34,7 +34,15 @@ chapitre 2 - Programmer en Python avec les Notebooks {due:2021-09-16} #langage +
     #application #micro:bit 
     #application #micro:bit 
 
-chapitre 3 - Boucle bornée : `for` {due:2021-09-23} #langage +1nsi 
+
+DS {due:2021-09-20}
+
+
+#projet 1.1 {due:2021-09-23} (mise en place, objectifs)
+    bibliothèque #micro:bit
+
+
+chapitre 3 - Boucle bornée : `for` {due:2021-09-30} #langage +1nsi 
     problème - dessiner une spirale / #micro:bit 
     boucles bornées simples
     utilisation de l'indice de boucle
@@ -54,11 +62,14 @@ chapitre 3 - Boucle bornée : `for` {due:2021-09-23} #langage +1nsi
     #application #micro:bit 
     #application #micro:bit 
 
-DS {due:2021-09-27}
 
 chapitre 4 - Comparaison, booléens, tests : `if` {due:2021-10-07} #langage +1nsi 
 
+
 chapitre 5 - Fonctions {due:2021-10-14} #langage +1nsi 
+
 
 chapitre 6 - Objets connectés {due:2021-10-21} #machines +1nsi 
 
+
+#projet 1.2 {due:2021-10-21} (point d'étape)
