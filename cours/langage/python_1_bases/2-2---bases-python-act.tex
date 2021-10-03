@@ -91,6 +91,8 @@
     ]{astuce}{Astuce}{}
 %
 % activité
+
+\newcounter{counterCa}
 \newbreakabletheorem[
     small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!100,rounded corners,decoration=penciline, decorate},%
 	big box style={color=orangeamu!100,fill=orangeamu!5,thick,decoration={penciline},decorate},
@@ -98,7 +100,7 @@
     other edges={decoration=penciline,decorate,thick},%
     headfont={\color{white}\large\scshape\bfseries}
     ]{activite}{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_investigation.png}%
-    Activité}{}%{counterCa}
+    Activité}{counterCa}
 %   
 %   environnement élève
 %
@@ -605,9 +607,9 @@ séquence d'instructions suivante :
 \]
 
         \end{reponse}\begin{eleve}
-    Dans un notebook, \textbf{initialiser} une variable \texttt{a} avec la
-valeur 2, puis \textbf{répéter} dix fois l'instruction
-\texttt{a\ =\ a\ *\ a}.
+    (Capytale : 3f7e-77330) Dans un notebook, \textbf{initialiser} une
+variable \texttt{a} avec la valeur 2, puis \textbf{répéter} dix fois
+l'instruction \texttt{a\ =\ a\ *\ a}.
 
 \textbf{Observer} le résultat. Quelle puissance de 2 a-t-on ainsi
 calculé ?
@@ -692,12 +694,12 @@ variable \texttt{a} contienne la valeur \(n_1\) et que la variable
 \texttt{a} et \texttt{b} ont été \textbf{permutées}.
 
         \end{reponse}\begin{eleve}
-    On met deux entiers dans deux variables \texttt{a} et \texttt{b}, par
-exemple 55 et 89. On remplace le contenu de \texttt{a} par la somme de
-celui de \texttt{a} et de \texttt{b}. Puis on remplace le contenu de
-\texttt{b} par le contenu de \texttt{a} moins le contenu de \texttt{b}?
-Enfin on remplace le contenu de \texttt{a} par son contenu moins celui
-de \texttt{b}.
+    (Capytale : f6db-77338) On met deux entiers dans deux variables
+\texttt{a} et \texttt{b}, par exemple 55 et 89. On remplace le contenu
+de \texttt{a} par la somme de celui de \texttt{a} et de \texttt{b}. Puis
+on remplace le contenu de \texttt{b} par le contenu de \texttt{a} moins
+le contenu de \texttt{b}? Enfin on remplace le contenu de \texttt{a} par
+son contenu moins celui de \texttt{b}.
 
 \textbf{Que contiennent} \texttt{a} et \texttt{b} à la fin de ces
 opérations ?
@@ -741,8 +743,9 @@ de \texttt{b} ont été permutées.
 \end{tcolorbox}
     }
 \begin{eleve}
-    \textbf{Écrire} un programme qui demande à l'utilisateur les longueurs
-(entières) des deux côtés d'un rectangle et affiche son aire.
+    (Capytale : d677-77366) \textbf{Écrire} un programme qui demande à
+l'utilisateur les longueurs (entières) des deux côtés d'un rectangle et
+affiche son aire.
         
         \end{eleve}
         {\scriptsize
@@ -759,8 +762,9 @@ de \texttt{b} ont été permutées.
 \end{tcolorbox}
     }
 \begin{eleve}
-    \textbf{Écrire} un programme qui demande d'entrer une base (entre 2 et
-36) et un nombre dans cette base et qui affiche ce nombre en base 10.
+    (Capytale : 5b27-77369) \textbf{Écrire} un programme qui demande
+d'entrer une base (entre 2 et 36) et un nombre dans cette base et qui
+affiche ce nombre en base 10.
 
 La notation \texttt{int(chaine,\ base)} permet de convertir une
 \texttt{chaîne} représentant un entier dans une \texttt{base} donnée en
@@ -781,9 +785,9 @@ un entier Python.
 \end{tcolorbox}
     }
 \begin{eleve}
-    \textbf{Écrire} un programme qui demande à l'utilisateur d'entrer un
-nombre de secondes et qui l'affiche sous la forme
-d'heures/minutes/secondes.
+    (Capytale : c513-77371) \textbf{Écrire} un programme qui demande à
+l'utilisateur d'entrer un nombre de secondes et qui l'affiche sous la
+forme d'heures/minutes/secondes.
         
         \end{eleve}
         {\scriptsize
@@ -803,10 +807,10 @@ d'heures/minutes/secondes.
 \end{tcolorbox}
     }
 \begin{eleve}
-    On souhaite écrire un programme qui demande à l'utilisateur un nombre
-d'œufs et affiche le nombre de boîtes de 6 œufs nécessaires à leur
-transport. On considère ce programme qui utilise la division
-euclidienne.
+    (Capytale : 70d6-77374) On souhaite écrire un programme qui demande à
+l'utilisateur un nombre d'œufs et affiche le nombre de boîtes de 6 œufs
+nécessaires à leur transport. On considère ce programme qui utilise la
+division euclidienne.
 
 \begin{Shaded}
 \begin{Highlighting}[]

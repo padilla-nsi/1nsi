@@ -17,13 +17,13 @@ chapitre 2 - Programmer en Python avec les Notebooks {due:2021-09-16} #langage +
     #application simplifier les parenthèses {cm:2021-09-23}
     #application anticiper sortie {cm:2021-09-23}
     #application anticiper sortie {cm:2021-09-23}
-    #application a^1024
+    #application a^1024 {cm:2021-09-30}
     #application print("1+") et print(1+)
-    #application input
-    #application permutation variables
+    #application input {cm:2021-09-30}
+    #application permutation variables {cm:2021-09-30}
     #application boites
-    #application input longueur et largeur => aire
-    #application input nb et base => print nb en base 10
+    #application input longueur et largeur => aire {cm:2021-09-30}
+    #application input nb et base => print nb en base 10 {cm:2021-09-30}
     #application input nb secondes => h, min, s
     #application input boites d'œufs
     #application #micro:bit 
