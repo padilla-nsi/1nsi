@@ -11,7 +11,8 @@ chapitre 1 - HTML et CSS {due:2021-09-09} #interface +1nsi {cm:2021-09-16} {c}
 chapitre 2 - Programmer en Python avec les Notebooks {due:2021-09-16} #langage +1nsi 
     (A) mode interactif / notebook {cm:2021-09-20}
     (A) mode programme / VSCodium {cm:2021-09-23}
-    (A) bibliothèque Turtle ou #micro:bit
+    (A) bibliothèque Turtle
+    (A) bibliothèque #micro:bit {cm:2021-10-21}
     #application opération de gauche à droite {cm:2021-09-23}
     #application expliciter les parenthèses  {cm:2021-09-23}
     #application simplifier les parenthèses {cm:2021-09-23}
@@ -35,11 +36,11 @@ chapitre 2 - Programmer en Python avec les Notebooks {due:2021-09-16} #langage +
     #application #micro:bit 
 
 
-DS {due:2021-09-20}
+DS {due:2021-09-20} {cm:2021-11-07}
 
 
-#projet 1.1 {due:2021-09-23} (mise en place, objectifs)
-    bibliothèque #micro:bit
+#projet 1.1 {due:2021-09-23} (mise en place, objectifs) {cm:2021-11-07}
+    bibliothèque #micro:bit {cm:2021-11-07}
 
 
 chapitre 3 - Boucle bornée : `for` {due:2021-09-30} #langage +1nsi 
