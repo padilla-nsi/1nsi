@@ -102,11 +102,11 @@ def max2(a, b):
         int: le max des deux
     
     Exemples et tests:
-    >>> print(max(0,0))
+    >>> print(max(0, 0))
     0
-    >>> print(max(1,2))
+    >>> print(max(1, 2))
     2
-    >>> print(max(-2,-1))
+    >>> print(max(-2, -1))
     -1
     """
     if a >= b:

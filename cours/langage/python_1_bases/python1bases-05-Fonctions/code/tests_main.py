@@ -24,6 +24,7 @@ class Exo_pythagore(unittest.TestCase):
         info = msg + '\nle triangle (7,2,12) est rectangle'
         self.assertFalse(eleve.test_pythagore(7,2,12), msg= info)
 
+    @staticmethod
     def tri_rect_aleatoire():
         a = randint(1, 200)
         while True:
