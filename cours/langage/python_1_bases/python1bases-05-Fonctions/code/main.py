@@ -61,6 +61,21 @@ def valeur_absolue(n):
 
 # 2.7 - multiples
 
+# def somme_multiples_lent(n, sup):
+#     somme = 0
+#     for i in range(1, sup+1):
+#         if i % n == 0:
+#             somme = somme + i
+#     print(somme)
+
+# def somme_multiples_rapide(n, sup):
+#     somme = n*(sup//n * (1+sup//n) )//2
+#     print(somme)
+
+# somme_multiples_rapide(17, 20_000_000)
+# somme_multiples_lent(17, 20_000_000)
+
+
 def multiples_3_ou_5(borne_sup):
     """
     Renvoie la somme des multiples de 3 ou 5
