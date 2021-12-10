@@ -100,8 +100,13 @@ def multiples_3_ou_5(borne_sup):
     somme = 0
     for i in range(borne_sup+1):
         if i % 3 == 0 or i % 5 == 0:
+            print(i)
             somme += i
     return somme
+
+
+multiples_3_ou_5(10)
+
 
 
 # 2.7 - max2
