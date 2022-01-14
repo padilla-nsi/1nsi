@@ -210,6 +210,9 @@ def ajout(val, tab):
 
 
 
+# exo 10 (77)
+def concatenation(t1, t2):
+    
 
 
 testmod()

@@ -1,0 +1,1181 @@
+\documentclass[a4paper,17pt]{extarticle}
+
+
+    \usepackage[sfdefault, condensed]{roboto} % police d'écriture plus moderne
+\usepackage[french]{babel} % francisation
+\usepackage[parfill]{parskip} %suppression indentation
+
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+% figure non flotantes
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+% mois/année
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+% couleurs perso
+\usepackage[table]{xcolor}
+\definecolor{deepblue}{rgb}{0.3,0.3,0.8}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{iremred}{RGB}{204,35,50}
+\definecolor{deepgreen}{rgb}{0,0.6,0}
+\definecolor{backcolor}{rgb}{0.98,0.95,0.95}
+\definecolor{grisClair}{rgb}{0.95,0.95,0.95}
+\definecolor{orangeamu}{RGB}{250,178,11}
+\definecolor{noiramu}{RGB}{35,31,32}
+\definecolor{bleuamu}{RGB}{20,118,198}
+\definecolor{bleuamudark}{RGB}{15,90,150}
+\definecolor{cyanamu}{RGB}{77,198,244}
+
+
+\usepackage{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/xeboiboites}
+%
+% exemple
+\newbreakabletheorem[
+    small box style={fill=deepblue!90,draw=deepblue!15, rounded corners,line width=1pt},%
+    big box style={fill=deepblue!5,draw=deepblue!15,thick,rounded corners,line width=1pt},%
+    headfont={\color{white}\bfseries}
+        ]{exemple}{Exemple}{}%{counterCo}
+%
+% remarque
+\newbreakabletheorem[
+    small box style={draw=ansi-green-intense!100,line width=2pt,fill=ansi-green-intense!0,rounded corners,decoration=penciline, decorate},%
+	big box style={color=ansi-green-intense!90,fill=ansi-green-intense!10,thick,decoration={penciline},decorate},
+    broken edges={draw=ansi-green-intense!90,thick,fill=orange!20!black!5, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{ansi-green-intense}\large\scshape\bfseries}
+    ]{remarque}{Remarque}{}%{counterCa}
+%
+% formule (sans titre)
+\newboxedequation[%
+    big box style={fill=cyanamu!10,draw=cyanamu!100,thick,decoration=penciline,decorate}]%
+    {form}
+%
+% Réponse
+\newbreakabletheorem[
+    small box style={fill=bleuamu!100, draw=bleuamu!60, line width=1pt,rounded corners,decorate},%
+    big box style={fill=bleuamu!10,draw=bleuamu!30,thick,rounded corners,decorate},
+    headfont={\color{white}\large\scshape\bfseries}
+        ]{reponse}{Correction}{}
+%
+
+%
+% À retenir
+%\newbreakabletheorem[
+%    small box style={fill=deepred!100, draw=deepred!80, line width=1pt,rounded corners,decorate},%
+%    big box style={fill=deepred!10,draw=deepred!50,thick,rounded corners,decorate},
+%    headfont={\color{white}\large\scshape\bfseries}
+%        ]{retenir}{À retenir}{}
+%
+\newboxedequation[%
+    big box style={fill=deepred!10,draw=deepred!0,thick,decoration=penciline,decorate}]%
+    {retenir}
+
+
+
+% astuce
+\newspanning[
+    image=/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/fig-idee,headfont=\bfseries,
+    spanning style={very thick,decoration=penciline,decorate}
+    ]{astuce}{Astuce}{}
+%
+% activité
+
+\newcounter{counterCa}
+\newbreakabletheorem[
+    small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!100,rounded corners,decoration=penciline, decorate},%
+	big box style={color=orangeamu!100,fill=orangeamu!5,thick,decoration={penciline},decorate},
+    broken edges={draw=orangeamu!100,thick,fill=orangeamu!100, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{white}\large\scshape\bfseries}
+    ]{activite}{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_investigation.png}%
+    Activité}{counterCa}
+%   
+%   environnement élève
+%
+\newenvironment{eleve}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{activite}\color{noiramu}\\[-0.5cm]}
+{\end{activite}}
+
+\newenvironment{formule}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{form}\color{bleuamu}}
+{\end{form}}
+
+
+\usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{2-8-5---basesPython-Tableaux-Corrections}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        \ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}
+    }
+    
+
+    
+\setlength\headheight{30pt}
+\setcounter{secnumdepth}{0} % Turns off numbering for sections
+
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_ico_langage}\ttfamily\scshape Langage}\fancyhead[C]{\bfseries\MakeUppercase{2-8-5---basesPython-Tableaux-Corrections}}\fancyhead[C]{\bfseries\MakeUppercase{8 --- Tableaux}}\fancyhead[R]{\monthyeardate\today}
+
+    \fancyfoot[C]{\thepage}
+    % #TODO ajouter les pages totales
+
+    \pagestyle{fancy}
+    
+
+
+\begin{document}
+    
+    \title{8 --- Tableaux}
+% \maketitle
+
+    
+    
+
+    
+    \hypertarget{exercices-sur-les-tableaux-correction}{%
+\section{Exercices sur les tableaux
+(correction)}\label{exercices-sur-les-tableaux-correction}}
+\begin{eleve}
+    \textbf{Exercice 1}
+
+Créer une fonction \texttt{somme\_pda(age\_min,\ age\_max))} qui renvoie
+le nombre total de personne en France ayant entre \texttt{age\_min} ans
+(inclu)) et \texttt{age\_max} ans (exclu)).
+
+Pour cela, on s'appuiera sur les données 2021 de l'INSEE dont les
+valeurs sont données ci-dessous. Le tableau \texttt{pda} contient le
+nombre de personnes. Chaque indice du tableau correspond à un âge. Donc
+la case \texttt{pda{[}10{]}} contient le nombre de personnes ayant 10
+ans. Le tableau \texttt{pda} contient 100 valeurs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pda }\OperatorTok{=}\NormalTok{ [}\DecValTok{691754}\NormalTok{, }\DecValTok{714585}\NormalTok{, }\DecValTok{723589}\NormalTok{, }\DecValTok{741105}\NormalTok{, }\DecValTok{761638}\NormalTok{, }\DecValTok{782397}\NormalTok{, }\DecValTok{806296}\NormalTok{, }\DecValTok{813727}\NormalTok{, }\DecValTok{830361}\NormalTok{, }\DecValTok{836626}\NormalTok{,}
+       \DecValTok{857412}\NormalTok{, }\DecValTok{846079}\NormalTok{, }\DecValTok{853732}\NormalTok{, }\DecValTok{844444}\NormalTok{, }\DecValTok{859144}\NormalTok{, }\DecValTok{843717}\NormalTok{, }\DecValTok{839171}\NormalTok{, }\DecValTok{830450}\NormalTok{, }\DecValTok{823756}\NormalTok{, }\DecValTok{824021}\NormalTok{, }
+       \DecValTok{825068}\NormalTok{, }\DecValTok{771160}\NormalTok{, }\DecValTok{758647}\NormalTok{, }\DecValTok{732962}\NormalTok{, }\DecValTok{739197}\NormalTok{, }\DecValTok{732521}\NormalTok{, }\DecValTok{715066}\NormalTok{, }\DecValTok{719576}\NormalTok{, }\DecValTok{756910}\NormalTok{, }\DecValTok{774944}\NormalTok{, }
+       \DecValTok{796258}\NormalTok{, }\DecValTok{802788}\NormalTok{, }\DecValTok{815670}\NormalTok{, }\DecValTok{818399}\NormalTok{, }\DecValTok{832977}\NormalTok{, }\DecValTok{832461}\NormalTok{, }\DecValTok{825974}\NormalTok{, }\DecValTok{817778}\NormalTok{, }\DecValTok{865383}\NormalTok{, }\DecValTok{871959}\NormalTok{, }
+       \DecValTok{881060}\NormalTok{, }\DecValTok{833394}\NormalTok{, }\DecValTok{813784}\NormalTok{, }\DecValTok{816353}\NormalTok{, }\DecValTok{795349}\NormalTok{, }\DecValTok{820771}\NormalTok{, }\DecValTok{861730}\NormalTok{, }\DecValTok{906113}\NormalTok{, }\DecValTok{924323}\NormalTok{, }\DecValTok{919896}\NormalTok{, }
+       \DecValTok{899550}\NormalTok{, }\DecValTok{886276}\NormalTok{, }\DecValTok{875462}\NormalTok{, }\DecValTok{871272}\NormalTok{, }\DecValTok{891426}\NormalTok{, }\DecValTok{892392}\NormalTok{, }\DecValTok{899362}\NormalTok{, }\DecValTok{886362}\NormalTok{, }\DecValTok{856619}\NormalTok{, }\DecValTok{855441}\NormalTok{, }
+       \DecValTok{848042}\NormalTok{, }\DecValTok{841009}\NormalTok{, }\DecValTok{820136}\NormalTok{, }\DecValTok{812492}\NormalTok{, }\DecValTok{804014}\NormalTok{, }\DecValTok{793523}\NormalTok{, }\DecValTok{786152}\NormalTok{, }\DecValTok{768512}\NormalTok{, }\DecValTok{775095}\NormalTok{, }\DecValTok{751752}\NormalTok{, }
+       \DecValTok{773191}\NormalTok{, }\DecValTok{754577}\NormalTok{, }\DecValTok{747317}\NormalTok{, }\DecValTok{725950}\NormalTok{, }\DecValTok{679274}\NormalTok{, }\DecValTok{507127}\NormalTok{, }\DecValTok{490957}\NormalTok{, }\DecValTok{471618}\NormalTok{, }\DecValTok{430510}\NormalTok{, }\DecValTok{376688}\NormalTok{, }
+       \DecValTok{383970}\NormalTok{, }\DecValTok{392579}\NormalTok{, }\DecValTok{373969}\NormalTok{, }\DecValTok{355308}\NormalTok{, }\DecValTok{341153}\NormalTok{, }\DecValTok{314805}\NormalTok{, }\DecValTok{301041}\NormalTok{, }\DecValTok{269011}\NormalTok{, }\DecValTok{253855}\NormalTok{, }\DecValTok{222346}\NormalTok{, }
+       \DecValTok{198098}\NormalTok{, }\DecValTok{158712}\NormalTok{, }\DecValTok{134827}\NormalTok{, }\DecValTok{108837}\NormalTok{, }\DecValTok{88250}\NormalTok{, }\DecValTok{69403}\NormalTok{, }\DecValTok{52436}\NormalTok{, }\DecValTok{38806}\NormalTok{, }\DecValTok{27854}\NormalTok{, }\DecValTok{27497}\NormalTok{]}
+
+\KeywordTok{def}\NormalTok{ somme\_pda(age\_min, age\_max)):}
+\NormalTok{    ...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\DecValTok{691754}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{))}
+\DecValTok{67387330}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{50}\NormalTok{, }\DecValTok{67}\NormalTok{))}
+\DecValTok{14519530}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pda} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{691754}\PY{p}{,} \PY{l+m+mi}{714585}\PY{p}{,} \PY{l+m+mi}{723589}\PY{p}{,} \PY{l+m+mi}{741105}\PY{p}{,} \PY{l+m+mi}{761638}\PY{p}{,} \PY{l+m+mi}{782397}\PY{p}{,} \PY{l+m+mi}{806296}\PY{p}{,} \PY{l+m+mi}{813727}\PY{p}{,} \PY{l+m+mi}{830361}\PY{p}{,} \PY{l+m+mi}{836626}\PY{p}{,}
+       \PY{l+m+mi}{857412}\PY{p}{,} \PY{l+m+mi}{846079}\PY{p}{,} \PY{l+m+mi}{853732}\PY{p}{,} \PY{l+m+mi}{844444}\PY{p}{,} \PY{l+m+mi}{859144}\PY{p}{,} \PY{l+m+mi}{843717}\PY{p}{,} \PY{l+m+mi}{839171}\PY{p}{,} \PY{l+m+mi}{830450}\PY{p}{,} \PY{l+m+mi}{823756}\PY{p}{,} \PY{l+m+mi}{824021}\PY{p}{,} 
+       \PY{l+m+mi}{825068}\PY{p}{,} \PY{l+m+mi}{771160}\PY{p}{,} \PY{l+m+mi}{758647}\PY{p}{,} \PY{l+m+mi}{732962}\PY{p}{,} \PY{l+m+mi}{739197}\PY{p}{,} \PY{l+m+mi}{732521}\PY{p}{,} \PY{l+m+mi}{715066}\PY{p}{,} \PY{l+m+mi}{719576}\PY{p}{,} \PY{l+m+mi}{756910}\PY{p}{,} \PY{l+m+mi}{774944}\PY{p}{,} 
+       \PY{l+m+mi}{796258}\PY{p}{,} \PY{l+m+mi}{802788}\PY{p}{,} \PY{l+m+mi}{815670}\PY{p}{,} \PY{l+m+mi}{818399}\PY{p}{,} \PY{l+m+mi}{832977}\PY{p}{,} \PY{l+m+mi}{832461}\PY{p}{,} \PY{l+m+mi}{825974}\PY{p}{,} \PY{l+m+mi}{817778}\PY{p}{,} \PY{l+m+mi}{865383}\PY{p}{,} \PY{l+m+mi}{871959}\PY{p}{,} 
+       \PY{l+m+mi}{881060}\PY{p}{,} \PY{l+m+mi}{833394}\PY{p}{,} \PY{l+m+mi}{813784}\PY{p}{,} \PY{l+m+mi}{816353}\PY{p}{,} \PY{l+m+mi}{795349}\PY{p}{,} \PY{l+m+mi}{820771}\PY{p}{,} \PY{l+m+mi}{861730}\PY{p}{,} \PY{l+m+mi}{906113}\PY{p}{,} \PY{l+m+mi}{924323}\PY{p}{,} \PY{l+m+mi}{919896}\PY{p}{,} 
+       \PY{l+m+mi}{899550}\PY{p}{,} \PY{l+m+mi}{886276}\PY{p}{,} \PY{l+m+mi}{875462}\PY{p}{,} \PY{l+m+mi}{871272}\PY{p}{,} \PY{l+m+mi}{891426}\PY{p}{,} \PY{l+m+mi}{892392}\PY{p}{,} \PY{l+m+mi}{899362}\PY{p}{,} \PY{l+m+mi}{886362}\PY{p}{,} \PY{l+m+mi}{856619}\PY{p}{,} \PY{l+m+mi}{855441}\PY{p}{,} 
+       \PY{l+m+mi}{848042}\PY{p}{,} \PY{l+m+mi}{841009}\PY{p}{,} \PY{l+m+mi}{820136}\PY{p}{,} \PY{l+m+mi}{812492}\PY{p}{,} \PY{l+m+mi}{804014}\PY{p}{,} \PY{l+m+mi}{793523}\PY{p}{,} \PY{l+m+mi}{786152}\PY{p}{,} \PY{l+m+mi}{768512}\PY{p}{,} \PY{l+m+mi}{775095}\PY{p}{,} \PY{l+m+mi}{751752}\PY{p}{,} 
+       \PY{l+m+mi}{773191}\PY{p}{,} \PY{l+m+mi}{754577}\PY{p}{,} \PY{l+m+mi}{747317}\PY{p}{,} \PY{l+m+mi}{725950}\PY{p}{,} \PY{l+m+mi}{679274}\PY{p}{,} \PY{l+m+mi}{507127}\PY{p}{,} \PY{l+m+mi}{490957}\PY{p}{,} \PY{l+m+mi}{471618}\PY{p}{,} \PY{l+m+mi}{430510}\PY{p}{,} \PY{l+m+mi}{376688}\PY{p}{,} 
+       \PY{l+m+mi}{383970}\PY{p}{,} \PY{l+m+mi}{392579}\PY{p}{,} \PY{l+m+mi}{373969}\PY{p}{,} \PY{l+m+mi}{355308}\PY{p}{,} \PY{l+m+mi}{341153}\PY{p}{,} \PY{l+m+mi}{314805}\PY{p}{,} \PY{l+m+mi}{301041}\PY{p}{,} \PY{l+m+mi}{269011}\PY{p}{,} \PY{l+m+mi}{253855}\PY{p}{,} \PY{l+m+mi}{222346}\PY{p}{,} 
+       \PY{l+m+mi}{198098}\PY{p}{,} \PY{l+m+mi}{158712}\PY{p}{,} \PY{l+m+mi}{134827}\PY{p}{,} \PY{l+m+mi}{108837}\PY{p}{,} \PY{l+m+mi}{88250}\PY{p}{,} \PY{l+m+mi}{69403}\PY{p}{,} \PY{l+m+mi}{52436}\PY{p}{,} \PY{l+m+mi}{38806}\PY{p}{,} \PY{l+m+mi}{27854}\PY{p}{,} \PY{l+m+mi}{27497}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{somme\PYZus{}pda}\PY{p}{(}\PY{n}{age\PYZus{}min}\PY{p}{,} \PY{n}{age\PYZus{}max}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{k}{for} \PY{n}{age} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{age\PYZus{}min}\PY{p}{,} \PY{n}{age\PYZus{}max}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{n} \PY{o}{+}\PY{o}{=} \PY{n}{pda}\PY{p}{[}\PY{n}{age}\PY{p}{]}
+    
+    \PY{k}{return} \PY{n}{n}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{67}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+691754
+67387330
+14519530
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 2}
+
+Créer une fonction somme\_pda(age\_min, age\_max)) plus robuste qui: -
+qui renvoie le nombre total de personne en France ayant entre age\_min
+ans (inclu)) et age\_max ans (exclu)) ; - qui \textbf{n'échoue pas} si
+l'utilisateur spécifie un age\_max arbitrairement grand.
+
+Pour cela, on s'appuiera sur les données 2021 de l'INSEE dont les
+valeurs sont données ci-dessous. Le tableau \texttt{pda} contient le
+nombre de personnes. Chaque indice du tableau correspond à un âge. Donc
+la case \texttt{pda{[}10{]}} contient le nombre de personnes ayant 10
+ans. Le tableau \texttt{pda} contient 100 valeurs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pda }\OperatorTok{=}\NormalTok{ [}\DecValTok{691754}\NormalTok{, }\DecValTok{714585}\NormalTok{, }\DecValTok{723589}\NormalTok{, }\DecValTok{741105}\NormalTok{, }\DecValTok{761638}\NormalTok{, }\DecValTok{782397}\NormalTok{, }\DecValTok{806296}\NormalTok{, }\DecValTok{813727}\NormalTok{, }\DecValTok{830361}\NormalTok{, }\DecValTok{836626}\NormalTok{,}
+       \DecValTok{857412}\NormalTok{, }\DecValTok{846079}\NormalTok{, }\DecValTok{853732}\NormalTok{, }\DecValTok{844444}\NormalTok{, }\DecValTok{859144}\NormalTok{, }\DecValTok{843717}\NormalTok{, }\DecValTok{839171}\NormalTok{, }\DecValTok{830450}\NormalTok{, }\DecValTok{823756}\NormalTok{, }\DecValTok{824021}\NormalTok{, }
+       \DecValTok{825068}\NormalTok{, }\DecValTok{771160}\NormalTok{, }\DecValTok{758647}\NormalTok{, }\DecValTok{732962}\NormalTok{, }\DecValTok{739197}\NormalTok{, }\DecValTok{732521}\NormalTok{, }\DecValTok{715066}\NormalTok{, }\DecValTok{719576}\NormalTok{, }\DecValTok{756910}\NormalTok{, }\DecValTok{774944}\NormalTok{, }
+       \DecValTok{796258}\NormalTok{, }\DecValTok{802788}\NormalTok{, }\DecValTok{815670}\NormalTok{, }\DecValTok{818399}\NormalTok{, }\DecValTok{832977}\NormalTok{, }\DecValTok{832461}\NormalTok{, }\DecValTok{825974}\NormalTok{, }\DecValTok{817778}\NormalTok{, }\DecValTok{865383}\NormalTok{, }\DecValTok{871959}\NormalTok{, }
+       \DecValTok{881060}\NormalTok{, }\DecValTok{833394}\NormalTok{, }\DecValTok{813784}\NormalTok{, }\DecValTok{816353}\NormalTok{, }\DecValTok{795349}\NormalTok{, }\DecValTok{820771}\NormalTok{, }\DecValTok{861730}\NormalTok{, }\DecValTok{906113}\NormalTok{, }\DecValTok{924323}\NormalTok{, }\DecValTok{919896}\NormalTok{, }
+       \DecValTok{899550}\NormalTok{, }\DecValTok{886276}\NormalTok{, }\DecValTok{875462}\NormalTok{, }\DecValTok{871272}\NormalTok{, }\DecValTok{891426}\NormalTok{, }\DecValTok{892392}\NormalTok{, }\DecValTok{899362}\NormalTok{, }\DecValTok{886362}\NormalTok{, }\DecValTok{856619}\NormalTok{, }\DecValTok{855441}\NormalTok{, }
+       \DecValTok{848042}\NormalTok{, }\DecValTok{841009}\NormalTok{, }\DecValTok{820136}\NormalTok{, }\DecValTok{812492}\NormalTok{, }\DecValTok{804014}\NormalTok{, }\DecValTok{793523}\NormalTok{, }\DecValTok{786152}\NormalTok{, }\DecValTok{768512}\NormalTok{, }\DecValTok{775095}\NormalTok{, }\DecValTok{751752}\NormalTok{, }
+       \DecValTok{773191}\NormalTok{, }\DecValTok{754577}\NormalTok{, }\DecValTok{747317}\NormalTok{, }\DecValTok{725950}\NormalTok{, }\DecValTok{679274}\NormalTok{, }\DecValTok{507127}\NormalTok{, }\DecValTok{490957}\NormalTok{, }\DecValTok{471618}\NormalTok{, }\DecValTok{430510}\NormalTok{, }\DecValTok{376688}\NormalTok{, }
+       \DecValTok{383970}\NormalTok{, }\DecValTok{392579}\NormalTok{, }\DecValTok{373969}\NormalTok{, }\DecValTok{355308}\NormalTok{, }\DecValTok{341153}\NormalTok{, }\DecValTok{314805}\NormalTok{, }\DecValTok{301041}\NormalTok{, }\DecValTok{269011}\NormalTok{, }\DecValTok{253855}\NormalTok{, }\DecValTok{222346}\NormalTok{, }
+       \DecValTok{198098}\NormalTok{, }\DecValTok{158712}\NormalTok{, }\DecValTok{134827}\NormalTok{, }\DecValTok{108837}\NormalTok{, }\DecValTok{88250}\NormalTok{, }\DecValTok{69403}\NormalTok{, }\DecValTok{52436}\NormalTok{, }\DecValTok{38806}\NormalTok{, }\DecValTok{27854}\NormalTok{, }\DecValTok{27497}\NormalTok{]}
+
+\KeywordTok{def}\NormalTok{ somme\_pda(age\_min, age\_max)):}
+\NormalTok{    ...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\DecValTok{691754}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\DecValTok{0}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{))}
+\DecValTok{67387330}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{101}\NormalTok{))}
+\DecValTok{67387330}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{0}\NormalTok{, }\DecValTok{150}\NormalTok{))}
+\DecValTok{67387330}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{50}\NormalTok{, }\DecValTok{67}\NormalTok{))}
+\DecValTok{14519530}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{))}
+\DecValTok{26884855}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(somme\_pda(}\DecValTok{50}\NormalTok{, }\DecValTok{242}\NormalTok{))}
+\DecValTok{26884855}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pda} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{691754}\PY{p}{,} \PY{l+m+mi}{714585}\PY{p}{,} \PY{l+m+mi}{723589}\PY{p}{,} \PY{l+m+mi}{741105}\PY{p}{,} \PY{l+m+mi}{761638}\PY{p}{,} \PY{l+m+mi}{782397}\PY{p}{,} \PY{l+m+mi}{806296}\PY{p}{,} \PY{l+m+mi}{813727}\PY{p}{,} \PY{l+m+mi}{830361}\PY{p}{,} \PY{l+m+mi}{836626}\PY{p}{,}
+       \PY{l+m+mi}{857412}\PY{p}{,} \PY{l+m+mi}{846079}\PY{p}{,} \PY{l+m+mi}{853732}\PY{p}{,} \PY{l+m+mi}{844444}\PY{p}{,} \PY{l+m+mi}{859144}\PY{p}{,} \PY{l+m+mi}{843717}\PY{p}{,} \PY{l+m+mi}{839171}\PY{p}{,} \PY{l+m+mi}{830450}\PY{p}{,} \PY{l+m+mi}{823756}\PY{p}{,} \PY{l+m+mi}{824021}\PY{p}{,} 
+       \PY{l+m+mi}{825068}\PY{p}{,} \PY{l+m+mi}{771160}\PY{p}{,} \PY{l+m+mi}{758647}\PY{p}{,} \PY{l+m+mi}{732962}\PY{p}{,} \PY{l+m+mi}{739197}\PY{p}{,} \PY{l+m+mi}{732521}\PY{p}{,} \PY{l+m+mi}{715066}\PY{p}{,} \PY{l+m+mi}{719576}\PY{p}{,} \PY{l+m+mi}{756910}\PY{p}{,} \PY{l+m+mi}{774944}\PY{p}{,} 
+       \PY{l+m+mi}{796258}\PY{p}{,} \PY{l+m+mi}{802788}\PY{p}{,} \PY{l+m+mi}{815670}\PY{p}{,} \PY{l+m+mi}{818399}\PY{p}{,} \PY{l+m+mi}{832977}\PY{p}{,} \PY{l+m+mi}{832461}\PY{p}{,} \PY{l+m+mi}{825974}\PY{p}{,} \PY{l+m+mi}{817778}\PY{p}{,} \PY{l+m+mi}{865383}\PY{p}{,} \PY{l+m+mi}{871959}\PY{p}{,} 
+       \PY{l+m+mi}{881060}\PY{p}{,} \PY{l+m+mi}{833394}\PY{p}{,} \PY{l+m+mi}{813784}\PY{p}{,} \PY{l+m+mi}{816353}\PY{p}{,} \PY{l+m+mi}{795349}\PY{p}{,} \PY{l+m+mi}{820771}\PY{p}{,} \PY{l+m+mi}{861730}\PY{p}{,} \PY{l+m+mi}{906113}\PY{p}{,} \PY{l+m+mi}{924323}\PY{p}{,} \PY{l+m+mi}{919896}\PY{p}{,} 
+       \PY{l+m+mi}{899550}\PY{p}{,} \PY{l+m+mi}{886276}\PY{p}{,} \PY{l+m+mi}{875462}\PY{p}{,} \PY{l+m+mi}{871272}\PY{p}{,} \PY{l+m+mi}{891426}\PY{p}{,} \PY{l+m+mi}{892392}\PY{p}{,} \PY{l+m+mi}{899362}\PY{p}{,} \PY{l+m+mi}{886362}\PY{p}{,} \PY{l+m+mi}{856619}\PY{p}{,} \PY{l+m+mi}{855441}\PY{p}{,} 
+       \PY{l+m+mi}{848042}\PY{p}{,} \PY{l+m+mi}{841009}\PY{p}{,} \PY{l+m+mi}{820136}\PY{p}{,} \PY{l+m+mi}{812492}\PY{p}{,} \PY{l+m+mi}{804014}\PY{p}{,} \PY{l+m+mi}{793523}\PY{p}{,} \PY{l+m+mi}{786152}\PY{p}{,} \PY{l+m+mi}{768512}\PY{p}{,} \PY{l+m+mi}{775095}\PY{p}{,} \PY{l+m+mi}{751752}\PY{p}{,} 
+       \PY{l+m+mi}{773191}\PY{p}{,} \PY{l+m+mi}{754577}\PY{p}{,} \PY{l+m+mi}{747317}\PY{p}{,} \PY{l+m+mi}{725950}\PY{p}{,} \PY{l+m+mi}{679274}\PY{p}{,} \PY{l+m+mi}{507127}\PY{p}{,} \PY{l+m+mi}{490957}\PY{p}{,} \PY{l+m+mi}{471618}\PY{p}{,} \PY{l+m+mi}{430510}\PY{p}{,} \PY{l+m+mi}{376688}\PY{p}{,} 
+       \PY{l+m+mi}{383970}\PY{p}{,} \PY{l+m+mi}{392579}\PY{p}{,} \PY{l+m+mi}{373969}\PY{p}{,} \PY{l+m+mi}{355308}\PY{p}{,} \PY{l+m+mi}{341153}\PY{p}{,} \PY{l+m+mi}{314805}\PY{p}{,} \PY{l+m+mi}{301041}\PY{p}{,} \PY{l+m+mi}{269011}\PY{p}{,} \PY{l+m+mi}{253855}\PY{p}{,} \PY{l+m+mi}{222346}\PY{p}{,} 
+       \PY{l+m+mi}{198098}\PY{p}{,} \PY{l+m+mi}{158712}\PY{p}{,} \PY{l+m+mi}{134827}\PY{p}{,} \PY{l+m+mi}{108837}\PY{p}{,} \PY{l+m+mi}{88250}\PY{p}{,} \PY{l+m+mi}{69403}\PY{p}{,} \PY{l+m+mi}{52436}\PY{p}{,} \PY{l+m+mi}{38806}\PY{p}{,} \PY{l+m+mi}{27854}\PY{p}{,} \PY{l+m+mi}{27497}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{somme\PYZus{}pda}\PY{p}{(}\PY{n}{age\PYZus{}min}\PY{p}{,} \PY{n}{age\PYZus{}max}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{k}{if} \PY{n}{age\PYZus{}max} \PY{o}{\PYZgt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{pda}\PY{p}{)}\PY{p}{:}
+        \PY{n}{age\PYZus{}max} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{pda}\PY{p}{)}
+
+    \PY{k}{for} \PY{n}{age} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{age\PYZus{}min}\PY{p}{,} \PY{n}{age\PYZus{}max}\PY{p}{)}\PY{p}{:}
+        \PY{n}{n} \PY{o}{+}\PY{o}{=} \PY{n}{pda}\PY{p}{[}\PY{n}{age}\PY{p}{]}
+    
+    \PY{k}{return} \PY{n}{n}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{101}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{150}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{67}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{somme\PYZus{}pda}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{242}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+691754
+67387330
+67387330
+67387330
+14519530
+26884855
+26884855
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 3}
+
+Écrire une fonction \texttt{occurences(val,\ tab)} qui renvoie le nombre
+d'occurrences de la valeur \texttt{val} dans le tableau \texttt{tab}.
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ occurences(}\DecValTok{0}\NormalTok{, [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{])}
+\DecValTok{1}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ occurences(}\DecValTok{1}\NormalTok{, [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{])}
+\DecValTok{3}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ occurences(}\StringTok{"a"}\NormalTok{, [}\StringTok{"abc"}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"c"}\NormalTok{])}
+\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{occurences}\PY{p}{(}\PY{n}{val}\PY{p}{,} \PY{n}{tab}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{tab}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{k}{if} \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{n}{val}\PY{p}{:}
+            \PY{n}{n} \PY{o}{=} \PY{n}{n} \PY{o}{+} \PY{l+m+mi}{1}
+
+    \PY{k}{return} \PY{n}{n}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{occurences}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{occurences}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{occurences}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{abc}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{b}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{c}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1
+3
+1
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 4}
+
+Écrire un programme qui construit un tableau de 100 entiers tirés au
+hasard entre 1 et 1000, puis qui l'affiche.
+
+Attention : Pour les besoins du juge en ligne (= tests automatiques), il
+faut commencer votre programme par :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ random }\ImportTok{import} \OperatorTok{*}
+\NormalTok{seed(}\DecValTok{42}\NormalTok{)}
+\NormalTok{...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{655}\NormalTok{, }\DecValTok{115}\NormalTok{,... , }\DecValTok{167}\NormalTok{, }\DecValTok{380}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
+\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{42}\PY{p}{)}
+
+\PY{n}{tab} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{100}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{:}
+    \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{tab}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[655, 115, 26, 760, 282, 251, 229, 143, 755, 105, 693, 759, 914, 559, 90, 605,
+433, 33, 31, 96, 224, 239, 518, 617, 28, 575, 204, 734, 666, 719, 559, 430, 226,
+460, 604, 285, 829, 891, 7, 778, 826, 164, 715, 433, 349, 285, 160, 221, 981,
+782, 345, 105, 95, 390, 100, 368, 868, 353, 619, 271, 827, 45, 748, 471, 550,
+128, 997, 945, 388, 81, 566, 301, 850, 644, 634, 907, 883, 371, 592, 197, 722,
+72, 47, 678, 234, 792, 297, 82, 876, 239, 888, 104, 390, 285, 465, 651, 855,
+374, 167, 380]
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 5}
+
+Écrire une fonction maxi\_tab(t) qui prend en paramètre un tableau t et
+renvoie la valeur maximale de ce tableau.
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ maxi\_tab([}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{])}
+\DecValTok{3}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ maxi\_tab([}\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{])}
+\DecValTok{11}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{maxi\PYZus{}tab}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+    \PY{n}{maxi} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{n}{maxi}\PY{p}{:}
+            \PY{n}{maxi} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+    \PY{k}{return} \PY{n}{maxi}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{maxi\PYZus{}tab}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{maxi\PYZus{}tab}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+3
+11
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 6.a}
+
+Créer un programme qui tire au hasard mille entiers entre 1 et 10 et
+affiche ensuite le nombre de fois que chaque nombre a été tiré. Afficher
+le résultats sous la forme
+\texttt{"le\ nombre\ ...\ a\ été\ tiré\ ...\ fois"}.
+
+Remarque : pour des raisons de juge en ligne, commencer votre code par :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ random }\ImportTok{import} \OperatorTok{*}
+\NormalTok{seed(}\DecValTok{42}\NormalTok{)}
+\NormalTok{...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{le nombre }\DecValTok{1}\NormalTok{ a été tiré }\DecValTok{91}\NormalTok{ fois}
+\NormalTok{le nombre }\DecValTok{2}\NormalTok{ a été tiré }\DecValTok{108}\NormalTok{ fois}
+\NormalTok{...}
+\NormalTok{...}
+\NormalTok{le nombre }\DecValTok{10}\NormalTok{ a été tiré }\DecValTok{95}\NormalTok{ fois}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
+\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{42}\PY{p}{)}
+
+\PY{n}{effectifs} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+    \PY{n}{effectifs}\PY{p}{[}\PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{effectifs}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{le nombre}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a été tiré}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{effectifs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{fois}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+le nombre 1 a été tiré 91 fois
+le nombre 2 a été tiré 108 fois
+le nombre 3 a été tiré 85 fois
+le nombre 4 a été tiré 116 fois
+le nombre 5 a été tiré 113 fois
+le nombre 6 a été tiré 82 fois
+le nombre 7 a été tiré 102 fois
+le nombre 8 a été tiré 105 fois
+le nombre 9 a été tiré 103 fois
+le nombre 10 a été tiré 95 fois
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 6.b}
+
+Vous allez modifier légèrement le code de l'exercice précédent afin de
+pouvoir le tester plus efficacement avec le juge en ligne.
+
+Pour cela :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  demander à l'utilisateur de saisir un nombre entier que vous
+  affecterez à la variable \texttt{gen}.
+\item
+  Copier/coller ensuite votre code de l'exercice précédent.
+\item
+  Remplacer l'instruction \texttt{seed(42)} par \texttt{seed(gen)}.
+\end{enumerate}
+
+Normalement, votre programme devrait commencer de la façon suivante :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gen }\OperatorTok{=} \BuiltInTok{int}\NormalTok{(}\BuiltInTok{input}\NormalTok{(}\StringTok{"saisir une valeur pour le générateur aléatoire : "}\NormalTok{))}
+\ImportTok{from}\NormalTok{ random }\ImportTok{import} \OperatorTok{*}
+\NormalTok{seed(gen)}
+\NormalTok{...}
+\end{Highlighting}
+\end{Shaded}
+
+Ainsi un utilisateur qui saisi le nombre \texttt{42} devrait voir
+s'afficher exactement le même résultat que l'exercice précédent.
+
+Le juge en ligne peut désormais tester de multiples façon votre
+programme :)
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ saisir une valeur pour le générateur aléatoire : }\DecValTok{42}
+\NormalTok{le nombre }\DecValTok{1}\NormalTok{ a été tiré }\DecValTok{91}\NormalTok{ fois}
+\NormalTok{le nombre }\DecValTok{2}\NormalTok{ a été tiré }\DecValTok{108}\NormalTok{ fois}
+\NormalTok{...}
+\NormalTok{le nombre }\DecValTok{9}\NormalTok{ a été tiré }\DecValTok{103}\NormalTok{ fois}
+\NormalTok{le nombre }\DecValTok{10}\NormalTok{ a été tiré }\DecValTok{95}\NormalTok{ fois}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{gen} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{saisir une valeur pour le générateur aléatoire : }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{k+kn}{from} \PY{n+nn}{random} \PY{k+kn}{import} \PY{o}{*}
+\PY{n}{seed}\PY{p}{(}\PY{n}{gen}\PY{p}{)}
+
+\PY{n}{effectifs} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+    \PY{n}{effectifs}\PY{p}{[}\PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{effectifs}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{le nombre}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a été tiré}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{effectifs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{fois}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+le nombre 1 a été tiré 91 fois
+le nombre 2 a été tiré 108 fois
+le nombre 3 a été tiré 85 fois
+le nombre 4 a été tiré 116 fois
+le nombre 5 a été tiré 113 fois
+le nombre 6 a été tiré 82 fois
+le nombre 7 a été tiré 102 fois
+le nombre 8 a été tiré 105 fois
+le nombre 9 a été tiré 103 fois
+le nombre 10 a été tiré 95 fois
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 7}
+
+En mathématiques, la très célèbre suite de \textbf{Fibonacci} est une
+séquence infinie d'entiers définie de la façon suivante : on part des
+deux entiers \(0\) et \(1\) puis on construit à chaque fois l'entier
+suivant comme la somme des deux entiers précédents.
+
+\[0, 1, 1, 2, 3, 5, ...\]
+
+\textbf{Écrire} un programme qui construit puis affiche un tableau
+contenant les 30 premiers termes de la suite.
+
+\hypertarget{tests-et-exemples-dusage}{%
+\paragraph{Tests et exemples d'usage :}\label{tests-et-exemples-dusage}}
+
+```python {[}0, 1, 1, 2, 3, 5,\ldots{} , 514229{]}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{tab} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{30}
+
+\PY{n}{tab}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{0}
+\PY{n}{tab}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{30}\PY{p}{)}\PY{p}{:}
+    \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+} \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{tab}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584,
+4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229]
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 8}
+
+Écrire une fonction \texttt{copie(tab)} qui prend en paramètre un
+tableau \texttt{tab} et renvoie une copie de ce tableau.
+
+\hypertarget{tests-et-exemple-dusage}{%
+\paragraph{Tests et exemple d'usage :}\label{tests-et-exemple-dusage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ u }\OperatorTok{=}\NormalTok{ []          }\CommentTok{\# u est un tableau vide}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ u }\OperatorTok{=}\NormalTok{ copie(t)}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(u)        }\CommentTok{\# vérifier que u contient les mêmes valeurs que t}
+\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t[}\DecValTok{2}\NormalTok{] }\OperatorTok{=} \DecValTok{7}        \CommentTok{\# vérifier que lorsqu\textquotesingle{}on modifie t}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(t)        }\CommentTok{\#   alors u n\textquotesingle{}est PAS modifié par effets de bords}
+\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{7}\NormalTok{]}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(u)}
+\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+return tab_2
+\end{verbatim}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{30}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{copie}\PY{p}{(}\PY{n}{tab}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{tab}\PY{p}{)}
+    \PY{n}{tab\PYZus{}2} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{n}
+
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+        \PY{n}{tab\PYZus{}2}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+    
+    \PY{k}{return} \PY{n}{tab\PYZus{}2}
+    
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{31}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{u} \PY{o}{=} \PY{p}{[}\PY{p}{]}          \PY{c+c1}{\PYZsh{} u est un tableau vide}
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+\PY{n}{u} \PY{o}{=} \PY{n}{copie}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{u}\PY{p}{)}        \PY{c+c1}{\PYZsh{} vérifier que u contient les mêmes valeurs que t}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1, 2, 3]
+    \end{Verbatim}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{32}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{7}        \PY{c+c1}{\PYZsh{} vérifier que lorsqu\PYZsq{}on modifie t}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1, 2, 7]
+    \end{Verbatim}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{33}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1, 2, 3]
+    \end{Verbatim}
+\begin{eleve}
+    \textbf{Exercice 9}
+
+Écrire une fonction \texttt{ajout(val,\ tab)} qui renvoie un nouveau
+tableau contenant d'abord tous les éléments de \texttt{tab} puis la
+valeur \texttt{val}.
+
+\hypertarget{tests-et-exemples}{%
+\paragraph{Tests et exemples :}\label{tests-et-exemples}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{( ajout(}\DecValTok{42}\NormalTok{, []) )}
+\NormalTok{[}\DecValTok{42}\NormalTok{]}
+
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{( ajout(}\DecValTok{10}\NormalTok{, [}\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{]) )}
+\NormalTok{[}\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{]}
+
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ u }\OperatorTok{=}\NormalTok{ []}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ u }\OperatorTok{=}\NormalTok{ ajout(}\DecValTok{4}\NormalTok{, t)}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(u)        }\CommentTok{\# u est une copie de t avec 4 ajouté à la fin}
+\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{print}\NormalTok{(t)        }\CommentTok{\# t inchangé}
+\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+        
+        \end{eleve}
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{34}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{ajout}\PY{p}{(}\PY{n}{val}\PY{p}{,} \PY{n}{tab}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{tab}\PY{p}{)}
+    \PY{n}{tab\PYZus{}2} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{p}{(}\PY{n}{n} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+        \PY{n}{tab\PYZus{}2}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{tab}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+    \PY{n}{tab\PYZus{}2}\PY{p}{[}\PY{n}{n}\PY{p}{]} \PY{o}{=} \PY{n}{val}
+    \PY{k}{return} \PY{n}{tab\PYZus{}2}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{35}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{u} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+\PY{n}{u} \PY{o}{=} \PY{n}{ajout}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{t}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{u}\PY{p}{)}        \PY{c+c1}{\PYZsh{} u est une copie de t avec 4 ajouté à la fin}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{t}\PY{p}{)}        \PY{c+c1}{\PYZsh{} t inchangé}
+\PY{n+nb}{print}\PY{p}{(} \PY{n}{ajout}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1, 2, 3, 4]
+[1, 2, 3]
+[5, 4, 3, 2, 1, 10]
+    \end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
