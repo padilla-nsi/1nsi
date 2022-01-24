@@ -1,0 +1,187 @@
+<map version="freeplane 1.9.8">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<node TEXT="Présentation" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1643026295907">
+<hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
+<font BOLD="true"/>
+<hook NAME="MapStyle" background="#f9f9f8" zoom="0.909">
+    <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false" associatedTemplateLocation="template:/light_nord_template.mm"/>
+
+<map_styles>
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="default" ID="ID_506805493" ICON_SIZE="12 pt" FORMAT_AS_HYPERLINK="false" COLOR="#484747" BACKGROUND_COLOR="#efefef" STYLE="bubble" SHAPE_HORIZONTAL_MARGIN="8 pt" SHAPE_VERTICAL_MARGIN="5 pt" BORDER_WIDTH_LIKE_EDGE="false" BORDER_WIDTH="1.9 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#8fbcbb" BORDER_DASH_LIKE_EDGE="true" BORDER_DASH="SOLID">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" DASH="" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_506805493" STARTARROW="DEFAULT" ENDARROW="NONE"/>
+<font NAME="SansSerif" SIZE="11" BOLD="false" STRIKETHROUGH="false" ITALIC="false"/>
+<edge STYLE="bezier" COLOR="#2e3440" WIDTH="3" DASH="SOLID"/>
+<richcontent CONTENT-TYPE="plain/auto" TYPE="DETAILS"/>
+<richcontent TYPE="NOTE" CONTENT-TYPE="plain/auto"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.details" COLOR="#ffffff" BACKGROUND_COLOR="#2e3440" BORDER_WIDTH_LIKE_EDGE="false" BORDER_WIDTH="1.9 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#f0f0f0" BORDER_DASH_LIKE_EDGE="true">
+<font SIZE="11" BOLD="false" ITALIC="false"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.note" COLOR="#000000" BACKGROUND_COLOR="#f6f9a1" TEXT_ALIGN="LEFT">
+<icon BUILTIN="clock2"/>
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.floating">
+<edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.selection" COLOR="#eceff4" BACKGROUND_COLOR="#bf616a" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#bf616a"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.important" ID="ID_915433779" BORDER_COLOR="#bf616a">
+<icon BUILTIN="yes"/>
+<arrowlink COLOR="#bf616a" TRANSPARENCY="255" DESTINATION="ID_915433779"/>
+<font NAME="Ubuntu" SIZE="14"/>
+<edge COLOR="#bf616a"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#ffffff" BACKGROUND_COLOR="#484747" STYLE="bubble" SHAPE_HORIZONTAL_MARGIN="10 pt" SHAPE_VERTICAL_MARGIN="10 pt">
+<font SIZE="18"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#eceff4" BACKGROUND_COLOR="#d08770" STYLE="bubble" SHAPE_HORIZONTAL_MARGIN="8 pt" SHAPE_VERTICAL_MARGIN="5 pt">
+<font SIZE="16"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,2" COLOR="#3b4252" BACKGROUND_COLOR="#ebcb8b">
+<font SIZE="14"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,3" COLOR="#2e3440" BACKGROUND_COLOR="#a3be8c">
+<font SIZE="12"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,4" COLOR="#2e3440" BACKGROUND_COLOR="#b48ead">
+<font SIZE="11"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,5" COLOR="#e5e9f0" BACKGROUND_COLOR="#5e81ac">
+<font SIZE="11"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,6" BACKGROUND_COLOR="#81a1c1">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,7" BACKGROUND_COLOR="#88c0d0">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,8" BACKGROUND_COLOR="#8fbcbb">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,9" BACKGROUND_COLOR="#d8dee9">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,10" BACKGROUND_COLOR="#e5e9f0">
+<font SIZE="9"/>
+</stylenode>
+</stylenode>
+</stylenode>
+</map_styles>
+</hook>
+<node TEXT="Hédi/Anass" FOLDED="true" POSITION="right" ID="ID_1534521310" CREATED="1643026296503" MODIFIED="1643026301042">
+<node TEXT="A1 Oral" ID="ID_1707558475" CREATED="1643026383919" MODIFIED="1643026392412"/>
+<node TEXT="A2 Préparation Prez" ID="ID_906943398" CREATED="1643026354167" MODIFIED="1643026399648"/>
+<node TEXT="A3 Projet" ID="ID_1070075038" CREATED="1643026386037" MODIFIED="1643026415976"/>
+<node TEXT="A4 Consigne" ID="ID_727233586" CREATED="1643026416433" MODIFIED="1643026420881"/>
+<node TEXT="Projet" FOLDED="true" ID="ID_1623711644" CREATED="1643026460231" MODIFIED="1643026655930">
+<node TEXT="jeu" ID="ID_1743612309" CREATED="1643026465273" MODIFIED="1643026466988">
+<node TEXT="flappy bird" ID="ID_1540246392" CREATED="1643026467580" MODIFIED="1643026470892"/>
+<node TEXT="carte MB" ID="ID_673429601" CREATED="1643026471085" MODIFIED="1643026480711"/>
+<node TEXT="génération de mur aléatoire" ID="ID_944031328" CREATED="1643026481041" MODIFIED="1643026493165"/>
+</node>
+<node TEXT="Kivy" ID="ID_1545922123" CREATED="1643026494063" MODIFIED="1643026501826">
+<node TEXT="interface Android" ID="ID_396470743" CREATED="1643026502095" MODIFIED="1643026505487"/>
+</node>
+</node>
+<node TEXT="EPIC" ID="ID_608819223" CREATED="1643026555051" MODIFIED="1643026557803">
+<node TEXT="faire défiler un décort aléatoire" ID="ID_1949435423" CREATED="1643026558052" MODIFIED="1643026570158"/>
+<node TEXT="déplacer le héro de manière simple" ID="ID_1327640138" CREATED="1643026571734" MODIFIED="1643026592844"/>
+<node TEXT="l&apos;utilisateur doit savoir quoi faire quand il joout la première fois" ID="ID_1447347758" CREATED="1643026593274" MODIFIED="1643026620644"/>
+<node TEXT="avoir une musique entrainante" ID="ID_469373202" CREATED="1643026620938" MODIFIED="1643026631033"/>
+<node TEXT="avoir des bruitages sympas" ID="ID_1161177174" CREATED="1643026631317" MODIFIED="1643026637689"/>
+<node TEXT="connaître son classement" ID="ID_688208563" CREATED="1643026642438" MODIFIED="1643026647720"/>
+</node>
+</node>
+<node TEXT="Enzo/Raphael" FOLDED="true" POSITION="right" ID="ID_460884563" CREATED="1643026753180" MODIFIED="1643026757085">
+<node TEXT="Projet Discord" ID="ID_1378459626" CREATED="1643026757442" MODIFIED="1643026761223">
+<node TEXT="créer un boot" ID="ID_1104019856" CREATED="1643026761880" MODIFIED="1643026764327"/>
+<node TEXT="outil qui sert à..." ID="ID_222499609" CREATED="1643026765498" MODIFIED="1643026772202">
+<node TEXT="animation" ID="ID_1255024737" CREATED="1643026772550" MODIFIED="1643026773953"/>
+<node TEXT="musique" ID="ID_958684517" CREATED="1643026820971" MODIFIED="1643026822264"/>
+<node TEXT="jeu" ID="ID_414886359" CREATED="1643026841286" MODIFIED="1643026843990"/>
+<node TEXT="..." ID="ID_368064108" CREATED="1643026823025" MODIFIED="1643026824326"/>
+</node>
+</node>
+<node TEXT="installation" ID="ID_887719645" CREATED="1643026788405" MODIFIED="1643026797989"/>
+<node TEXT="premières commandes" ID="ID_1614354330" CREATED="1643026798198" MODIFIED="1643026800911"/>
+<node TEXT="EPIC" ID="ID_1269264129" CREATED="1643026870122" MODIFIED="1643026876903">
+<node TEXT="chaque fois qu&apos;il y a le mot PADILLA, le bot fait un petit bruit" ID="ID_709893349" CREATED="1643026877498" MODIFIED="1643026898849"/>
+<node TEXT="chaque fois que ....., petite animation" ID="ID_102394172" CREATED="1643026900586" MODIFIED="1643026934099"/>
+<node TEXT="nombres d&apos;utilisateurs du salon" ID="ID_326481687" CREATED="1643026939912" MODIFIED="1643026948802"/>
+<node TEXT="mode d&apos;emploi pour les utilisateurs du salon" ID="ID_1982197535" CREATED="1643026907612" MODIFIED="1643026915384"/>
+</node>
+</node>
+<node TEXT="Lucas/Amine/Hakim" POSITION="right" ID="ID_846447461" CREATED="1643026960370" MODIFIED="1643026969772">
+<node TEXT="hakim absent" ID="ID_1266480928" CREATED="1643026970694" MODIFIED="1643026974397"/>
+<node TEXT="faire un jeu" FOLDED="true" ID="ID_140945270" CREATED="1643027007728" MODIFIED="1643027010329">
+<node TEXT="vaisseau spatial" ID="ID_209948437" CREATED="1643027010481" MODIFIED="1643027016081"/>
+<node TEXT="adversaires" ID="ID_766800834" CREATED="1643027016319" MODIFIED="1643027021362"/>
+<node TEXT="monter/descendre" ID="ID_1050846619" CREATED="1643027021501" MODIFIED="1643027026425"/>
+<node TEXT="vitesse qui accélère" ID="ID_1080598272" CREATED="1643027029707" MODIFIED="1643027035042"/>
+<node TEXT="notion d&apos;axes X/Y" ID="ID_914208239" CREATED="1643027055148" MODIFIED="1643027059666"/>
+</node>
+<node TEXT="installation de logiciels" ID="ID_1324166281" CREATED="1643027036483" MODIFIED="1643027044497"/>
+<node TEXT="EPIC" FOLDED="true" ID="ID_614468646" CREATED="1643027087390" MODIFIED="1643027088878">
+<node TEXT="animation du vaisseau avec les commandes" ID="ID_361590181" CREATED="1643027092852" MODIFIED="1643027111968"/>
+<node TEXT="apparition d&apos;adversaires aléatoires" ID="ID_1701474481" CREATED="1643027112265" MODIFIED="1643027126530"/>
+<node TEXT="vitesse d&apos;apparition qui s&apos;accélère" ID="ID_1188891426" CREATED="1643027126875" MODIFIED="1643027135027"/>
+<node TEXT="musique d&apos;ambiance qui accélère" ID="ID_37386235" CREATED="1643027189586" MODIFIED="1643027195108"/>
+<node TEXT="bruitage sympas" ID="ID_1802413246" CREATED="1643027195301" MODIFIED="1643027199978"/>
+</node>
+</node>
+<node TEXT="Ayman/MohamedIslam" POSITION="right" ID="ID_1933270264" CREATED="1643027246579" MODIFIED="1643027256458">
+<node TEXT="projet" FOLDED="true" ID="ID_1979121746" CREATED="1643027258000" MODIFIED="1643027299505">
+<node TEXT="site de streaming" ID="ID_21669380" CREATED="1643027299925" MODIFIED="1643027310453"/>
+<node TEXT="page HTML" ID="ID_251690164" CREATED="1643027310616" MODIFIED="1643027319000"/>
+<node TEXT="vignettes" ID="ID_1498050763" CREATED="1643027320811" MODIFIED="1643027327486">
+<node TEXT="clic qui redirige vers un film du NAS" ID="ID_1385745025" CREATED="1643027328272" MODIFIED="1643027345897"/>
+<node TEXT="NAS" ID="ID_1723829993" CREATED="1643027337482" MODIFIED="1643027338854"/>
+</node>
+<node TEXT="python ?" ID="ID_1207880609" CREATED="1643027363081" MODIFIED="1643027383530"/>
+</node>
+<node TEXT="EPIC" FOLDED="true" ID="ID_1563990948" CREATED="1643027393173" MODIFIED="1643027397992">
+<node TEXT="je veux ajouter facilement un film" ID="ID_1601126914" CREATED="1643027398629" MODIFIED="1643027410392"/>
+<node TEXT="je veux être en règle avec les lois" ID="ID_1866729018" CREATED="1643027410840" MODIFIED="1643027426376"/>
+<node TEXT="j&apos;aimerai pouvoir regarder le film hors ligne" ID="ID_1804415049" CREATED="1643027428097" MODIFIED="1643027444855"/>
+<node TEXT="je voudrais pouvoir voir les vidéos de MPADILLA" ID="ID_1721697865" CREATED="1643027447480" MODIFIED="1643027486235"/>
+</node>
+</node>
+<node TEXT="Joris/Mohamed" POSITION="right" ID="ID_1740946233" CREATED="1643027260422" MODIFIED="1643027267913">
+<node TEXT="Projet" FOLDED="true" ID="ID_50935707" CREATED="1643027496076" MODIFIED="1643027500409">
+<node TEXT="jeu 0" ID="ID_1131874265" CREATED="1643027566850" MODIFIED="1643027570030">
+<node TEXT="arcade" ID="ID_1130223187" CREATED="1643027570296" MODIFIED="1643027571719"/>
+</node>
+<node TEXT="jeu 1" ID="ID_148955607" CREATED="1643027532919" MODIFIED="1643027575780">
+<node TEXT="dino hors ligne google" ID="ID_1006180905" CREATED="1643027538289" MODIFIED="1643027548752"/>
+<node TEXT="avec obstacles" ID="ID_867411877" CREATED="1643027548898" MODIFIED="1643027553100"/>
+</node>
+<node TEXT="jeu 2" ID="ID_1437831144" CREATED="1643027554191" MODIFIED="1643027559447">
+<node TEXT="combat" ID="ID_957790203" CREATED="1643027559694" MODIFIED="1643027562440"/>
+</node>
+</node>
+<node TEXT="kivy" FOLDED="true" ID="ID_1879638408" CREATED="1643027578413" MODIFIED="1643027580495">
+<node TEXT="choix plus joli" ID="ID_155548391" CREATED="1643027580770" MODIFIED="1643027586005"/>
+<node TEXT="comment faire des images ?" ID="ID_919824372" CREATED="1643027592716" MODIFIED="1643027597157"/>
+<node TEXT="à quoi sert kivy ?" ID="ID_1708271301" CREATED="1643027597387" MODIFIED="1643027603111"/>
+</node>
+<node TEXT="interface" ID="ID_1447360593" CREATED="1643027611616" MODIFIED="1643027617612"/>
+<node TEXT="EPIC" FOLDED="true" ID="ID_261132063" CREATED="1643027617984" MODIFIED="1643027734436">
+<node TEXT="faire déplacer un perso avec les touches" ID="ID_459529620" CREATED="1643027734694" MODIFIED="1643027767638"/>
+<node TEXT="faire une musique sympa" ID="ID_1966652498" CREATED="1643027767814" MODIFIED="1643027773149"/>
+<node TEXT="voir le classement des meilleurs scores" ID="ID_624723478" CREATED="1643027773309" MODIFIED="1643027778831"/>
+<node TEXT="faire des bruits sympas" ID="ID_1949812270" CREATED="1643027778973" MODIFIED="1643027783129"/>
+</node>
+</node>
+</node>
+</map>
