@@ -60,16 +60,16 @@ Numérique et Sciences Informatiques
 * 6h / semaine
 * cœf. 16
 * épreuves de BAC en mars :
-  * $\rightarrow$ 12 pts sur table
-  * $\rightarrow$ 8 pts  sur ordinateur
+  * ⟶ 12 pts sur table
+  * ⟶ 8 pts  sur ordinateur
 
 
 --
 
 #### NSI... pour Sciences Informatique
 
-* SNT $\rightarrow$ utilisateur avertis du **numérique**
-* NSI $\rightarrow$ **sciences informatique**
+* SNT ⟶ utilisateur avertis du **numérique**
+* NSI ⟶ **sciences informatique**
 
 --
 
@@ -127,7 +127,7 @@ Numérique et Sciences Informatiques
 --
 
 
-<!-- .slide: data-transition="slide" data-background="#4d7e65" data-background-transition="zoom" -->
+<!-- .slide: data-transition="slide" data-background="#4d7e65" data-background-transition="fade-in" -->
 
 #### NSI... pour qui ?
 

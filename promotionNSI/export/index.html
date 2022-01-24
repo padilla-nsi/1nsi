@@ -2,60 +2,174 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 
-	<title>Spécialité NSI - Simone Veil 2022</title>
+  <title>Spécialité NSI - Simone Veil 2022</title>
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" href="http://localhost:32893/libs/reveal.js/4.1.3/reset.css">
-	<link rel="stylesheet" href="http://localhost:32893/libs/reveal.js/4.1.3/reveal.css">
-
-	
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-	  <!-- highlight Theme -->
-  	
-	  <link rel="stylesheet" href="http://localhost:32893/libs/highlight.js/11.3.1/styles/monokai.min.css">
-	
-	
-		
-	<link rel="stylesheet" href="http://localhost:32893/libs/reveal.js/4.1.3/plugin/chalkboard/style.css">
-	
-	
-	
-		<link rel="stylesheet" href="http://localhost:32893/libs/reveal.js/4.1.3/plugin/customcontrols/style.css">
-	
-	<link rel="stylesheet" href="http://localhost:32893/libs/styles/tasklist.css">
-
-
-
-  <!-- Revealjs Theme -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reveal.css">
   
-  	<link rel="stylesheet" href="http://localhost:32893/libs/reveal.js/4.1.3/theme/night.css" id="theme">
+  <link rel="stylesheet" href="libs/reveal.js/dist/theme/night.css" id="theme">
   
   
+  <!--
+  <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
+  -->
 
+  <!-- MERMAID-->
+  <!--
+  <script src="libs/reveal.js/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+  -->
+  
+  <style>
+    [class*=task-list-item] {
+      min-height: 22px;
+      margin-top: 6px!important;
+      margin-bottom: 6px!important;
+      padding-left: 0;
+      list-style: none;
+    }
 
-  <!-- Revealjs Theme -->
+    [class*=task-list-item]>input:first-child {
+      position: absolute!important;
+      opacity: 0;
+      margin: 0;
+    }
+
+    [class*=task-list-item]>label {
+      padding-left: 29px!important;
+      min-height: 22px;
+      line-height: 22px;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+      background-color: #ecf0f1;
+      border-color: #ecf0f1;
+    }
+
+    [class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #D3CFC8;
+      border-radius: 0;
+      margin-left: -29px;
+    }
+
+    [class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-left: none;
+      border-top: none;
+      transform: translate(7.75px,4.5px) rotate(45deg);
+      -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+      border-bottom-color: #95a5a6;
+      border-right-color: #95a5a6;
+    }
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/plugin/highlight/monokai.css">
   
 
- 
+  
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/dist/print/pdf.css' : 'libs/reveal.js/dist/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+     .line {
+      display: block;
+    }   
+
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
+
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
 </head>
 
 <body>
   
-    <div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1; height:3rem;">
-        <img src="logo.png" style="height:100%"/>
-    </div>
-  
+<div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1">
+  <img src="logo.png" />
+</div>
 
 
   <div class="reveal">
@@ -64,95 +178,84 @@
     <div class="slides">
 
       
-
-
-    
-        <section >
-            
-            <div class="block">
+  
+    <section >
+      <div class="block">
 <p><em style="background:black;width:500px">L’<strong>informatique</strong> n’est pas plus la science des ordinateurs
 que l’astronomie n’est celle des télescopes.</em></p>
 </div>
 <p><small>Michael R. Fellows — Ian Parberry</small></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h1>Spé. NSI</h1>
+  
+    <section >
+      <h1><a id="user-content-spé-nsi" class="anchor" href="#spé-nsi" aria-hidden="true"></a>Spé. NSI</h1>
 <p>Numérique et Sciences Informatiques</p>
 <p><small>2022 — <a href="mailto:pascal.padilla@ac-aix-marseille.fr">Pascal Padilla</a></small></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h3>la spé NSI…</h3>
+  
+    <section >
+      <h3><a id="user-content-la-spé-nsi" class="anchor" href="#la-spé-nsi" aria-hidden="true"></a>la spé NSI…</h3>
 <ul>
 <li>c’est quoi ?</li>
 <li>pour qui ?</li>
 <li>quelles débouchées ?</li>
 </ul>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
+  
     <section>
-        <section data-background="gif_quoi.gif" data-background-opacity=0.8>
-            <h4>La spé NSI</h4>
-<h2>c’est quoi ?</h2>
+      <section data-background="gif_quoi.gif" data-background-opacity=0.8>
+        <h4><a id="user-content-la-spé-nsi" class="anchor" href="#la-spé-nsi" aria-hidden="true"></a>La spé NSI</h4>
+<h2><a id="user-content-cest-quoi-" class="anchor" href="#cest-quoi-" aria-hidden="true"></a>c’est quoi ?</h2>
 <!-- .slide: data-background="gif_quoi.gif" data-background-opacity=0.8 -->
-            </section>
-        
-            <section >
-                <h4>NSI… une spécialité classique</h4>
-<h3>en première</h3>
+      </section>
+      
+        <section >
+          <h4><a id="user-content-nsi-une-spécialité-classique" class="anchor" href="#nsi-une-spécialité-classique" aria-hidden="true"></a>NSI… une spécialité classique</h4>
+<h3><a id="user-content-en-première" class="anchor" href="#en-première" aria-hidden="true"></a>en première</h3>
 <ul>
 <li>4h / semaine</li>
 <li class="fragment fade-out">BAC en contrôle continu</li>
 <li class="fragment fade-out">cœf. 8</li>
 </ul>
 
-            </section>
-        
-            <section >
-                <h4>NSI… une spécialité classique</h4>
-<h3>en terminale</h3>
+        </section>
+      
+        <section >
+          <h4><a id="user-content-nsi-une-spécialité-classique" class="anchor" href="#nsi-une-spécialité-classique" aria-hidden="true"></a>NSI… une spécialité classique</h4>
+<h3><a id="user-content-en-terminale" class="anchor" href="#en-terminale" aria-hidden="true"></a>en terminale</h3>
 <ul>
 <li>6h / semaine</li>
 <li>cœf. 16</li>
 <li>épreuves de BAC en mars :
 <ul>
-<li>$\rightarrow$ 12 pts sur table</li>
-<li>$\rightarrow$ 8 pts  sur ordinateur</li>
+<li>⟶ 12 pts sur table</li>
+<li>⟶ 8 pts  sur ordinateur</li>
 </ul>
 </li>
 </ul>
 
-            </section>
-        
-            <section >
-                <h4>NSI… pour Sciences Informatique</h4>
+        </section>
+      
+        <section >
+          <h4><a id="user-content-nsi-pour-sciences-informatique" class="anchor" href="#nsi-pour-sciences-informatique" aria-hidden="true"></a>NSI… pour Sciences Informatique</h4>
 <ul>
-<li>SNT $\rightarrow$ utilisateur avertis du <strong>numérique</strong></li>
-<li>NSI $\rightarrow$ <strong>sciences informatique</strong></li>
+<li>SNT ⟶ utilisateur avertis du <strong>numérique</strong></li>
+<li>NSI ⟶ <strong>sciences informatique</strong></li>
 </ul>
 
-            </section>
-        
-            <section >
-                <h4>NSI… pour Sciences Informatique</h4>
+        </section>
+      
+        <section >
+          <h4><a id="user-content-nsi-pour-sciences-informatique" class="anchor" href="#nsi-pour-sciences-informatique" aria-hidden="true"></a>NSI… pour Sciences Informatique</h4>
 <ul>
 <li>matière scientifique</li>
 <li>les bases de l’informatique
@@ -166,10 +269,10 @@ que l’astronomie n’est celle des télescopes.</em></p>
 </li>
 </ul>
 
-            </section>
-        
-            <section >
-                <h4>NSI… au lycée Simone Veil</h4>
+        </section>
+      
+        <section >
+          <h4><a id="user-content-nsi-au-lycée-simone-veil" class="anchor" href="#nsi-au-lycée-simone-veil" aria-hidden="true"></a>NSI… au lycée Simone Veil</h4>
 <ul>
 <li>groupes réduits</li>
 <li>1 ordinateur par élève (Linux)</li>
@@ -182,26 +285,23 @@ que l’astronomie n’est celle des télescopes.</em></p>
 <li>projets par équipes</li>
 </ul>
 
-            </section>
-        
-
+        </section>
+      
     </section>
-    
+  
 
-
-
-    
+  
     <section>
-        <section data-background="img_qui.jpg" data-background-opacity=0.7>
-            <h4>La spé NSI</h4>
-<h2>pour qui ?</h2>
+      <section data-background="img_qui.jpg" data-background-opacity=0.7>
+        <h4><a id="user-content-la-spé-nsi" class="anchor" href="#la-spé-nsi" aria-hidden="true"></a>La spé NSI</h4>
+<h2><a id="user-content-pour-qui-" class="anchor" href="#pour-qui-" aria-hidden="true"></a>pour qui ?</h2>
 <!-- .slide: data-background="img_qui.jpg" data-background-opacity=0.7 -->
 
-            </section>
-        
-            <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-                <!-- .slide: data-transition="slide" data-background="#b5533c" data-background-transition="zoom" -->
-<h4>NSI… ce n’est PAS pour</h4>
+      </section>
+      
+        <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+          <!-- .slide: data-transition="slide" data-background="#b5533c" data-background-transition="zoom" -->
+<h4><a id="user-content-nsi-ce-nest-pas-pour" class="anchor" href="#nsi-ce-nest-pas-pour" aria-hidden="true"></a>NSI… ce n’est PAS pour</h4>
 <ul>
 <li>devenir un gamer pro</li>
 <li>apprendre à devenir un méchant pirate</li>
@@ -209,11 +309,11 @@ que l’astronomie n’est celle des télescopes.</em></p>
 <li>devenir un pro de la bureautique</li>
 </ul>
 
-            </section>
-        
-            <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-                <!-- .slide: data-transition="slide" data-background="#4d7e65" data-background-transition="zoom" -->
-<h4>NSI… pour qui ?</h4>
+        </section>
+      
+        <section data-transition="slide" data-background="#4d7e65" data-background-transition="fade-in">
+          <!-- .slide: data-transition="slide" data-background="#4d7e65" data-background-transition="fade-in" -->
+<h4><a id="user-content-nsi-pour-qui-" class="anchor" href="#nsi-pour-qui-" aria-hidden="true"></a>NSI… pour qui ?</h4>
 <p>Spécialité <strong>scientifique</strong></p>
 <ul>
 <li>pour toutes et tous</li>
@@ -229,25 +329,22 @@ que l’astronomie n’est celle des télescopes.</em></p>
 </li>
 </ul>
 
-            </section>
-        
-
+        </section>
+      
     </section>
-    
+  
 
-
-
-    
+  
     <section>
-        <section data-background="img_apres.png" data-background-opacity=0.7>
-            <h4>La spé NSI</h4>
-<h2>quelles débouchées ?</h2>
+      <section data-background="img_apres.png" data-background-opacity=0.7>
+        <h4><a id="user-content-la-spé-nsi" class="anchor" href="#la-spé-nsi" aria-hidden="true"></a>La spé NSI</h4>
+<h2><a id="user-content-quelles-débouchées-" class="anchor" href="#quelles-débouchées-" aria-hidden="true"></a>quelles débouchées ?</h2>
 <!-- .slide: data-background="img_apres.png" data-background-opacity=0.7 -->
 
-            </section>
-        
-            <section >
-                <h3>Les métiers</h3>
+      </section>
+      
+        <section >
+          <h3><a id="user-content-les-métiers" class="anchor" href="#les-métiers" aria-hidden="true"></a>Les métiers</h3>
 <ul>
 <li>développeur</li>
 <li>animation, jeux</li>
@@ -259,10 +356,10 @@ que l’astronomie n’est celle des télescopes.</em></p>
 <li>etc.</li>
 </ul>
 
-            </section>
-        
-            <section >
-                <h3>Les études</h3>
+        </section>
+      
+        <section >
+          <h3><a id="user-content-les-études" class="anchor" href="#les-études" aria-hidden="true"></a>Les études</h3>
 <ul>
 <li>BTS</li>
 <li>IUT / BUT</li>
@@ -272,251 +369,269 @@ que l’astronomie n’est celle des télescopes.</em></p>
 <li>écoles privées d’informatique (Epitech, etc.)</li>
 </ul>
 
-            </section>
-        
-
+        </section>
+      
     </section>
-    
+  
 
-
-
-    
-        <section style="text-align: left;">
-            
-            <!-- .slide: style="text-align: left;" -->
-<h1>MERCI</h1>
+  
+    <section style="text-align: left;">
+      <!-- .slide: style="text-align: left;" -->
+<h1><a id="user-content-merci" class="anchor" href="#merci" aria-hidden="true"></a>MERCI</h1>
 <p>illustrations : Julie Van Grol</p>
 <p><a href="https://www.julievangrol.com">https://www.julievangrol.com</a></p>
 
-            </section>
-    
+    </section>
+  
+
 
 
     </div>
 
-
   </div>
 
-  	
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/reveal.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/zoom/zoom.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/notes/notes.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/search/search.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/markdown/markdown.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/highlight/highlight.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/menu/menu.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/math/math.js"></script>
+  <script src="libs/reveal.js/dist/reveal.js"></script>
 
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/fullscreen/plugin.js"></script>
-  
-  	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/animate/plugin.js"></script>
-  	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/animate/svg.min.js"></script>
-  
-  	 <!--	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/anything/plugin.js"></script> -->
+<script src="libs/reveal.js/plugin/zoom/zoom.js"></script>
 
- <!--	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/audio-slideshow/plugin.js"></script>  -->
-<!--	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/audio-slideshow/recorder.js"></script>-->
-<!--	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/audio-slideshow/RecordRTC.js"></script>-->
+<script src="libs/reveal.js/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/plugin/search/search.js"></script>
+<script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
 
-<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/chalkboard/plugin.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/customcontrols/plugin.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/embed-tweet/plugin.js"></script>
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: false,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'default',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
 
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/chart/chart.min.js"></script>
-	<script src="http://localhost:32893/libs/reveal.js/4.1.3/plugin/chart/plugin.js"></script>
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+        
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+            TeX: { Macros: { RR: "{\\bf R}" } }
+        },
+        /*
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+            
 
-  <script>
+            
+            { src: 'libs/reveal.js-plugins/3.8.0/plugin/chalkboard/chalkboard.js' },
+                
 
-		const printPlugins = [
-			RevealNotes, 
-			RevealHighlight,
-			RevealMath,
-			RevealAnimate,
-			RevealChalkboard, 
-			RevealEmbedTweet,
-			RevealChart,
-		];
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
 
-		const plugins =  [...printPlugins,
-		RevealZoom, 
-		RevealSearch, 
-				RevealMarkdown, 
-				RevealMenu, 
-				RevealFullscreen,
-				//RevealAnything,
-				//RevealAudioSlideshow,
-				//RevealAudioRecorder,
-				RevealCustomControls, 
-				// poll
-				// question
-				// seminar
-				 ]
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+            {
+                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
+                async: true,
+                callback: function () {
+                    RevealCodeFocus();
+                }
+            },
+            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ],
+        keyboard: {
+            67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+            8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+        },
+        chart: {
+            defaults: {
+                global: {
+                    title: { fontColor: "#FFF" },
+                    legend: {
+                        position: "bottom",
+                            labels: { fontColor: "#FFF" },
+                    },
+                    tooltips: {
+                        labels: { fontColor: "#FFF" },
+                    },
+                },
+                scale: {
+                    scaleLabel: { fontColor: "#FFF" },
+                    gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                    ticks: { fontColor: "#FFF" },
+                }
+            },
+            line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+            bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+            pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+            radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        },
+        anything: [ 
+            {
+                className: "mermaid"
+            },
+            // ...
+        ],
+        menu: {
+            // Specifies which side of the presentation the menu will 
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
 
+                // Specifies the width of the menu.
+                // Can be one of the following:
+                // 'normal', 'wide', 'third', 'half', 'full', or
+                // any valid css length value
+                width: 'normal',
 
-		// Also available as an ES module, see:
-		// https://revealjs.com/initialization/
-		Reveal.initialize({
-			controls: true,
-			controlsTutorial: true,
-			controlsLayout: 'bottom-right',
-			controlsBackArrows: 'faded',
-			progress: true,
-			slideNumber: false,
-			//#showSlideNumber "all" "print" "speaker"
-			hash: true,//#  hash: false,
-			//# respondToHashChanges: true,
-			//# history: false,
-			keyboard: true,
-			//#keyboardCondition: null,
-			overview: true,
-			center: true,
-			touch: true,
-			loop: false,
-			rtl: false,
-			//#navigationMode: 'default', linear grid
-			shuffle: false,
-			fragments: true,
-			fragmentInURL: false,
-			embedded: false,
-			help: true,
-			//#pause: true
-			showNotes: false,
-			autoPlayMedia: false, // TODO fix this to a nullable value
-			//#preloadIframes: null. true false
-			//#autoAnimate: true
-			//#autoAnimateMatcher: null,
-			//#autoAnimateEasing: 'ease',
-			//autoAnimateDuration: 1.0,
-			//#autoAnimateUnmatched: true
-			//#autoAnimateStyles: []
-			autoSlide: 0, // TODO fix this to a falseable value
-			autoSlideStoppable: true,
-			autoSlideMethod: '0',
-			defaultTiming: 120,
-			mouseWheel: false,
-			//#previewLinks: false
-			//#postMessage: true,  // TODO : this can cause issues with the vscode api ???
-			//#postMessageEvents: false,
-			//#focusBodyOnPageVisibilityChange: true,
-			transition: 'slide',
-			transitionSpeed: 'default',
-			backgroundTransition: 'fade',
-			//#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
-			//#pdfSeparateFragments: true,
-			//#pdfPageHeightOffset: -1,
-			viewDistance: 3,
-			//#mobileViewDistance: 2,
-			display: 'block',
-			//#hideInactiveCursor: true,
-			//#hideCursorTime: 5000
+                    // Add slide numbers to the titles in the slide list.
+                    // Use 'true' or format string (same as reveal.js slide numbers)
+                    numbers: false,
 
-			// Parallax Background
-			parallaxBackgroundImage: '',
-			parallaxBackgroundSize: '',
-			parallaxBackgroundHorizontal: 0,
-			parallaxBackgroundVertical: 0,
-			
-			//Presentation Size
-			width: 960,
-			height: 700,
-			margin: 0.04,
-			minScale: 0.2,
-			maxScale: 2,
-			disableLayout: false,
+                        // Specifies which slide elements will be used for generating
+                        // the slide titles in the menu. The default selects the first
+                        // heading element found in the slide, but you can specify any
+                        // valid css selector and the text from the first matching
+                        // element will be used.
+                        // Note: that a section data-menu-title attribute or an element
+                        // with a menu-title class will take precedence over this option
+                        titleSelector: 'h1, h2, h3, h4, h5, h6',
 
-			audio: {
-				prefix: 'audio/', 	// audio files are stored in the "audio" folder
-				suffix: '.ogg',		// audio files have the ".ogg" ending
-				textToSpeechURL: null,  // the URL to the text to speech converter
-				defaultNotes: false, 	// use slide notes as default for the text to speech converter
-				defaultText: false, 	// use slide text as default for the text to speech converter
-				advance: 0, 		// advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
-				autoplay: false,	// automatically start slideshow
-				defaultDuration: 5,	// default duration in seconds if no audio is available
-				defaultAudios: true,	// try to play audios with names such as audio/1.2.ogg
-				playerOpacity: 0.05,	// opacity value of audio player if unfocused
-				playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
-				startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
-			},
-			
-			chalkboard: { // font-awesome.min.css must be available
-					//src: "chalkboard/chalkboard.json",
-					storage: "chalkboard-demo",
-				},
-			
-			customcontrols: {
-					controls: [
-      						{
-						  id: 'toggle-overview',
-						  title: 'Toggle overview (O)',
-						  icon: '<i class="fa fa-th"></i>',
-						  action: 'Reveal.toggleOverview();'
-						}
-						,
-						{ icon: '<i class="fa fa-pen-square"></i>',
-						  title: 'Toggle chalkboard (B)',
-						  action: 'RevealChalkboard.toggleChalkboard();'
-						},
-						{ icon: '<i class="fa fa-pen"></i>',
-						  title: 'Toggle notes canvas (C)',
-						  action: 'RevealChalkboard.toggleNotesCanvas();'
-						}
-				]
-			},
-			chart: {
-					defaults: { 
-						color: 'lightgray', // color of labels
-						scale: { 
-							beginAtZero: true, 
-							ticks: { stepSize: 1 },
-							grid: { color: "lightgray" } , // color of grid lines
-						},
-					},
-					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
-					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
-					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
-					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
-			},
-			math: {
-				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
-				config: 'TeX-AMS_HTML-full',
-				// pass other options into `MathJax.Hub.Config()`
-				TeX: { Macros: { RR: "{\\bf R}" } }
-				},
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
-		});
-			
+                            // If slides do not have a matching title, attempt to use the
+                            // start of the text content as the title instead
+                            useTextContentForMissingTitles: false,
 
+                                // Hide slides from the menu that do not have a title.
+                                // Set to 'true' to only list slides with titles.
+                                hideMissingTitles: false,
 
-	    // Change chalkboard theme : 
-		function changeTheme(input) {
-			var config = {};
-			config.theme = input.value;
-			Reveal.getPlugin("RevealChalkboard").configure(config);
-			input.blur();
-		}
+                                    // Adds markers to the slide titles to indicate the 
+                                    // progress through the presentation. Set to 'false'
+                                    // to hide the markers.
+                                    markers: true,
 
-		// // Handle the message inside the webview
-        // window.addEventListener('message', event => {
+                                        // Specify custom panels to be included in the menu, by
+                                        // providing an array of objects with 'title', 'icon'
+                                        // properties, and either a 'src' or 'content' property.
+                                        // custom: false,
+                                        custom: [],
+                                            // Specifies the themes that will be available in the themes
+                                            // menu panel. Set to 'true' to show the themes menu panel
+                                            // with the default themes list. Alternatively, provide an
+                                            // array to specify the themes to make available in the
+                                            // themes menu panel, for example...
+                                            // [
+                                            //     { name: 'Black', theme: 'css/theme/black.css' },
+                                            //     { name: 'White', theme: 'css/theme/white.css' },
+                                            //     { name: 'League', theme: 'css/theme/league.css' }
+                                            // ]
+                                            themes: false,
 
-        //     const message = event.data; // The JSON data our extension sent
+                                                // Specifies the path to the default theme files. If your
+                                                // presentation uses a different path to the standard reveal
+                                                // layout then you need to provide this option, but only
+                                                // when 'themes' is set to 'true'. If you provide your own 
+                                                // list of themes or 'themes' is set to 'false' the 
+                                                // 'themesPath' option is ignored.
+                                                themesPath: 'css/theme/',
 
-        //     switch (message.command) {
-        //         case 'refactor':
-        //             Reveal.toggleHelp();
-        //     }
-        // });
+                                                    // Specifies if the transitions menu panel will be shown.
+                                                    // Set to 'true' to show the transitions menu panel with
+                                                    // the default transitions list. Alternatively, provide an
+                                                    // array to specify the transitions to make available in
+                                                    // the transitions panel, for example...
+                                                    // ['None', 'Fade', 'Slide']
+                                                    transitions: false,
 
-		if (window.location.search.match(/print-pdf-now/gi)) {
-      		setTimeout(() => {
-				window.print();
-			  }, 2500);
-			
-    }
-		
+                                                        // Adds a menu button to the slides to open the menu panel.
+                                                        // Set to 'false' to hide the button.
+                                                        openButton: true,
 
-	</script>
+                                                            // If 'true' allows the slide number in the presentation to
+                                                            // open the menu panel. The reveal.js slideNumber option must 
+                                                            // be displayed for this to take effect
+                                                            openSlideNumber: false,
+
+                                                                // If true allows the user to open and navigate the menu using
+                                                                // the keyboard. Standard keyboard interaction with reveal
+                                                                // will be disabled while the menu is open.
+                                                                keyboard: true,
+
+                                                                    // Normally the menu will close on user actions such as
+                                                                    // selecting a menu item, or clicking the presentation area.
+                                                                    // If 'true', the sticky option will leave the menu open
+                                                                    // until it is explicitly closed, that is, using the close
+                                                                    // button or pressing the ESC or m key (when the keyboard 
+                                                                    // interaction option is enabled).
+                                                                    sticky: false,
+
+                                                                        // If 'true' standard menu items will be automatically opened
+                                                                        // when navigating using the keyboard. Note: this only takes 
+                                                                        // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                        autoOpen: true,
+
+                                                                            // If 'true' the menu will not be created until it is explicitly
+                                                                            // requested by calling RevealMenu.init(). Note this will delay
+                                                                            // the creation of all menu panels, including custom panels, and
+                                                                            // the menu button.
+                                                                            delayInit: false,
+
+                                                                                // If 'true' the menu will be shown when the menu is initialised.
+                                                                                openOnInit: false,
+
+                                                                                    // By default the menu will load it's own font-awesome library
+                                                                                    // icons. If your presentation needs to load a different
+                                                                                    // font-awesome library the 'loadIcons' option can be set to false
+                                                                                    // and the menu will not attempt to load the font-awesome library.
+                                                                                    loadIcons: false
+        },
+        chalkboard: {
+            toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+            toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+        }
+        */
+    });
+
+</script>
+
 
 </body>
 
