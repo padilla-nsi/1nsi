@@ -30,7 +30,7 @@ Numérique et Sciences Informatiques
 
 * c'est quoi ?
 * pour qui ?
-* quelles débouchées ?
+* quels débouchés ?
 
 
 ---
@@ -148,7 +148,7 @@ Spécialité **scientifique**
 
 #### La spé NSI
 
-## quelles débouchées ?
+## quels débouchés ?
 
 <!-- .slide: data-background="img_apres.png" data-background-opacity=0.7 -->
 
