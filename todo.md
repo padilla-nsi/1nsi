@@ -64,10 +64,10 @@ chapitre 3 - Boucle bornée : `for` {due:2021-09-30} #langage +1nsi
     #application #micro:bit 
 
 
-chapitre 4 - Comparaison, booléens, tests : `if` {due:2021-10-07} #langage +1nsi 
+chapitre 4 - Comparaison, booléens, tests : `if` {due:2021-10-07} #langage +1nsi  {cm:2022-02-18}
 
 
-chapitre 5 - Fonctions {due:2021-10-14} #langage +1nsi 
+chapitre 5 - Fonctions {due:2021-10-14} #langage +1nsi  {cm:2022-02-18}
 
 
 
