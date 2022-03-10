@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e" scale="4" border="0">
+    <diagram id="_XF6_Xsw8ZZClXzvhntR" name="Page-1">
+        <mxGraphModel dx="811" dy="396" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="583" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="31" value="" style="group;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="280" y="250" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;div style=&quot;font-size: 9px&quot;&gt;&lt;/div&gt;&lt;span style=&quot;font-family: &amp;quot;helvetica&amp;quot; ; font-size: 9px&quot;&gt;partie triée&lt;br&gt;&lt;/span&gt;&lt;font face=&quot;Courier New&quot;&gt;tab[j]&lt;/font&gt;&lt;span style=&quot;font-family: &amp;quot;helvetica&amp;quot;&quot;&gt;&amp;nbsp;contient la valeur&amp;nbsp;&lt;/span&gt;&lt;font face=&quot;Courier New&quot;&gt;tab[i]&lt;/font&gt;&lt;span style=&quot;font-family: &amp;quot;courier new&amp;quot; ; font-size: 9px&quot;&gt;&lt;br style=&quot;font-size: 9px&quot;&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontColor=default;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="250" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fillColor=#d5e8d4;strokeColor=#000000;sketch=1;shadow=0;glass=0;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="230" width="310" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Courier New;fillColor=#dae8fc;strokeColor=#000000;labelBorderColor=none;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="80" width="10" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="80" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="0" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Courier New;fontSize=9;fontColor=#006600;startArrow=none;startFill=0;dashed=1;" edge="1" parent="1" source="5">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="489.9999999999999" y="70" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="i" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font face=&quot;Helvetica&quot;&gt;non triés&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="80" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="0" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="210" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="200" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;fontFamily=Courier New;fontSize=9;fontColor=#006600;startArrow=none;startFill=0;sourcePerimeterSpacing=3;" edge="1" parent="1" source="14">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="230" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="j" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="210" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="group;fillColor=#d5e8d4;strokeColor=#82b366;container=0;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="120" y="100" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fillColor=#d5e8d4;strokeColor=#000000;sketch=1;shadow=0;glass=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="80" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 14px&quot;&gt;Tri sélection, à l'étape &lt;/font&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;i&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Courier New;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="120" y="40" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 9px&quot;&gt;et tous inférieurs aux &quot;non triés&quot;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="100" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 11px&quot;&gt;Insérer &lt;/font&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;tab[i]&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 11px&quot;&gt; à sa bonne place, à l'étape &lt;/font&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;j&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontFamily=Courier New;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="120" y="190" width="250" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font face=&quot;Helvetica&quot;&gt;déjà triés&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;fontColor=#006600;" parent="1" vertex="1">
+                    <mxGeometry x="248.5" y="80" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="shape=mxgraph.signs.travel.arrow_east;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;rounded=0;shadow=0;glass=0;fontFamily=Courier New;fontSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="182.5" y="130" width="25" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Courier New;fillColor=#dae8fc;strokeColor=#000000;labelBorderColor=none;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="230" width="10" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Courier New;fillColor=#f8cecc;strokeColor=#000000;sketch=1;direction=north;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="230" width="150" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="i" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="210" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=none;html=1;fontFamily=Courier New;fontColor=default;" edge="1" parent="1" source="44">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="283" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px&quot;&gt;étape&amp;nbsp;&lt;font face=&quot;Courier New&quot;&gt;i&lt;/font&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic&quot;&gt;insérer&lt;/b&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;font face=&quot;Courier New&quot; style=&quot;font-size: 10px ; font-style: italic&quot;&gt;tab[i]&lt;/font&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic&quot;&gt;&amp;nbsp;à sa&lt;/span&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic&quot;&gt;&lt;div style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 10px ; font-style: italic ; text-align: left&quot;&gt;bonne&amp;nbsp;place dans la partie triée&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Courier New;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="207.5" y="130" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;helvetica&amp;quot;&quot;&gt;déjà parcourue&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=Courier New;fontColor=#660000;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="230" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="" style="shape=mxgraph.signs.travel.arrow_east;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;rounded=0;shadow=0;glass=0;fontFamily=Courier New;fontSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="265" width="10" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;u&gt;initialisation&lt;/u&gt; : &lt;font face=&quot;Courier New&quot;&gt;j ← i&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="260" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="&lt;u&gt;condition d'arrêt&lt;/u&gt; :&amp;nbsp;&lt;span style=&quot;font-family: &amp;#34;courier new&amp;#34;&quot;&gt;j&lt;/span&gt;&amp;nbsp;= 0&amp;nbsp; ou&amp;nbsp;&amp;nbsp;&lt;font face=&quot;Courier New&quot;&gt;tab[j-1] ≤ tab[j]&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="280" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="" style="shape=mxgraph.signs.travel.arrow_east;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;rounded=0;shadow=0;glass=0;fontFamily=Courier New;fontSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="285" width="10" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="&lt;u&gt;tour de boucle&lt;/u&gt; : &lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;1. permuter &lt;font face=&quot;Courier New&quot;&gt;tab[j]&lt;/font&gt; et &lt;font face=&quot;Courier New&quot;&gt;tab[j-1]&lt;br&gt;&lt;/font&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;2. diminuer &lt;font face=&quot;Courier New&quot;&gt;j&lt;/font&gt; de 1" style="text;html=1;align=left;verticalAlign=bottom;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="300" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="" style="shape=mxgraph.signs.travel.arrow_east;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;rounded=0;shadow=0;glass=0;fontFamily=Courier New;fontSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="305" width="10" height="10" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
