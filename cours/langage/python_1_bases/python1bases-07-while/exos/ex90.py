@@ -7,7 +7,7 @@ source : NSI, Balabonski et al., exercice 90 p 97
 from doctest import testmod
 
 
-def nb_chiffre(nombre: int) -> str:
+def nb_chiffre(nombre: int) -> int:
     """ Renvoie le nombre de chiffre de n
 
     Exemples et tests:
