@@ -3,7 +3,7 @@ auteur : Pascal Padilla
 """
 
 
-def recherche_dichotomique(elem, tab: list) -> int:
+def recherche_dichotomique(tab: list, elem) -> int:
     """Recherche dichotomique dans un tableau trié
 
     Args:
@@ -39,7 +39,7 @@ def recherche_dichotomique(elem, tab: list) -> int:
     return None
 
 
-def recherche_brute(elem, tab):
+def recherche_brute(tab, elem):
     for i in range(len(tab)):
         if tab[i] == elem:
             return i
@@ -54,7 +54,7 @@ from time import time
 for elem in elements:
     tab = [0] * (elem * 1_000_000)
     t0 = time()
-    recherche_dichotomique(elem, tab)
+    recherche_dichotomique(tab, elem)
     duree = time() - t0
     print(elem, "\t", round(duree, 6))
 
@@ -62,6 +62,6 @@ for elem in elements:
 for elem in elements:
     tab = [0] * (elem * 1_000_000)
     t0 = time()
-    recherche_brute(elem, tab)
+    recherche_brute(tab, elem)
     duree = time() - t0
     print(elem, "\t", round(duree, 1))
