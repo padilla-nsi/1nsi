@@ -17,8 +17,7 @@ def recherche_dichotomique(tab: list, elem) -> int:
     g = 0
     d = len(tab) - 1
 
-    while g <= d:
-
+    while not g > d:
         # indice et élément médians
         i_median = (g + d) // 2
         elem_median = tab[i_median]
@@ -55,7 +54,8 @@ for elem in elements:
     tab = [0] * (elem * 1_000_000)
     t0 = time()
     recherche_dichotomique(tab, elem)
-    duree = time() - t0
+    t1 = time()
+    duree = t1 - t0
     print(elem, "\t", round(duree, 6))
 
 
@@ -64,4 +64,4 @@ for elem in elements:
     t0 = time()
     recherche_brute(tab, elem)
     duree = time() - t0
-    print(elem, "\t", round(duree, 1))
+    print(elem, "\t", round(duree, 9))
