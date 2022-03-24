@@ -42,6 +42,7 @@ def recherche_brute(tab, elem):
     for i in range(len(tab)):
         if tab[i] == elem:
             return i
+        tab
     
     return None
 
