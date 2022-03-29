@@ -66,3 +66,4 @@ for elem in elements:
     recherche_brute(tab, elem)
     duree = time() - t0
     print(elem, "\t", round(duree, 9))
+
