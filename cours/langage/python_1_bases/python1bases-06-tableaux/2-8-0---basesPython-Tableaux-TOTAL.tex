@@ -1,0 +1,1318 @@
+% template pour la conversion ipynb → pdf
+% author : Pascal Padilla
+% source : ???
+%
+% Deux types de modifications : cellule et page
+%   * formatage des cellules : par exemple :
+%     '..."metadata": {"tags": ["retenir"]},...'
+%       * "cacher"
+%       * "exo"
+%       * "solution"
+%       * "reponse"
+%       * "proposition"
+%       * "remarque"
+%       * "exemple"
+%       * "retenir"
+%
+%   * formatage de la page : theme + titre     
+%     ...
+%     "metadata": {
+%       ...,
+%       "latex_metadata": {
+%       "theme": "machine",
+%       "title": "Représentation des données"
+%       },
+%     Thèmes possibles : 
+%       * "interface"
+%       * "machine"
+%       * "langage"
+%       * "algo"
+%       * "struct"
+%       * "data"
+%       * "reseausocial"
+%       * "ds"
+%       * "iot"
+% 
+%
+\documentclass[a4paper,17pt]{extarticle}
+
+
+    %unicode lualatex
+\usepackage{fontspec}
+\usepackage[sfdefault, condensed]{roboto} % police d'écriture plus moderne
+\usepackage[french]{babel} % francisation
+\usepackage[parfill]{parskip} %suppression indentation
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+% figure non flotantes
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+% mois/année
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+% couleurs perso
+\usepackage[table]{xcolor}
+\definecolor{deepblue}{rgb}{0.3,0.3,0.8}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{iremred}{RGB}{204,35,50}
+\definecolor{deepgreen}{rgb}{0,0.6,0}
+\definecolor{backcolor}{rgb}{0.98,0.95,0.95}
+\definecolor{grisClair}{rgb}{0.95,0.95,0.95}
+\definecolor{orangeamu}{RGB}{250,178,11}
+\definecolor{noiramu}{RGB}{35,31,32}
+\definecolor{bleuamu}{RGB}{20,118,198}
+\definecolor{bleuamudark}{RGB}{15,90,150}
+\definecolor{cyanamu}{RGB}{77,198,244}
+
+
+\usepackage{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/xeboiboites}
+%
+% exemple
+\newbreakabletheorem[
+    small box style={fill=deepblue!90,draw=deepblue!15, rounded corners,line width=1pt},%
+    big box style={fill=deepblue!5,draw=deepblue!15,thick,rounded corners,line width=1pt},%
+    headfont={\color{white}\bfseries}
+        ]{exemple}{Exemple}{}%{counterCo}
+%
+% remarque
+\newbreakabletheorem[
+    small box style={draw=ansi-green-intense!100,line width=2pt,fill=ansi-green-intense!0,rounded corners,decoration=penciline, decorate},%
+	big box style={color=ansi-green-intense!90,fill=ansi-green-intense!10,thick,decoration={penciline},decorate},
+    broken edges={draw=ansi-green-intense!90,thick,fill=orange!20!black!5, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{ansi-green-intense}\large\scshape\bfseries}
+    ]{remarque}{Remarque}{}%{counterCa}
+%
+% formule (sans titre)
+\newboxedequation[%
+    big box style={fill=cyanamu!10,draw=cyanamu!100,thick,decoration=penciline,decorate}]%
+    {form}
+%
+% Réponse
+\newbreakabletheorem[
+    small box style={fill=bleuamu!100, draw=bleuamu!60, line width=1pt,rounded corners,decorate},%
+    big box style={fill=bleuamu!10,draw=bleuamu!30,thick,rounded corners,decorate},
+    headfont={\color{white}\large\scshape\bfseries}
+        ]{reponse}{Correction}{}
+%
+
+%
+% À retenir
+%\newbreakabletheorem[
+%    small box style={fill=deepred!100, draw=deepred!80, line width=1pt,rounded corners,decorate},%
+%    big box style={fill=deepred!10,draw=deepred!50,thick,rounded corners,decorate},
+%    headfont={\color{white}\large\scshape\bfseries}
+%        ]{retenir}{À retenir}{}
+%
+\newboxedequation[%
+    big box style={fill=deepred!10,draw=deepred!0,thick,decoration=penciline,decorate}]%
+    {retenir}
+
+
+
+% astuce
+\newspanning[
+    image=/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/fig-idee,headfont=\bfseries,
+    spanning style={very thick,decoration=penciline,decorate}
+    ]{astuce}{Astuce}{}
+%
+% activité
+
+\newcounter{counterCa}
+\newbreakabletheorem[
+    small box style={draw=orangeamu!100,line width=2pt,fill=orangeamu!100,rounded corners,decoration=penciline, decorate},%
+	big box style={color=orangeamu!100,fill=orangeamu!5,thick,decoration={penciline},decorate},
+    broken edges={draw=orangeamu!100,thick,fill=orangeamu!100, decoration={random steps, segment length=.5cm,amplitude=1.3mm},decorate},%
+    other edges={decoration=penciline,decorate,thick},%
+    headfont={\color{white}\large\scshape\bfseries}
+    ]{activite}{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_investigation.png}%
+    Activité}{counterCa}
+%   
+%   environnement élève
+%
+\newenvironment{eleve}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{activite}\color{noiramu}\\[-0.5cm]}
+{\end{activite}}
+
+\newenvironment{formule}%
+%{\begin{activite}\large\\} % écrire plus gros
+{\begin{form}\color{bleuamu}}
+{\end{form}}
+
+
+\usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{2-8-0---basesPython-Tableaux-TOTAL}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        \ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}
+    }
+    
+
+    
+\setlength\headheight{30pt}
+\setcounter{secnumdepth}{0} % Turns off numbering for sections
+
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    \geometry{a4paper,tmargin=3cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}\fancyhead[L]{Thème à définir}\fancyhead[L]{\adjustimage{height=1cm, valign=m}{/home/bouscadilla/Documents/Code/nbconvert/template/latex/pdf_solution/papier_eleve_ico_langage}\ttfamily\scshape Langage}\fancyhead[C]{\bfseries\MakeUppercase{2-8-0---basesPython-Tableaux-TOTAL}}\fancyhead[C]{\bfseries\MakeUppercase{8 --- Tableaux}}\fancyhead[R]{\monthyeardate\today}
+
+    \fancyfoot[C]{\thepage}
+    % #TODO ajouter les pages totales
+
+    \pagestyle{fancy}
+    
+
+
+\begin{document}
+    
+    \title{8 --- Tableaux}
+% \maketitle
+
+    
+    
+
+    
+    \hypertarget{tableaux}{%
+\subsection{8 --- Tableaux}\label{tableaux}}
+
+    \hypertarget{pyramide-des-uxe2ges}{%
+\subsubsection{8.1 Pyramide des âges}\label{pyramide-des-uxe2ges}}
+
+    Imaginons un programme qui stoke la pyramide des âges des français
+(source : \href{https://www.insee.fr/fr/statistiques/2381472}{pyramide
+des âges en 2021, source INSEE}).
+
+    \begin{longtable}[]{@{}lll@{}}
+\toprule
+Année de naissance & Âge révolu & Ensemble\tabularnewline
+\midrule
+\endhead
+2020 & 0 & 691 754\tabularnewline
+2019 & 1 & 714 585\tabularnewline
+2018 & 2 & 723 589\tabularnewline
+2017 & 3 & 741 105\tabularnewline
+2016 & 4 & 761 638\tabularnewline
+2015 & 5 & 782 397\tabularnewline
+2014 & 6 & 806 296\tabularnewline
+2013 & 7 & 813 727\tabularnewline
+2012 & 8 & 830 361\tabularnewline
+2011 & 9 & 836 626\tabularnewline
+2010 & 10 & 857 412\tabularnewline
+2009 & 11 & 846 079\tabularnewline
+\bottomrule
+\end{longtable}
+
+\ldots{}
+
+    Ce programme pourrait avoir deux fonctionnalités :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  si l'utilisateur saisie un âge alors le programme affiche le nombre de
+  français ayant cet âge-là
+\item
+  si l'utilisateur saisie deux âges, alors le programme affiche le
+  nombre de français ayant un âge compris entre ces deux valeurs
+\end{enumerate}
+
+    Réaliser un programme qui réalise cela pour les âges compris entre 0
+an(inclus) et 5 ans (exclus).
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} essayer d\PYZsq{}écrire le programme ici..}
+\PY{o}{.}\PY{o}{.}\PY{o}{.}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    On voit bien qu'il faudra utiliser beaucoup de variables. Une variable
+pour chaque année. C'est très pénible et heureusement, le langage Python
+propose une alternative bien pratique\ldots{}
+
+    \hypertarget{notion-de-tableau}{%
+\subsubsection{8.2 Notion de tableau}\label{notion-de-tableau}}
+
+    \hypertarget{cruxe9ation-dun-tableau}{%
+\paragraph{Création d'un tableau}\label{cruxe9ation-dun-tableau}}
+
+    Un tableau permet de stocker plusieurs valeurs dans une seule variable
+et d'y accéder ensuite facilement. En Python, on construit un tableau en
+énumérant ses valeurs entre crochets et séparées par des virgules.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t }\OperatorTok{=}\NormalTok{ [}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Ici, on a déclaré une variable \texttt{t} contenant un tableau. Ce
+tableau contient trois entiers. Les valeurs sont \textbf{ordonnées}.
+
+\begin{itemize}
+\tightlist
+\item
+  la première valeur est \texttt{2}
+\item
+  la deuxième \texttt{3}
+\item
+  la troisième \texttt{5}
+\end{itemize}
+
+On peut se représenter un tableau comme des cases consécutives
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+\texttt{2} & \texttt{3} & \texttt{5} \\
+\hline
+\end{array}
+\]
+
+C'est en effet ainsi qu'\textbf{un tableau est organisé dans la mémoire
+de l'ordinateur} : ses valeurs y sont rangées consécutivement.
+
+    \hypertarget{indices-dun-tableau}{%
+\paragraph{Indices d'un tableau}\label{indices-dun-tableau}}
+
+    Pour accéder à une valeur contenue dans le tableau \texttt{t}, il faut
+utiliser la notation \texttt{t{[}i{]}} où \texttt{i} désigne la numéro
+de la case à laquelle on veut accéder.
+
+\textbf{Les cases sont numérotées à partir de zéro.}
+
+Ainsi, la valeur contenue dans la première case du tableau est
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t[}\DecValTok{0}\NormalTok{]}
+\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+2
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Écrire un code qui essaye d'accéder à une case en dehors des limites du
+tableau.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        IndexError                                Traceback (most recent call last)
+
+        /tmp/ipykernel\_118370/3611909921.py in <module>
+    ----> 1 t[3]
+    
+
+        IndexError: list index out of range
+
+    \end{Verbatim}
+
+    On dit que 0 est l'\textbf{indice} de la première case.
+
+La \textbf{taille} d'un tableau est son nombre de cases.
+
+On obtient la taille d'un tableau avec l'opération \texttt{len(t)}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \BuiltInTok{len}\NormalTok{(t)}
+\DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+3
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Les indices d'un tableau \texttt{t} prennent donc des valeurs comprises
+entre \texttt{0} et \texttt{len(t)-1}.
+
+Ce qui donne la représentation mentale suivante :
+
+\[
+\begin{array}{ccc}
+0 & 1 & 2
+\end{array}
+\\
+\begin{array}{|c|c|c|}
+\hline
+\texttt{2} & \texttt{3} & \texttt{5} \\
+\hline
+\end{array}
+\]
+
+Mais \textbf{attention}, seules les valeurs sont stockées en mémoire de
+l'ordinateur. Les indices n'ont pas besoin d'être matérialisés.
+
+    \hypertarget{retour-sur-la-pyramide-des-uxe2ges}{%
+\paragraph{Retour sur la pyramide des
+âges}\label{retour-sur-la-pyramide-des-uxe2ges}}
+
+    Créer un tableau \texttt{pda} contenant les 10 premiers effectifs de la
+pyramide des âges.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pda} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{691754}\PY{p}{,} \PY{l+m+mi}{714585}\PY{p}{,} \PY{l+m+mi}{723589}\PY{p}{,} \PY{l+m+mi}{741105}\PY{p}{,} \PY{l+m+mi}{761638}\PY{p}{,} \PY{l+m+mi}{782397}\PY{p}{,} \PY{l+m+mi}{806296}\PY{p}{,} \PY{l+m+mi}{813727}\PY{p}{,} \PY{l+m+mi}{830361}\PY{p}{,} \PY{l+m+mi}{836626}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Dans la case \texttt{i} du tableau \texttt{pda} on retrouve le nombre de
+français ayant exactement l'âge \texttt{i}.
+
+    Créer un programme qui demande un âge à l'utilisateur et affiche le
+nombre de français ayant cet âge-là.
+
+    \hypertarget{modification-du-contenu-dun-tableau}{%
+\paragraph{Modification du contenu d'un
+tableau}\label{modification-du-contenu-dun-tableau}}
+
+    Le contenu d'un tableau peut être modifié. Pour cela, on utilise un
+\textbf{affectation} exactement comme on le ferait avec une variable.
+
+Ainsi, pour modifier le contenu de la seconde case du tableau \texttt{t}
+pour y remplacer la valeur 3 par la valeur 17 :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t[}\DecValTok{1}\NormalTok{] }\OperatorTok{=} \DecValTok{17}
+\end{Highlighting}
+\end{Shaded}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{17}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    Modifier le tableau \texttt{pda} pour y traduire une naissance.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{1}
+\PY{n}{pda}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[691755,
+ 714585,
+ 723589,
+ 741105,
+ 761638,
+ 782397,
+ 806296,
+ 813727,
+ 830361,
+ 836626]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{parcours-dun-tableau}{%
+\subsubsection{8.3 --- Parcours d'un
+tableau}\label{parcours-dun-tableau}}
+
+    En utilisant le tableau \texttt{pda} de la partie précédente, proposer
+un programme permettant d'obtenir le nombre de français ayant entre 1 et
+8 ans.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pda} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{691754}\PY{p}{,} \PY{l+m+mi}{714585}\PY{p}{,} \PY{l+m+mi}{723589}\PY{p}{,} \PY{l+m+mi}{741105}\PY{p}{,} \PY{l+m+mi}{761638}\PY{p}{,} \PY{l+m+mi}{782397}\PY{p}{,} \PY{l+m+mi}{806296}\PY{p}{,} \PY{l+m+mi}{813727}\PY{p}{,} \PY{l+m+mi}{830361}\PY{p}{,} \PY{l+m+mi}{836626}\PY{p}{]}
+\PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{]} \PY{o}{+} \PY{n}{pda}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+6173698
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Comment s'y prendre quand le tableau est beaucoup plus long ?
+
+Une meilleure solution consiste à utiliser une \textbf{boucle} pour
+parcourir les cases du tableau concernées en \textbf{accumulant} le
+nombre total dans une variable.
+
+On commence par initialiser la variable \texttt{n} à \texttt{0} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OperatorTok{=} \DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+    Puis on effectue une boucle \texttt{for} donnant successivement à la
+variable \texttt{i} toutes les valeurs entre 1 et 8, et on ajoute à
+chaque fois la valeur \texttt{pda{[}i{]}} à la variable \texttt{n} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{9}\NormalTok{):}
+\NormalTok{    n }\OperatorTok{+=}\NormalTok{ pda[i]}
+\end{Highlighting}
+\end{Shaded}
+
+On peut vérifier qu'après la boucle la variable \texttt{n} contient bien
+la valeur précédente.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{n} \PY{o}{=} \PY{l+m+mi}{0}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n} \PY{o}{+}\PY{o}{=} \PY{n}{pda}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+
+\PY{n}{n}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+6173698
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Écrire un programme qui demande à l'utilisateur
+
+\begin{itemize}
+\tightlist
+\item
+  un âge minimal
+\item
+  un âge maximal
+\end{itemize}
+
+et qui renvoie le nombre de français dont l'âge est compris entre le
+minimal (inclu) et le maximal (exclu).
+
+Par exemple :
+
+\begin{verbatim}
+    >>> âge minimum (inclu) : 1
+    >>> âge maximum (exclu) : 9
+    il y a 6173698 personnes qui ont entre 1 et 9 ans
+\end{verbatim}
+
+    
+
+    Pour parcourir \textbf{toutes les cases} d'un tableau \texttt{t}, on
+peut utiliser une boucle \texttt{for} allant de 0 inclus à
+\texttt{len(t)} exclu.
+
+    Proposer un programme qui affiche le nombre total de français contenus
+dans votre tableau \texttt{pda}.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{population\PYZus{}totale} \PY{o}{=} \PY{l+m+mi}{0}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{pda}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{population\PYZus{}totale} \PY{o}{+}\PY{o}{=} \PY{n}{pda}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{population\PYZus{}totale}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+7702078
+    \end{Verbatim}
+
+    \hypertarget{construire-de-grands-tableaux}{%
+\subsubsection{8.4 --- Construire de grands
+tableaux}\label{construire-de-grands-tableaux}}
+
+    Pour construire des tableaux d'une taille arbitraire, on peut utiliser
+la syntaxe :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ t }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*} \DecValTok{1000}
+\end{Highlighting}
+\end{Shaded}
+
+On donne la taille du tableau après le symbole \texttt{*} (ici
+\texttt{1000}) et entre crochet une valeur qui sera donnée à toutes les
+cases du tableau (ici \texttt{0}).
+
+On obtient donc un tableau de taille 1000 dont toutes les cases
+contiennent pour l'instant la valeur \texttt{0}.
+
+    Créer un tel tableau et vérifier sa taille.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{1000}
+\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+1000
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Une fois le tableau créé, on peut le \textbf{remplir} avec des valeurs
+de son choix.
+
+    Remplir le tableau \texttt{t} avec la valeur des carrés des 1000
+premiers entiers.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{:}
+    \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{i} \PY{o}{*} \PY{n}{i}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \textbf{Attention}, l'opération \texttt{{[}0{]}*1000} n'implique par une
+multiplication (même si on voit le symbole \texttt{*}). Il s'agit là
+d'une opération spécifique aux tableaux.
+
+    Il est possible de \emph{concaténer} deux tableaux, c'est-à-dire de
+construire un nouveau tableau contenant bout à bout les éléments des
+deux tableaux. On le fait avec l'opération \texttt{+} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textgreater{}\textgreater{}\textgreater{}}\NormalTok{ [}\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{21}\NormalTok{] }\OperatorTok{+}\NormalTok{ [}\DecValTok{34}\NormalTok{, }\DecValTok{55}\NormalTok{]}
+\NormalTok{[}\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{55}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+    \hypertarget{tableaux-et-chauxeenes-de-caractuxe8res}{%
+\paragraph{Tableaux et chaînes de
+caractères}\label{tableaux-et-chauxeenes-de-caractuxe8res}}
+
+    Les chaînes de caractères offrent certaines ressemblance avec les
+tableaux.
+
+\begin{itemize}
+\tightlist
+\item
+  taille d'une chaîne de caractère : \texttt{len(ch)}
+\item
+  accès au i-ème caractère d'une chaîne : \texttt{ch{[}i{]}}
+\item
+  concaténation : \texttt{+}
+\item
+  répétition d'un valeur : \texttt{*}
+\end{itemize}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Créer la variable \texttt{ch} initialisée à la chaîne de caractères
+  \texttt{"bonjour"}.
+\item
+  Afficher la longueur de la chaîne.
+\item
+  Vérifier que le 3ème caractère de la chaîne est bien le \texttt{n}
+\item
+  Concaténer cette chaîne avec la deuxième chaîne
+  \texttt{"\ le\ monde\ !"}
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ch} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bonjour}\PY{l+s+s2}{\PYZdq{}}
+\PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{ch}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{ch}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{n}{ch} \PY{o}{=} \PY{n}{ch} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ le monde !}\PY{l+s+s2}{\PYZdq{}}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{ch}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+7
+n
+bonjour le monde !
+    \end{Verbatim}
+
+    \textbf{Attention}, contrairement aux tableaux, les caractères d'une
+chaîne ne peuvent pas être modifiés. On dit qu'une chaîne est immuable.
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ch}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Z}\PY{l+s+s2}{\PYZdq{}}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        TypeError                                 Traceback (most recent call last)
+
+        /tmp/ipykernel\_118370/1875237351.py in <module>
+    ----> 1 ch[2] = "Z"
+    
+
+        TypeError: 'str' object does not support item assignment
+
+    \end{Verbatim}
+
+    \hypertarget{tableaux-et-variables}{%
+\subsubsection{8.5 --- Tableaux et
+variables}\label{tableaux-et-variables}}
+
+    \hypertarget{activituxe9}{%
+\subsubsection{Activité}\label{activituxe9}}
+
+Le bloc de code ci-dessous fait appel à un outil \textbf{indispensable}
+: \href{https://pythontutor.com}{Python Tutor}. Je vous invite à
+l'utiliser en autonomie chaque fois que vous voulez comprendre ou
+visualiser un algorithme, une erreur, etc.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Exécuter le bloc de code
+\item
+  Visualiser l'exécution du code pas à pas (en cliquant sur Forward
+  \textgreater{}) et répondre aux questions suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Comment s'appelle l'instruction de la ligne 1 ?
+  \item
+    Est-ce que l'instruction de la ligne 4 modifie le contenu de la
+    variable \texttt{x} ?
+  \item
+    Même question pour l'instruction de la ligne 7.
+  \item
+    Proposer une explication\ldots{}
+  \end{enumerate}
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{tutor} \PY{k+kn}{import} \PY{n}{tutor}
+
+\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{2}
+\PY{n}{y} \PY{o}{=} \PY{n}{x}
+\PY{n}{y} \PY{o}{=} \PY{l+m+mi}{3}
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+\PY{n}{u} \PY{o}{=} \PY{n}{t}
+\PY{n}{u}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{7}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{tutor}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \ldots{} bloc de réponse \ldots{}
+
+    Petite explication de ce phénomène d'\textbf{effet de bords} lié aux
+tableaux.
+
+En réalité, ce n'est pas un tableau qui est stocké en mémoire, mais
+l'\emph{adresse mémoire} du tableau (c'est pour cela que la
+représentation adoptée est celle d'une flèche : l'adresse mémoire
+désigne l'emplacement où se trouve le tableau).
+
+Du coup, les deux variables \texttt{t} et \texttt{u} désignent
+\textbf{le même} tableau ! Et donc toute modification du contenu du
+tableau \texttt{u} sera visible dans le tableau \texttt{t}.
+
+    \hypertarget{tableaux-et-fonctions}{%
+\subsubsection{8-6 --- Tableaux et
+fonctions}\label{tableaux-et-fonctions}}
+
+    \hypertarget{tableau-en-argument}{%
+\paragraph{Tableau en argument}\label{tableau-en-argument}}
+
+    Dans le même ordre d'idée, nous allons passer un tableau en argument
+d'une fonction dans l'exemple ci-dessous.
+
+    \hypertarget{activituxe9}{%
+\subsubsection{Activité}\label{activituxe9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Observer le code ci-dessous et répondre aux questions suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    À quel type de valeur correspondent les variables \texttt{x} et
+    \texttt{t} lorsqu'elles sont initialisées ?
+  \item
+    Quelles sont les valeurs initiales des variables \texttt{x} et
+    \texttt{t} ?
+  \item
+    Que fait la fonction \texttt{f} ?
+  \end{enumerate}
+\item
+  Exécuter le bloc de code ci-dessous.
+\item
+  Visualiser l'exécution du code pas à pas et répondre aux questions
+  suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Quelles sont les valeurs des variables \texttt{x} et \texttt{t}
+    \textbf{après} l'exécution complète de l'instruction ligne 8 ?
+  \item
+    Expliquer pourquoi la variable \texttt{x} est inchangée alors que
+    \texttt{t} a été modifiée ?
+  \end{enumerate}
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{tutor} \PY{k+kn}{import} \PY{n}{tutor}
+
+\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+    \PY{n}{a} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{l+m+mi}{1}
+    \PY{n}{b}\PY{p}{[}\PY{n}{a}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{7}
+    
+\PY{n}{f}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{t}\PY{p}{)}
+
+\PY{n}{tutor}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+    \ldots{} bloc de réponse \ldots{}
+
+    Comme on le constate, le contenu du tableau \texttt{t} a été modifié par
+la fonction, mais pas le contenu de la variable \texttt{x} : \textbf{une
+fonction peut modifier le contenu d'un tableau qui lui est passé en
+argument}.
+
+Nous écrirons par la suite de nombreuses fonctions opérant ainsi sur les
+tableaux. Par exemple en créant des fonctions qui trient le contenu d'un
+tableau.
+
+    \hypertarget{tableau-renvoyuxe9-par-une-fonction}{%
+\paragraph{Tableau renvoyé par une
+fonction}\label{tableau-renvoyuxe9-par-une-fonction}}
+
+    Une fonction peut aussi renvoyer un tableau comme résultat.
+
+Pour bien comprendre ce qu'il se passe, illustrons cela par un autre
+exemple.
+
+    \hypertarget{activituxe9}{%
+\subsubsection{Activité}\label{activituxe9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Lire le code ci-dessous et répondre aux questions suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Que fait la fonction \texttt{carres(n)} lorsqu'on lui passe un
+    nombre entier \texttt{n} en argument ?
+  \item
+    Lorsqu'on exécute l'instruction \texttt{c\ =\ carres(4)}, la
+    fonction s'exécute. En arrivant à la ligne \texttt{return}, combien
+    y a-t-il de variables locales à la fonction en mémoire ?
+  \item
+    Une fois que la fonction s'est complètement exécutée, combien
+    reste-t-il de variables locales à la fonction en mémoire ?
+  \end{enumerate}
+\item
+  Exécuter le bloc de code ci-dessous.
+\item
+  Visualiser l'exécution du code pas à pas et répondre aux questions
+  suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Est-ce que la variable \texttt{t} a survécu à l'appel à la fonction
+    ?
+  \item
+    Est-ce que le contenu de la variable \texttt{t} a survécu ?
+  \end{enumerate}
+\end{enumerate}
+
+        {\scriptsize
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{tutor} \PY{k+kn}{import} \PY{n}{tutor}
+
+\PY{k}{def} \PY{n+nf}{carres}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{n}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+        \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{i} \PY{o}{*} \PY{n}{i}
+    \PY{k}{return} \PY{n}{t}
+
+\PY{n}{c} \PY{o}{=} \PY{n}{carres}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}
+
+\PY{n}{tutor}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+    }
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
