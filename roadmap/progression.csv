@@ -1,41 +1,40 @@
-Date, Cours 1, Cours 2, Échéance
-6/9/21, Chap 1. HTML et CSS - TD, Chap 1. Inscription France IOI - IDE VSCodeium
-13/9/21, Chap 1.HTML - créer page, Chap 1. Machine - Système d'exploitation libre
-20/9/21, Chap 2. Mode interactif et notebooks, Chap 2. Mode programme et VSCodium
+Date, Cours 1, Cours 2,
+6/9/21, Chap 1. HTML et CSS - TD, Chap 1. Inscription France IOI - IDE VSCodeium,
+13/9/21, Chap 1.HTML - créer page, Chap 1. Machine - Système d'exploitation libre,
+20/9/21, Chap 2. Mode interactif et notebooks, Chap 2. Mode programme et VSCodium,
 27/9/21, DS 1, Projet 1/2 - présentation daily, DS
-4/10/21, pas cours, Chap 4. Architecture Von Neumann - Micro:bit
-11/10/21, Moodle & Chap 5 intro, Chap 5. Boucle FOR - Cours & Activités
+4/10/21, pas cours, Chap 4. Architecture Von Neumann - Micro:bit,
+11/10/21, Moodle & Chap 5 intro, Chap 5. Boucle FOR - Cours & Activités,
 18/10/21, DS 2, Projet 2/2 - Daily & avancée, DS
-25 et 1/11/21, Vacances
+, Vacances,,
 9/11/21, Chap 5. TD boucle FOR , pas cours, DM France IOI partie 1 & projet 1
-15/11/21, Chap 6. Branchement IF, Chap 6. Conditions - TD
-22/11/21, Chap 6. correction , Chap 7. Fonctions (diapo)
-29/11/21, Chap 7. Fonction (activités moodle), DS 3 (FOR/IF/fcts)
-6/12/21, Chap 7. Fonctions (act. + correction vidéos), pas cours
+15/11/21, Chap 6. Branchement IF, Chap 6. Conditions - TD,
+22/11/21, Chap 6. correction , Chap 7. Fonctions (diapo),
+29/11/21, Chap 7. Fonction (activités moodle), DS 3 (FOR/IF/fcts),
+6/12/21, Chap 7. Fonctions (act. + correction vidéos), pas cours,
 13/12/21, pas cours, pas cours, DS (annulé)
-20 et 27/12/21, Vacances
+, Vacances,,
 3/01/22, Chap 8. Tableaux (AER pyramides) , Chap 8. (cours + act. Capytale), DM France IOI partie 2
-10/01/22, Chap 8 tableaux (cours mémoire & exercices), Chap 8. (exercices notés)
+10/01/22, Chap 8 tableaux (cours mémoire & exercices), Chap 8. (exercices notés),
 17/01/22, Chap 8. Tableaux (corrections vidéos) & Projet 2 (présentation SCRUM + thèmes + groupes), Projet 2 - 1/4 (recherche / planification),  Contrôle flash (fonctions)
-24/01/22, Projet 2 - 2/4 (sprint 1), Projet 2 - 3/4 (préz orale 1min + dév.)
-31/01/22, Projet 2 - 4/4 (sprint 2), Chap 9. Binaire 1/1 (M2 moment 1/3 → groupes de niveaux)
-7 et 14/02/22, Vacances
+24/01/22, Projet 2 - 2/4 (sprint 1), Projet 2 - 3/4 (préz orale 1min + dév.),
+31/01/22, Projet 2 - 4/4 (sprint 2), Chap 9. Binaire 1/1 (M2 moment 1/3 → groupes de niveaux),
+, Vacances,,
 21/02/22, Inscription Condingame, pas cours, projet 2 (comptes rendus écrits)
-28/02/22, Chap 9. Boucle WHILE (cours), pas cours
-7/03/22, pas cours, Chap 9. WHILE (Capytale)
-14/3/22, Chap 1. WHILE (Capytale), Chap 9 WHILE (correction des bases)
+28/02/22, Chap 9. Boucle WHILE (cours), pas cours,
+7/03/22, pas cours, Chap 9. WHILE (Capytale),
+14/3/22, Chap 1. WHILE (Capytale), Chap 9 WHILE (correction des bases),
 21/3/22, Projet 3 - 1/3 (groupes & choix sujets), Chap 10. Tri par sélection, Contrôle flash (while)
-28/3/22, Projet 3 - 2/3 (fin 1ère itération), Chap 12. Types et valeurs 1/3 (M2 - groupes de tuteurs)
+28/3/22, Projet 3 - 2/3 (fin 1ère itération), Chap 12. Types et valeurs 1/3 (M2 - groupes de tuteurs),
 4/4/22, Chap 12. Types et valeurs 2/3 (M2 moment 2/3 - transmission), Projet 3 fin 2ème itération, Contrôle flash (types et valeurs de base)
-11 et 18/4/22, Vacances
-25/4/22, Chap 12. Types et valeurs 3/3 (M2 synthèse), Chap 13. Tableaux avancés 1/2 (tris insertion), projet 3 (comptes rendus écrits)
-2/5/22, Chap 13. Tableaux avancés 2/2 (rech. dicho.), Chap 14. Tables 1/2 () *INSPECTION*
+, Vacances,,
+25/4/22, Chap 12. Types et valeurs 3/3 (M2 synthèse), , projet 3 (comptes rendus écrits)
+2/5/22, Aïd (clash of code + escape game) , Chap 13. Tableaux avancés 1/2 (rech. dicho.), 
 9/5/22, Projet 3 - Soutenances, pas cours, projet 3 (soutenance)
-16/5/22, pas cours, Chap 14. Tables 2/2 (), DS
-23/5/22, pas cours, pas cours
+16/5/22, Chap 13. Tableaux avancés 2/2 (tris insertion), Chap 14. Tables 1/2 (dictionnaires et CSV), DS
+23/5/22, pas cours, Chap 14. Tables 2/2 (validation et sélection), 
 30/5/22, Chap 15. Réseaux 1/2 (internet & attaque MIM), Chap 15. Réseaux 2/2 (Formulaires), Contrôle flash
-6/6/22, pas cours, Chap 16. Algos avancés 1/2 (glouton)
-13/6/22, Chap 16. Algos avancés 2/2 (apprentissage), Chap 17. Machines 1/2 (Circuits et booléens)
-20/6/22, Chap 17. Machines 2/2 (Von Neumann & OS), chap 18. Web 1/2 (serveur)
-27/6/22, chap 18. Web 2/2 (client)
-4/7/22
+6/6/22, pas cours, Chap 16. Algos avancés 1/2 (glouton),
+13/6/22, Chap 16. Algos avancés 2/2 (apprentissage), Chap 17. Machines 1/2 (Circuits et booléens),
+20/6/22, Chap 17. Machines 2/2 (Von Neumann & OS), chap 18. Web 1/2 (serveur),
+27/6/22, chap 18. Web 2/2 (client),,
