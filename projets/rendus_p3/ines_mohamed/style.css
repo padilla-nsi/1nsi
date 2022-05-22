@@ -1,0 +1,37 @@
+h1
+{
+	text-align: center;
+	color: rgb(0, 17, 255);
+	font-weight: bold;
+	font-size:4em;
+}
+
+h2
+{
+	font-family: Verdana;
+	font-style: italic; 
+	color: rgb(0, 255, 255);
+}
+
+h3
+{
+	font-family: Verdana;
+	font-style: italic; 
+	color: rgb(255, 255, 255);
+}
+h2.titre_special {
+	color : blue ;
+	color : blue ;
+}
+body{background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");}
+.para_1
+{
+	font-style: italic;
+	color: rgb(4, 195, 253);} 
+	.para_2
+	{ 
+	font-style: italic;
+	font-weight: bold
+	;color: rgb(4, 195, 253);
+	font-size:3em;
+}
